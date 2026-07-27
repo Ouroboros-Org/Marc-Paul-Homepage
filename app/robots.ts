@@ -1,1 +1,13 @@
-import type { MetadataRoute } from "next";export default function robots():MetadataRoute.Robots{return {rules:{userAgent:"*",allow:"/",disallow:"/api/"},sitemap:"https://marcpaul.tech/sitemap.xml"}}
+import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/"
+    },
+    sitemap: "https://www.marcpaul.tech/sitemap.xml"
+  };
+}

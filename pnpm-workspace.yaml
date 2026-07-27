@@ -1,0 +1,16 @@
+packages:
+  - "."
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
+
+confirmModulesPurge: false
+
+packageImportMethod: copy
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
