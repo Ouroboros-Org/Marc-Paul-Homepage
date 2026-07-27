@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";import { posts } from "@/lib/posts";
+export default function sitemap():MetadataRoute.Sitemap{const base="https://marcpaul.tech";return ["","/advisory","/experience","/speaking","/thinking","/about","/contact","/privacy","/imprint",...posts.map(p=>`/thinking/${p.slug}`)].map(url=>({url:base+url,lastModified:new Date(),changeFrequency:url.includes("thinking")?"monthly":"yearly"}))}
