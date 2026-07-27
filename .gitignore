@@ -6,6 +6,8 @@ node_modules
 out
 .wrangler
 dist
+.output
+.vercel
 *.log
 *.tsbuildinfo
 .env
