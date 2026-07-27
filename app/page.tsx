@@ -19,6 +19,7 @@ import { AmbientScene } from "@/components/ambient-scene";
 import { Navigation } from "@/components/navigation";
 import { Reveal } from "@/components/reveal";
 import { TedxVideo } from "@/components/tedx-video";
+import { TrackedLink } from "@/components/tracked-link";
 
 const advisoryAreas = [
   {
@@ -301,13 +302,15 @@ export default function Home() {
                   ownership or human judgment.
                 </p>
                 <div className="hero-actions">
-                  <a
+                  <TrackedLink
                     className="button button-primary"
                     href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
+                    event="Contact CTA"
+                    eventData={{ location: "hero" }}
                   >
                     Discuss an engagement
                     <ArrowUpRight size={18} aria-hidden="true" />
-                  </a>
+                  </TrackedLink>
                   <a className="button button-ghost" href="#advisory">
                     Explore the services
                     <ArrowDown size={17} aria-hidden="true" />
@@ -593,15 +596,17 @@ export default function Home() {
                 warnings become inconvenient. Its practical question is simple: how do we keep
                 ambition useful when the consequences are still uncertain?
               </p>
-              <a
+              <TrackedLink
                 className="text-link"
                 href="https://www.youtube.com/watch?v=6ffnZ5jkCOM"
                 target="_blank"
                 rel="noreferrer"
+                event="Outbound Link"
+                eventData={{ destination: "tedx" }}
               >
                 Watch the TEDx talk
                 <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
+              </TrackedLink>
             </Reveal>
           </div>
         </section>
@@ -613,16 +618,26 @@ export default function Home() {
                 <p className="section-kicker">04 · Writing</p>
                 <h2 id="thinking-title">Notes on systems and consequences.</h2>
               </div>
-              <a className="text-link" href="https://www.marcpaul.tech/blog">
+              <TrackedLink
+                className="text-link"
+                href="https://www.marcpaul.tech/blog"
+                event="Outbound Link"
+                eventData={{ destination: "blog" }}
+              >
                 Read all articles
                 <ArrowRight size={17} aria-hidden="true" />
-              </a>
+              </TrackedLink>
             </Reveal>
 
             <div className="insights-grid">
               {insights.map((insight, index) => (
                 <Reveal key={insight.href} className="insight-card" delay={index * 70}>
-                  <a href={insight.href} aria-label={`Read ${insight.title}`}>
+                  <TrackedLink
+                    href={insight.href}
+                    aria-label={`Read ${insight.title}`}
+                    event="Article Click"
+                    eventData={{ title: insight.title, type: insight.type }}
+                  >
                     <div className="insight-meta">
                       <span>{insight.date}</span>
                       <span>{insight.type}</span>
@@ -632,7 +647,7 @@ export default function Home() {
                     <span className="insight-arrow" aria-hidden="true">
                       <ArrowUpRight />
                     </span>
-                  </a>
+                  </TrackedLink>
                 </Reveal>
               ))}
             </div>
@@ -678,16 +693,18 @@ export default function Home() {
                 question the team keeps circling. I will reply with an honest view of whether I can
                 help and what a sensible first step would be.
               </p>
-              <a
+              <TrackedLink
                 className="contact-mail"
                 href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
+                event="Contact CTA"
+                eventData={{ location: "contact" }}
               >
                 <span>
                   <Mail size={20} strokeWidth={1.5} aria-hidden="true" />
                   info@marcpaul.tech
                 </span>
                 <ArrowRight size={21} aria-hidden="true" />
-              </a>
+              </TrackedLink>
               <p className="availability">
                 <span aria-hidden="true" />
                 Based in Malta · Working remotely across Europe
@@ -704,13 +721,27 @@ export default function Home() {
             <p>Build boldly. Question continuously.</p>
           </div>
           <div className="footer-links">
-            <a href="https://mt.linkedin.com/in/marc-paul" target="_blank" rel="noreferrer">
+            <TrackedLink
+              href="https://mt.linkedin.com/in/marc-paul"
+              target="_blank"
+              rel="noreferrer"
+              event="Outbound Link"
+              eventData={{ destination: "linkedin" }}
+            >
               LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
-            </a>
-            <a href="https://github.com/marcpaul" target="_blank" rel="noreferrer">
+            </TrackedLink>
+            <TrackedLink
+              href="https://github.com/marcpaul"
+              target="_blank"
+              rel="noreferrer"
+              event="Outbound Link"
+              eventData={{ destination: "github" }}
+            >
               GitHub <ArrowUpRight size={14} aria-hidden="true" />
+            </TrackedLink>
+            <a href="#top">
+              Back to top <ArrowUpRight size={14} aria-hidden="true" />
             </a>
-            <a href="#top">Back to top <ArrowUpRight size={14} aria-hidden="true" /></a>
           </div>
           <p className="copyright">© {new Date().getFullYear()} Marc Paul</p>
         </div>

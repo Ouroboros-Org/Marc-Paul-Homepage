@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { TrackedLink } from "@/components/tracked-link";
 
 const links = [
   { href: "#advisory", label: "Advisory" },
@@ -45,14 +46,16 @@ export function Navigation() {
               {link.label}
             </a>
           ))}
-          <a
+          <TrackedLink
             className="nav-cta"
             href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
+            event="Contact CTA"
+            eventData={{ location: "navigation" }}
             onClick={() => setOpen(false)}
           >
             Start a conversation
             <ArrowUpRight size={15} strokeWidth={1.8} aria-hidden="true" />
-          </a>
+          </TrackedLink>
         </nav>
 
         <button
