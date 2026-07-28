@@ -210,8 +210,8 @@ export function InteractiveRubiksCube() {
           );
           // Make rotation deterministic: pseudo-random but dependent on index
           const n = i % 4; // yields 0,1,2,3, or use any other function of i for variety
-          texture.rotation = n * (Math.PI / 2);
           texture.center.set(0.5, 0.5);
+          texture.rotation = n * (Math.PI / 2);
         });
 
 
@@ -223,12 +223,17 @@ export function InteractiveRubiksCube() {
           roughness: number,
           metalness: number,
           bumpScale: number,
+          rotation: number = 0,
           color = 0xffffff
         ) {
+          const tex = map.clone();
+          tex.needsUpdate = true;
+          tex.center.set(0.5, 0.5);
+          tex.rotation = rotation * (Math.PI / 2);
           return new THREE.MeshStandardMaterial({
             color,
-            map,
-            bumpMap: map,
+            map: tex,
+            bumpMap: tex,
             bumpScale,
             roughness,
             metalness,
@@ -241,18 +246,26 @@ export function InteractiveRubiksCube() {
         // same dark metals at different polishing levels.
         const panelMaterials = [
           createSurfaceMaterial(perforated, 0.4, 0.78, 0.028),
+          createSurfaceMaterial(perforated, 0.4, 0.78, 0.028, 1),
           createSurfaceMaterial(marble, 0.52, 0.12, 0.008),
+          createSurfaceMaterial(marble, 0.52, 0.12, 0.008, 3),
           createSurfaceMaterial(brushed, 0.96, 0.6, 0.012),
+          createSurfaceMaterial(brushed, 0.96, 0.6, 0.012, 2),
           createSurfaceMaterial(brushed, 0.7, 0.66, 0.008),
+          createSurfaceMaterial(brushed, 0.7, 0.66, 0.008, 1),
           createSurfaceMaterial(polished, 0.38, 0.74, 0.5),
-          createSurfaceMaterial(polished, 0.28, 0.82, 0.6)
+          createSurfaceMaterial(polished, 0.38, 0.74, 0.5, 3),
+          createSurfaceMaterial(polished, 0.28, 0.82, 0.6),
+          createSurfaceMaterial(polished, 0.28, 0.82, 0.6, 1)
 
         ];
-        const bodyMaterials = [
-          createSurfaceMaterial(brushed, 0.82, 0.78, 0.007, 0xc7c9ca),
-          createSurfaceMaterial(brushed, 0.62, 0.84, 0.006, 0xb8bbbd),
-          createSurfaceMaterial(polished, 0.44, 0.88, 0.003, 0xb4b6b8)
-        ];
+        const bodyMaterial = new THREE.MeshStandardMaterial({
+          color: 0x121412,
+          roughness: 0.72,
+          metalness: 0.54,
+          envMapIntensity: 0.72,
+          dithering: true,
+        });
         const orangeMaterial = new THREE.MeshPhysicalMaterial({
           color: 0xbf411a,
           metalness: 0.54,
@@ -265,7 +278,7 @@ export function InteractiveRubiksCube() {
         });
         const surfaceMaterials: Material[] = [
           ...panelMaterials,
-          ...bodyMaterials,
+          bodyMaterial,
           orangeMaterial
         ];
 
@@ -291,14 +304,9 @@ export function InteractiveRubiksCube() {
           };
         }
 
-        function makeBodyMaterial(
-          x: number,
-          y: number,
-          z: number,
-          orange: boolean
-        ) {
+        function makeBodyMaterial(orange: boolean) {
           if (orange) return orangeMaterial;
-          return bodyMaterials[stableHash(x, y, z, 9) % bodyMaterials.length];
+          return bodyMaterial;
         }
 
         function makePanelBaseMaterial(
@@ -364,8 +372,10 @@ export function InteractiveRubiksCube() {
                 6,
                 0.04
               );
-              const bodyMaterial = makeBodyMaterial(x, y, z, isOrangeCorner);
-              const body = new THREE.Mesh(isOrangeCorner ? orangeCubieGeometry : cubieGeometry, bodyMaterial);
+              const body = new THREE.Mesh(
+                isOrangeCorner ? orangeCubieGeometry : cubieGeometry,
+                makeBodyMaterial(isOrangeCorner)
+              );
               body.castShadow = true;
               body.receiveShadow = true;
               cubie.add(body);
