@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { TrackedLink } from "@/components/tracked-link";
+import { Menu, X } from "lucide-react";
+import { ContactButton } from "@/components/contact-modal";
 
 const links = [
   { href: "#advisory", label: "Advisory" },
@@ -46,16 +46,12 @@ export function Navigation() {
               {link.label}
             </a>
           ))}
-          <TrackedLink
+          <ContactButton
             className="nav-cta"
-            href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
-            event="Contact CTA"
-            eventData={{ location: "navigation" }}
+            label="Start a conversation"
+            location="navigation"
             onClick={() => setOpen(false)}
-          >
-            Start a conversation
-            <ArrowUpRight size={15} strokeWidth={1.8} aria-hidden="true" />
-          </TrackedLink>
+          />
         </nav>
 
         <button

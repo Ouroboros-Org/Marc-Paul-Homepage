@@ -16,6 +16,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { AmbientScene } from "@/components/ambient-scene";
+import { ContactButton } from "@/components/contact-modal";
 import { Navigation } from "@/components/navigation";
 import { Reveal } from "@/components/reveal";
 import { TedxVideo } from "@/components/tedx-video";
@@ -302,15 +303,11 @@ export default function Home() {
                   ownership or human judgment.
                 </p>
                 <div className="hero-actions">
-                  <TrackedLink
+                  <ContactButton
                     className="button button-primary"
-                    href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
-                    event="Contact CTA"
-                    eventData={{ location: "hero" }}
-                  >
-                    Discuss an engagement
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                  </TrackedLink>
+                    label="Discuss an engagement"
+                    location="hero"
+                  />
                   <a className="button button-ghost" href="#advisory">
                     Explore the services
                     <ArrowDown size={17} aria-hidden="true" />
@@ -689,22 +686,27 @@ export default function Home() {
             </Reveal>
             <Reveal className="contact-copy" delay={100}>
               <p>
-                Send the current brief, architecture sketch, problem statement or the uncomfortable
-                question the team keeps circling. I will reply with an honest view of whether I can
-                help and what a sensible first step would be.
+                You do not need a polished brief. Share the decision, the constraints and anything
+                the team has already tried. I will reply with an honest view of whether I can help
+                and what a sensible first step would be.
               </p>
-              <TrackedLink
-                className="contact-mail"
-                href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
-                event="Contact CTA"
-                eventData={{ location: "contact" }}
-              >
-                <span>
-                  <Mail size={20} strokeWidth={1.5} aria-hidden="true" />
+              <ContactButton
+                className="button contact-form-cta"
+                label="Share your project note"
+                location="contact"
+                icon="arrow-right"
+              />
+              <div className="contact-email">
+                <p>Prefer to write directly?</p>
+                <TrackedLink
+                  href="mailto:info@marcpaul.tech?subject=Technical%20and%20AI%20advisory"
+                  event="Email Contact"
+                  eventData={{ location: "contact" }}
+                >
+                  <Mail size={18} strokeWidth={1.5} aria-hidden="true" />
                   info@marcpaul.tech
-                </span>
-                <ArrowRight size={21} aria-hidden="true" />
-              </TrackedLink>
+                </TrackedLink>
+              </div>
               <p className="availability">
                 <span aria-hidden="true" />
                 Based in Malta · Working remotely across Europe

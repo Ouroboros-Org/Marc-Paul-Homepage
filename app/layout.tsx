@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ContactModalProvider } from "@/components/contact-modal";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/newsreader";
 import "./globals.css";
@@ -82,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <ContactModalProvider>{children}</ContactModalProvider>
         <Analytics />
         <SpeedInsights />
       </body>
