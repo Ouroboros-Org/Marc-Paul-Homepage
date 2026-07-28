@@ -313,7 +313,7 @@ export function InteractiveRubiksCube() {
         }
 
         const cubieSize = 0.92;
-        const spacing = cubieSize + 0.015;
+        const spacing = cubieSize + 0.4;
         const panelBaseSize = 0.82;
         const panelBaseDepth = 0.045;
         const panelBaseOffset = cubieSize * 0.5 - 0.022;
