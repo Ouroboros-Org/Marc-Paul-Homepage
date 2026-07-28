@@ -63,10 +63,10 @@ Without those environment variables both forms deliberately show the direct-emai
 
 ## Vercel Web Analytics and Speed Insights
 
-`app/layout.tsx` already mounts both clients once at the root using the framework-neutral React entrypoints appropriate for the Vinext/Vite runtime. No page-level setup is required:
+`app/layout.tsx` mounts both clients once at the root using their Next.js entrypoints. Vinext implements the required `next/navigation` hooks, so these entrypoints report route-aware page views and Web Vitals, including normalized dynamic routes such as `/blog/[slug]`. No page-level setup is required:
 
-- `@vercel/analytics/react`
-- `@vercel/speed-insights/react`
+- `@vercel/analytics/next`
+- `@vercel/speed-insights/next`
 
 After connecting the repository to Vercel:
 
