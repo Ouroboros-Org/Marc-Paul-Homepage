@@ -1,0 +1,21 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: #ff5722 } 
+	</style>
+	<g id="Folder 2">
+		<filter id="f0">
+			<feFlood flood-color="#121412" flood-opacity="1" />
+			<feBlend mode="normal" in2="SourceGraphic"/>
+			<feComposite in2="SourceAlpha" operator="in" />
+		</filter>
+		<g id="Wordmark" filter="url(#f0)">
+			<g id="Folder 1">
+				<path id="M" class="s0" d="m553.65 326.3l-158.53 231.51-158.54-231.51h-42.78l0.17 12.75 46.38 67.77 139.04 203.83h31.45l139.04-203.2-1.89 191.25v155.39h48.44v-427.79z"/>
+				<path id="M copy" class="s0" d="m193.97 414.95l-0.17 339.14h48.44v-155.39l-1.89-115.98z"/>
+			</g>
+			<path id="P copy" class="s0" d="m886 448.97c0 75.5-48.66 124.35-149.1 123.94l-91.53-0.24v-37.55l91.53 0.04c65.43 0 100.03-28.31 100.03-85.56 0-52.21-34.6-85.56-100.03-85.56l-91.53-0.4v-37.52l91.53 0.18c100.03 0 149.1 50.95 149.1 122.67zm-240.63-85.33c-0.04-0.03 0 0 0 0z"/>
+		</g>
+		<path id="Shape 2" fill-rule="evenodd" class="s1" d="m694.64 705.16v48.93h-48.93v-48.93z"/>
+	</g>
+</svg>

@@ -38,7 +38,7 @@ export function SiteFooter() {
             href="/"
             aria-label="Decision Integrity Practice, home"
           >
-            <img className="brand-mark" aria-hidden="true" src="/logo/logo-black-small.png" alt="Marc Paul logo" />
+            <img className="brand-mark" aria-hidden="true" src="/logo/logo-white-small.png" alt="Marc Paul logo" />
             <span>
               <strong>Marc Paul</strong>
               <small>Decision Integrity Practice</small>
