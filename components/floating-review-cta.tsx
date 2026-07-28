@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FileCheck2 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 
 const idleCollapseDelay = 850;
 
@@ -109,13 +109,14 @@ export function FloatingReviewCta() {
     .join(" ");
 
   return (
-    <CtaButton
+    <Button
       href="/request-a-review"
       className={className}
       ariaLabel="Request an initiative review"
       icon={<FileCheck2 size={18} strokeWidth={1.8} aria-hidden="true" />}
+      isCta={true}
     >
       Request a review
-    </CtaButton>
+    </Button>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Check, CircleOff, FileText, KeyRound } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { ArrowRight, Check, CircleOff, FileText, KeyRound, FileCheck2 } from "lucide-react";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
 import { absoluteUrl } from "@/lib/site";
 
@@ -50,12 +50,12 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         breadcrumbs={[{ label: "Reviews", href: "/reviews" }, { label: content.title }]}
         actions={
           <>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Request this service
-            </CtaButton>
-            <CtaButton href="/situations" variant="secondary" icon={<ArrowRight size={17} />}>
+            </Button>
+            <Button href="/situations" variant="secondary" icon={<ArrowRight size={17} />}>
               Check when it fits
-            </CtaButton>
+            </Button>
           </>
         }
         aside={

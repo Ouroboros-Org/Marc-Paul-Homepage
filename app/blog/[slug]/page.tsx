@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, FileCheck2 } from "lucide-react";
 import { BlogCard } from "@/components/blog-card";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { Breadcrumbs, StructuredData } from "@/components/site-ui";
 import {
   allPostSlugs,
@@ -157,9 +157,9 @@ export default async function BlogPostPage({ params }: PageProps) {
               <h2>Review the case before the next commitment.</h2>
               <p>Send the initiative, the decision due and the deadline. I will reply with a direct view on whether an independent review fits.</p>
             </div>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Request a review
-            </CtaButton>
+            </Button>
           </footer>
         ) : null}
       </article>

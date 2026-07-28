@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, FileCheck2, LockKeyhole, Mail } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { ShortContactForm } from "@/components/short-contact-form";
 import { PageHero } from "@/components/site-ui";
 
@@ -28,20 +28,22 @@ export default function ContactPage() {
         breadcrumbs={[{ label: "Contact" }]}
         actions={
           <>
-            <CtaButton
+            <Button
               href="#general-enquiry"
               variant="primary"
               icon={<ArrowRight size={17} />}
+              isCta={true}
             >
               Write a message
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="/request-a-review"
               variant="secondary"
               icon={<FileCheck2 size={17} />}
+              isCta={true}
             >
               Request a review
-            </CtaButton>
+            </Button>
           </>
         }
         aside={
@@ -72,14 +74,14 @@ export default function ContactPage() {
               <LockKeyhole size={19} strokeWidth={1.5} aria-hidden="true" />
               <p>Leave out credentials, source code, personal data, and confidential attachments.</p>
             </div>
-            <CtaButton
+            <Button
               href={directEmailHref}
               variant="secondary"
               className="button-contact-secondary"
               icon={<Mail size={17} />}
             >
               Email directly
-            </CtaButton>
+            </Button>
           </aside>
           <div className="request-form-panel">
             <ShortContactForm />
@@ -98,13 +100,13 @@ export default function ContactPage() {
               The review form asks for the initiative, decision, deadline, commitment, owner,
               sponsor, and evidence available. That information is needed to assess scope and fit.
             </p>
-            <CtaButton
+            <Button
               href="/request-a-review"
               variant="secondary"
               icon={<ArrowRight size={17} />}
             >
               Go to the review request
-            </CtaButton>
+            </Button>
           </div>
         </div>
       </section>

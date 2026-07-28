@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { track } from "@vercel/analytics";
 import { Check, LoaderCircle, RotateCcw, Send } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -161,15 +161,16 @@ export function ReviewRequestForm({ source = "request-review-page" }: ReviewRequ
             access.
           </p>
           <div className="contact-form-success-actions">
-            <CtaButton
+            <Button
               type="button"
               variant="secondary"
               className="button-contact-secondary"
               icon={<RotateCcw size={17} />}
               onClick={resetForm}
+              isCta={true}
             >
               Submit another request
-            </CtaButton>
+            </Button>
           </div>
         </div>
       ) : (
@@ -391,7 +392,7 @@ export function ReviewRequestForm({ source = "request-review-page" }: ReviewRequ
               Google Forms processes this submission. Read the <a href="/privacy">privacy notice</a>{" "}
               or <a href={directEmailHref}>use email instead</a>.
             </p>
-            <CtaButton
+            <Button
               className="button-contact-primary"
               type="submit"
               disabled={submitState === "submitting"}
@@ -404,7 +405,7 @@ export function ReviewRequestForm({ source = "request-review-page" }: ReviewRequ
               }
             >
               {submitState === "submitting" ? "Sending" : "Submit review request"}
-            </CtaButton>
+            </Button>
           </div>
         </form>
       )}

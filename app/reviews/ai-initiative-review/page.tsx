@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Bot, CircleDollarSign, Database, ShieldAlert, UserRoundCheck } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { ArrowRight, Bot, CircleDollarSign, Database, ShieldAlert, UserRoundCheck, FileCheck2 } from "lucide-react";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
 import { absoluteUrl } from "@/lib/site";
 
@@ -81,16 +81,16 @@ export default function AiInitiativeReviewPage() {
         ]}
         actions={
           <>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Request an AI review
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="/reviews/independent-initiative-review"
               variant="secondary"
               icon={<ArrowRight size={17} />}
             >
               See the main engagement
-            </CtaButton>
+            </Button>
           </>
         }
         aside={

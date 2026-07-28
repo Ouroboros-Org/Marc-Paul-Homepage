@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { ArrowRight, Check, FileCheck2 } from "lucide-react";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading } from "@/components/site-ui";
 import { situations } from "@/lib/site";
 
@@ -27,12 +27,12 @@ export default function SituationsPage() {
         breadcrumbs={[{ label: "Situations" }]}
         actions={
           <>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Send the decision
-            </CtaButton>
-            <CtaButton href="/reviews" variant="secondary" icon={<ArrowRight size={17} />}>
+            </Button>
+            <Button href="/reviews" variant="secondary" icon={<ArrowRight size={17} />}>
               Compare the reviews
-            </CtaButton>
+            </Button>
           </>
         }
       />
@@ -97,9 +97,9 @@ export default function SituationsPage() {
             Should the company fund the proposed move of its customer-support AI pilot into production across three markets?
           </blockquote>
           <p>A request to “review our AI strategy” is too broad. The form asks for the decision, initiative, deadline, commitment, owner, evidence, sponsor, and reporting context.</p>
-          <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+          <Button href="/request-a-review" icon={<ArrowRight size={17} />}>
             Start the request
-          </CtaButton>
+          </Button>
         </div>
       </section>
 

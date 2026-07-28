@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Cpu, FileQuestion, RefreshCcw } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { ArrowRight, Cpu, FileQuestion, RefreshCcw, FileCheck2 } from "lucide-react";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, ReviewCard, SectionHeading, StructuredData } from "@/components/site-ui";
 import { reviews } from "@/lib/site";
 
@@ -40,12 +40,12 @@ export default function ReviewsPage() {
         breadcrumbs={[{ label: "Reviews" }]}
         actions={
           <>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Request a review
-            </CtaButton>
-            <CtaButton href="/situations" variant="secondary" icon={<ArrowRight size={17} />}>
+            </Button>
+            <Button href="/situations" variant="secondary" icon={<ArrowRight size={17} />}>
               Find your decision point
-            </CtaButton>
+            </Button>
           </>
         }
       />

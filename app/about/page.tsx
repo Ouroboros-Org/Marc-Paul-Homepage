@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Code2, Layers3, Presentation, UsersRound } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
 import { TedxVideo } from "@/components/tedx-video";
 import { absoluteUrl } from "@/lib/site";
@@ -24,7 +24,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Marc Paul",
   url: absoluteUrl("/about"),
-  image: absoluteUrl("/images/marc-paul-hero.png"),
+  image: absoluteUrl("/images/marc-paul.png"),
   jobTitle: "Independent AI and Software Initiative Reviewer",
   address: { "@type": "PostalAddress", addressCountry: "MT" },
   sameAs: ["https://mt.linkedin.com/in/marc-paul"],
@@ -49,17 +49,18 @@ export default function AboutPage() {
         breadcrumbs={[{ label: "About" }]}
         actions={
           <>
-            <CtaButton href="/request-a-review" icon={<ArrowRight size={17} />}>
+            <Button href="/request-a-review" icon={<ArrowRight size={17} />} isCta={true}>
               Request a review
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="https://mt.linkedin.com/in/marc-paul"
               external
               variant="secondary"
               icon={<ArrowUpRight size={17} />}
+              isCta={true}
             >
               LinkedIn profile
-            </CtaButton>
+            </Button>
           </>
         }
       />
@@ -68,8 +69,8 @@ export default function AboutPage() {
         <div className="shell about-bio-grid">
           <div className="about-portrait">
             <Image
-              src="/images/marc-paul-hero.png"
-              alt="Marc Paul speaking on stage"
+              src="/images/marc-paul.png"
+              alt="Marc Paul"
               fill
               sizes="(max-width: 880px) 100vw, 52vw"
               quality={88}

@@ -10,7 +10,7 @@ import {
   ShieldCheck
 } from "lucide-react";
 import { BlogCard } from "@/components/blog-card";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { InteractiveRubiksCube } from "@/components/interactive-rubiks-cube";
 import {
   CtaPanel,
@@ -109,19 +109,21 @@ export default function Home() {
               Marc Paul reviews one defined initiative before approval, funding, production, scale, or continuation. In 5–10 working days, you receive a written opinion to proceed, add conditions, stage the commitment, rework the case, pause, or stop.
             </p>
             <div className="hero-actions">
-              <CtaButton
+              <Button
                 href="/request-a-review"
                 icon={<ArrowRight size={17} />}
+                isCta={true}
               >
                 Request an Initiative Review
-              </CtaButton>
-              <CtaButton
+              </Button>
+              <Button
+                className="button button-secondary"
                 href="/reviews/independent-initiative-review"
                 variant="secondary"
                 icon={<ArrowRight size={17} />}
               >
                 See scope and deliverables
-              </CtaButton>
+              </Button>
             </div>
             <p className="hero-audience">For CEOs, CFOs, founders, boards, and investors responsible for the decision.</p>
           </div>
@@ -174,12 +176,12 @@ export default function Home() {
                 <li>Which alternatives deserve serious consideration</li>
                 <li>What must govern the next release of money, scope, or time</li>
               </ul>
-              <CtaButton
+              <Button
                 href="/reviews/independent-initiative-review"
                 icon={<ArrowRight size={17} />}
               >
                 Read about the Initiative Review
-              </CtaButton>
+              </Button>
             </div>
             <div className="outcome-panel">
               <p className="card-label">Possible opinions</p>
@@ -265,9 +267,9 @@ export default function Home() {
             <p className="large-copy">
               A pilot may omit the correction work, model instability, evaluation bias, inference cost, data restrictions, and monitoring required in production. The review also examines vendor dependency and who takes responsibility when outputs are wrong.
             </p>
-            <CtaButton href="/reviews/ai-initiative-review" icon={<ArrowRight size={17} />}>
+            <Button href="/reviews/ai-initiative-review" icon={<ArrowRight size={17} />}>
               Review an AI initiative
-            </CtaButton>
+            </Button>
           </div>
           <div className="ai-review-record" aria-label="AI initiative review areas">
             {[
@@ -335,8 +337,8 @@ export default function Home() {
         <div className="shell about-preview-grid">
           <div className="about-preview-image">
             <Image
-              src="/images/marc-paul-hero.png"
-              alt="Marc Paul speaking on stage"
+              src="/images/marc-paul.png"
+              alt="Marc Paul"
               fill
               sizes="(max-width: 880px) 100vw, 48vw"
               quality={86}
@@ -351,9 +353,9 @@ export default function Home() {
             <p>
               The practice is limited to AI, software, and digital-product initiatives connected to that experience.
             </p>
-            <CtaButton href="/about" variant="secondary" icon={<ArrowRight size={17} />}>
+            <Button href="/about" variant="secondary" icon={<ArrowRight size={17} />}>
               About Marc and the practice
-            </CtaButton>
+            </Button>
           </div>
         </div>
       </section>
@@ -372,9 +374,9 @@ export default function Home() {
             ))}
           </div>
           <div className="section-link-row">
-            <CtaButton href="/blog" variant="secondary" icon={<ArrowRight size={17} />}>
+            <Button href="/blog" variant="secondary" icon={<ArrowRight size={17} />}>
               Browse all articles
-            </CtaButton>
+            </Button>
           </div>
         </div>
       </section>

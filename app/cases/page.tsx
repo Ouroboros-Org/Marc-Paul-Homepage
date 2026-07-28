@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, FileCheck2, Globe2, LockKeyhole } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading } from "@/components/site-ui";
 
 export const metadata: Metadata = {
@@ -24,9 +24,9 @@ export default function CasesPage() {
         lead="The library distinguishes constructed samples, public-source reconstructions, and client work published with permission. Each case carries its own evidence label."
         breadcrumbs={[{ label: "Cases" }]}
         actions={
-          <CtaButton href="/cases/sample-ai-pilot" icon={<ArrowRight size={17} />}>
+          <Button href="/cases/sample-ai-pilot" icon={<ArrowRight size={17} />}>
             Read the sample review
-          </CtaButton>
+          </Button>
         }
       />
 
@@ -47,9 +47,9 @@ export default function CasesPage() {
               <p className="card-label">Decision</p>
               <h3>Should the company release production funding for an AI support workflow after its pilot?</h3>
               <p>The sample sets out the investment case, decisive assumptions, evidence gaps, alternatives, approval conditions, opinion, and final decision record.</p>
-              <CtaButton href="/cases/sample-ai-pilot" icon={<ArrowRight size={17} />}>
+              <Button href="/cases/sample-ai-pilot" icon={<ArrowRight size={17} />}>
                 Read the sample case
-              </CtaButton>
+              </Button>
             </div>
             <dl>
               <div><dt>Opinion</dt><dd>Release funding in stages</dd></div>

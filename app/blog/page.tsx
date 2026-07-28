@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BlogCard } from "@/components/blog-card";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
 import { archivePosts, currentPosts, featuredPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
@@ -54,12 +54,12 @@ export default function BlogPage() {
         breadcrumbs={[{ label: "Blog" }]}
         actions={
           <>
-            <CtaButton href="#latest" icon={<ArrowRight size={17} />}>
+            <Button href="#latest" icon={<ArrowRight size={17} />}>
               Read the latest articles
-            </CtaButton>
-            <CtaButton href="/reviews" variant="secondary" icon={<ArrowRight size={17} />}>
+            </Button>
+            <Button href="/reviews" variant="secondary" icon={<ArrowRight size={17} />}>
               View review services
-            </CtaButton>
+            </Button>
           </>
         }
       />

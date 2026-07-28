@@ -34,7 +34,7 @@ The blog data lives in `lib/posts.ts`. It contains current decision-focused arti
 ## Shared interface
 
 - The responsive header uses four disclosure groups: Reviews, Evidence, Practice, and Contact. Nested links include short descriptions on desktop and mobile.
-- `CtaButton` provides the reusable black refractive pill for primary and secondary links or buttons. Text and icon remain constant.
+- `Button` provides the reusable black refractive pill for primary and secondary links or buttons. Text and icon remain constant.
 - The fixed review CTA is compact at rest, expands during scrolling and on hover or keyboard focus, and respects reduced motion.
 - The footer groups review pages, practice and evidence routes, contact options, LinkedIn, and privacy.
 

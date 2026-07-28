@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { FileCheck2, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/button";
 
 const reviewLinks = [
   {
@@ -45,13 +45,14 @@ export function SiteFooter() {
             </span>
           </Link>
           <p>Independent Initiative Reviews for consequential AI and software decisions.</p>
-          <CtaButton
+          <Button
             className="footer-cta"
             href="/request-a-review"
-            icon={<ArrowRight size={17} />}
+            icon={<FileCheck2 size={17} />}
+            isCta={true}
           >
             Request a review
-          </CtaButton>
+          </Button>
         </div>
 
         <nav className="footer-navigation" aria-label="Footer navigation">

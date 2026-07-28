@@ -1,19 +1,20 @@
 import Link from "next/link";
 import type { MouseEventHandler, ReactNode } from "react";
 
-type CtaButtonVariant = "primary" | "secondary";
-type CtaButtonIconPosition = "start" | "end";
+type ButtonVariant = "primary" | "secondary";
+type ButtonIconPosition = "start" | "end";
 
-type SharedCtaButtonProps = {
+type SharedButtonProps = {
   children: ReactNode;
   icon?: ReactNode;
-  iconPosition?: CtaButtonIconPosition;
-  variant?: CtaButtonVariant;
+  iconPosition?: ButtonIconPosition;
+  variant?: ButtonVariant;
   className?: string;
   ariaLabel?: string;
+  isCta?: boolean;
 };
 
-type CtaButtonLinkProps = SharedCtaButtonProps & {
+type ButtonLinkProps = SharedButtonProps & {
   href: string;
   external?: boolean;
   type?: never;
@@ -21,7 +22,7 @@ type CtaButtonLinkProps = SharedCtaButtonProps & {
   onClick?: never;
 };
 
-type CtaButtonNativeProps = SharedCtaButtonProps & {
+type ButtonNativeProps = SharedButtonProps & {
   href?: never;
   external?: never;
   type?: "button" | "submit" | "reset";
@@ -29,40 +30,42 @@ type CtaButtonNativeProps = SharedCtaButtonProps & {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-export type CtaButtonProps = CtaButtonLinkProps | CtaButtonNativeProps;
+export type ButtonProps = ButtonLinkProps | ButtonNativeProps;
 
 function hasExternalProtocol(href: string) {
   return href.startsWith("//") || /^[a-z][a-z\d+.-]*:/i.test(href);
 }
 
-function isLinkCtaButton(props: CtaButtonProps): props is CtaButtonLinkProps {
+function isLinkButton(props: ButtonProps): props is ButtonLinkProps {
   return typeof props.href === "string";
 }
 
-export function CtaButton(props: CtaButtonProps) {
+export function Button(props: ButtonProps) {
   const {
     children,
     icon,
     iconPosition = "end",
     variant = "primary",
     className,
-    ariaLabel
+    ariaLabel,
+    isCta = false
   } = props;
-  const classes = ["cta-button", `cta-button--${variant}`, className]
+  const buttonClass = isCta ? 'cta-button' : 'button';
+  const classes = [buttonClass, `${buttonClass}--${variant}`, className]
     .filter(Boolean)
     .join(" ");
   const content = (
     <>
-      <span className="cta-button-shadow" aria-hidden="true" />
-      <span className="cta-button-content">
+      <span className={`${buttonClass}-shadow`} aria-hidden="true" />
+      <span className={`${buttonClass}-content`}>
         {icon && iconPosition === "start" ? (
-          <span className="cta-button-icon cta-button-icon--start" aria-hidden="true">
+          <span className={`${buttonClass}-icon ${buttonClass}-icon--start`} aria-hidden="true">
             {icon}
           </span>
         ) : null}
-        <span className="cta-button-label">{children}</span>
+        <span className={`${buttonClass}-label`}>{children}</span>
         {icon && iconPosition === "end" ? (
-          <span className="cta-button-icon cta-button-icon--end" aria-hidden="true">
+          <span className={`${buttonClass}-icon ${buttonClass}-icon--end`} aria-hidden="true">
             {icon}
           </span>
         ) : null}
@@ -70,7 +73,7 @@ export function CtaButton(props: CtaButtonProps) {
     </>
   );
 
-  if (isLinkCtaButton(props)) {
+  if (isLinkButton(props)) {
     if (props.external || hasExternalProtocol(props.href)) {
       return (
         <a className={classes} href={props.href} aria-label={ariaLabel}>

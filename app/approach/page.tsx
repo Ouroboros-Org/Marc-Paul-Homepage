@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, Eye, Scale, ShieldCheck } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { ArrowRight, Check, Eye, Scale, ShieldCheck, FileCheck2 } from "lucide-react";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading } from "@/components/site-ui";
 
 export const metadata: Metadata = {
@@ -49,19 +49,19 @@ export default function ApproachPage() {
         breadcrumbs={[{ label: "Approach" }]}
         actions={
           <>
-            <CtaButton
+            <Button
               href="/reviews/independent-initiative-review"
               icon={<ArrowRight size={17} />}
             >
               See the main review
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="/request-a-review"
-              variant="secondary"
-              icon={<ArrowRight size={17} />}
+              icon={<FileCheck2 size={17} />}
+              isCta={true}
             >
               Request a review
-            </CtaButton>
+            </Button>
           </>
         }
       />

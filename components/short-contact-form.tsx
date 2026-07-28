@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { track } from "@vercel/analytics";
 import { Check, LoaderCircle, RotateCcw, Send } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -141,15 +141,16 @@ export function ShortContactForm() {
           <h3>Thank you. I received your message.</h3>
           <p>I will reply by email.</p>
           <div className="contact-form-success-actions">
-            <CtaButton
+            <Button
               type="button"
               variant="secondary"
               className="button-contact-secondary"
               onClick={resetForm}
               icon={<RotateCcw size={17} />}
+              isCta={true}
             >
               Send another message
-            </CtaButton>
+            </Button>
           </div>
         </div>
       ) : (
@@ -252,7 +253,7 @@ export function ShortContactForm() {
               Google Forms processes this submission. Read the <a href="/privacy">privacy notice</a>{" "}
               or <a href={directEmailHref}>use email instead</a>.
             </p>
-            <CtaButton
+            <Button
               type="submit"
               variant="primary"
               className="button-contact-primary"
@@ -264,9 +265,10 @@ export function ShortContactForm() {
                   <Send size={17} />
                 )
               }
+              isCta={true}
             >
               {submitState === "submitting" ? "Sending" : "Send enquiry"}
-            </CtaButton>
+            </Button>
           </div>
         </form>
       )}

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  MessageSquareText
+  MessageSquareText,
+  FileCheck2
 } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 
 type Breadcrumb = {
   label: string;
@@ -150,19 +151,21 @@ export function CtaPanel({
             <p>{text}</p>
           </div>
           <div className="cta-actions">
-            <CtaButton
+            <Button
               href="/request-a-review"
-              icon={<ArrowRight size={17} />}
+              icon={<FileCheck2 size={17} />}
+              isCta={true}
             >
               Request an initiative review
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="/contact"
               variant="secondary"
               icon={<MessageSquareText size={17} />}
+              isCta={true}
             >
               Contact us
-            </CtaButton>
+            </Button>
           </div>
         </div>
       </div>

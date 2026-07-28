@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, Check, CircleAlert, FileText } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
 import { absoluteUrl } from "@/lib/site";
 
@@ -67,16 +67,16 @@ export default function SampleAiPilotPage() {
         ]}
         actions={
           <>
-            <CtaButton href="#opinion" icon={<ArrowRight size={17} />}>
+            <Button href="#opinion" icon={<ArrowRight size={17} />}>
               Go to the opinion
-            </CtaButton>
-            <CtaButton
+            </Button>
+            <Button
               href="/reviews/independent-initiative-review"
               variant="secondary"
               icon={<ArrowRight size={17} />}
             >
               See the review service
-            </CtaButton>
+            </Button>
           </>
         }
         aside={

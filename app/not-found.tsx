@@ -1,5 +1,5 @@
 import { ArrowLeft, FileQuestion } from "lucide-react";
-import { CtaButton } from "@/components/cta-button";
+import { Button } from "@/components/button";
 
 export default function NotFound() {
   return (
@@ -9,9 +9,9 @@ export default function NotFound() {
         <p className="section-kicker">404 / Page not found</p>
         <h1>We could not find this page.</h1>
         <p>The address may have changed, or the page may no longer exist.</p>
-        <CtaButton href="/" icon={<ArrowLeft size={17} />} iconPosition="start">
+        <Button href="/" icon={<ArrowLeft size={17} />} iconPosition="start" isCta={true}>
           Return home
-        </CtaButton>
+        </Button>
       </div>
     </main>
   );

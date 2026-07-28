@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: "Marc Paul — Decision Integrity Practice",
     images: [
       {
-        url: "/images/marc-paul-hero.png",
-        width: 1672,
-        height: 941,
-        alt: "Marc Paul speaking about technology decisions"
+        url: "/images/marc-paul-tedx-wide.jpg",
+        width: 960,
+        height: 720,
+        alt: "Marc Paul speaking at TEDx about AI decisions"
       }
     ]
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Marc Paul | Independent AI & Software Initiative Reviews",
     description: "Test the case behind an AI or software initiative before the next commitment.",
-    images: ["/images/advisory-working-session.png"]
+    images: ["/images/advisory-working-session.jpg"]
   },
   icons: {
     icon: "/favicon.ico"
