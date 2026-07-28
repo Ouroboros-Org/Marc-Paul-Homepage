@@ -1,227 +1,89 @@
-# Design System Master File
+# Marc Paul — Decision Integrity Practice design system
 
-> **LOGIC:** When building a specific page, first check `design-system/pages/[page-name].md`.
-> If that file exists, its rules **override** this Master file.
-> If not, strictly follow the rules below.
+> Read a page override in `pages/` first when one exists. Page rules override this file.
 
----
+## Product and tone
 
-**Project:** Marc Paul
-**Generated:** 2026-07-27 18:12:56
-**Category:** Portfolio/Personal
-**Design Dials:** Variance 8/10 (Bold / Asymmetric) | Motion 6/10 (Standard) | Density 3/10 (Spacious)
+- Product: independent professional review service
+- Audience: CEOs, CFOs, founders, boards, investors, and executive sponsors
+- Tone: controlled, serious, technically literate, direct
+- Density: spacious marketing and long-form reading
+- Motion: restrained and state-based; the interactive home-hero cube is the only continuous illustrative motion
 
----
+## Information hierarchy
 
-## Global Rules
+1. Decision and buyer situation
+2. Service and independent opinion
+3. Outputs and conditions
+4. Scope boundary and proof
+5. Relevant experience
+6. Approach and method
 
-### Color Palette
+## Tokens
 
-| Role | Hex | CSS Variable |
-|------|-----|--------------|
-| Primary | `#18181B` | `--color-primary` |
-| On Primary | `#FFFFFF` | `--color-on-primary` |
-| Secondary | `#3F3F46` | `--color-secondary` |
-| Accent/CTA | `#2563EB` | `--color-accent` |
-| Background | `#FAFAFA` | `--color-background` |
-| Foreground | `#09090B` | `--color-foreground` |
-| Muted | `#E8ECF0` | `--color-muted` |
-| Border | `#E4E4E7` | `--color-border` |
-| Destructive | `#DC2626` | `--color-destructive` |
-| Ring | `#18181B` | `--color-ring` |
+| Role | Value | CSS token |
+|---|---:|---|
+| Canvas | `#F2F1EB` | `--canvas` |
+| Raised canvas | `#E7E6DF` | `--canvas-deep` |
+| Panel | `#FBFAF6` | `--panel` |
+| Near-black | `#121412` | `--ink` |
+| Graphite | `#2A2E2A` | `--graphite` |
+| Muted text | `#5D625D` | `--muted` |
+| Border | `#D3D4CD` | `--line` |
+| Condition orange | `#AA603B` | `--accent` |
+| Condition orange dark | `#89482C` | `--accent-dark` |
 
-**Color Notes:** Monochrome + blue accent
+Orange indicates an active decision, condition, unresolved evidence, or a point requiring attention. It is not ambient decoration.
 
-### Typography
+## Typography
 
-- **Heading Font:** Archivo
-- **Body Font:** Space Grotesk
-- **Mood:** minimal, portfolio, designer, creative, clean, artistic
-- **Google Fonts:** [Archivo + Space Grotesk](https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap)
+- Interface and content: Manrope Variable
+- Editorial emphasis: Newsreader Variable
+- Record codes, dates, labels, and states: system monospace stack
+- Minimum body size: 16px
+- Long-form line-height: approximately 1.7
+- Long-form measure: 760px maximum
 
-**CSS Import:**
-```css
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-```
+## Layout
 
-### Spacing Variables
+- Maximum shell: 1320px
+- Fluid gutters: 18–64px
+- Section spacing: 76–132px
+- Breakpoints: 560px, 780px, 1040px, 1240px
+- Core QA widths: 375px, 768px, 1024px, 1440px, plus phone landscape
 
-*Density: 3/10 — Spacious*
+## Components
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--space-xs` | `4px` / `0.25rem` | Tight gaps |
-| `--space-sm` | `8px` / `0.5rem` | Icon gaps, inline spacing |
-| `--space-md` | `24px` / `1.5rem` | Standard padding |
-| `--space-lg` | `32px` / `2rem` | Section padding |
-| `--space-xl` | `48px` / `3rem` | Large gaps |
-| `--space-2xl` | `64px` / `4rem` | Section margins |
-| `--space-3xl` | `96px` / `6rem` | Hero padding |
+- CTAs: reusable black refractive pill with primary and secondary variants, a 48px minimum target, constant text and icon, and visible hover/focus feedback
+- Floating CTA: compact at rest; expands only during active scrolling, hover, or keyboard focus; contracts after scroll idle
+- Cards: thin border, 18px radius, little or no shadow
+- Feature surfaces: 28px radius
+- Forms: visible labels, 48px controls, clear hints, and nearby errors; `/contact` is the short general-enquiry path and `/request-a-review` is the full qualification path
+- Navigation: sticky, route-aware, and organised into Reviews, Evidence, Practice, and Contact disclosure groups with descriptive nested links
+- Footer: grouped review, practice, evidence, contact, external, and privacy links with a review CTA
 
-### Shadow Depths
+## Accessibility and performance
 
-| Level | Value | Usage |
-|-------|-------|-------|
-| `--shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Subtle lift |
-| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.1)` | Cards, buttons |
-| `--shadow-lg` | `0 10px 15px rgba(0,0,0,0.1)` | Modals, dropdowns |
-| `--shadow-xl` | `0 20px 25px rgba(0,0,0,0.15)` | Hero images, featured cards |
+- WCAG AA text contrast
+- Visible focus ring on every interactive element
+- No hover-only information
+- Closed mobile menu removed from tab order
+- Closed disclosure panels hidden from assistive technology and the tab order; Escape restores focus to the relevant trigger
+- One `h1` per route with sequential heading levels
+- Reduced motion makes CTA expansion immediate and removes refractive animation and other nonessential transitions
+- WebGL is confined to the home-hero cube, pauses off-screen and while the document is hidden, caps pixel density on mobile, and has a CSS fallback
+- Reduced motion leaves the cube static while preserving deliberate pointer and keyboard rotation
+- Stable media containers and lazy loading below the fold
+- No horizontal page scroll at supported widths
+- Vercel Analytics and Speed Insights mounted once at the root
 
----
+## Forbidden patterns
 
-## Component Specs
-
-### Buttons
-
-```css
-/* Primary Button */
-.btn-primary {
-  background: #2563EB;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  background: transparent;
-  color: #18181B;
-  border: 2px solid #18181B;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-```
-
-### Cards
-
-```css
-.card {
-  background: #FAFAFA;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: var(--shadow-md);
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-```
-
-### Inputs
-
-```css
-.input {
-  padding: 12px 16px;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 200ms ease;
-}
-
-.input:focus {
-  border-color: #18181B;
-  outline: none;
-  box-shadow: 0 0 0 3px #18181B20;
-}
-```
-
-### Modals
-
-```css
-.modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.modal {
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: var(--shadow-xl);
-  max-width: 500px;
-  width: 90%;
-}
-```
-
----
-
-## Style Guidelines
-
-**Style:** Neo Brutalism (Mobile)
-
-**Keywords:** neo brutalism, pop art, stickers, thick borders, cream background, hot red, vivid yellow, soft violet, hard offset shadow, mechanical press, collage
-
-**Best For:** Creative tools, collab platforms, Gen Z marketing & e-commerce, portfolio sites, sticker-book style content apps
-
-**Key Effects:** Thick 4px black borders on all major elements, hard offset shadows (4–8px, no blur), mechanical press: translateX/Y equal to shadow offset, slightly rotated cards/badges (-2deg/2deg), high-saturation color blocking, spring/linear animations only
-
-### Page Pattern
-
-**Pattern Name:** Portfolio Grid
-
-- **Conversion Strategy:** Visuals first. Filter by category. Fast loading essential.
-- **CTA Placement:** Project Card Hover + Footer Contact
-- **Section Order:** 1. Hero (Name/Role), 2. Project Grid (Masonry), 3. About/Philosophy, 4. Contact
-
----
-
-## Motion
-
-**Stagger List** (Standard) — Trigger: load or scroll | Duration: 300-450ms | Easing: `back.out(1.4)`
-
-```js
-gsap.from('.grid-item', { opacity: 0, scale: 0.92, y: 16, duration: 0.4, stagger: { each: 0.06, from: 'start', grid: 'auto' }, ease: 'back.out(1.4)' });
-```
-
-**Framework notes:** grid: 'auto' lets GSAP infer rows/columns from a CSS grid layout for a natural wave stagger
-
-- ✅ Combine with from: 'center' for a bento-grid layout to draw the eye inward first
-- ❌ Don't use back.out on dense data tables; the overshoot reads as sloppy on informational UI
-- ⚡ Group DOM writes; avoid interleaving layout reads (getBoundingClientRect) between staggered tweens
-
----
-
-## Anti-Patterns (Do NOT Use)
-
-- ❌ Corporate templates
-- ❌ Generic layouts
-
-### Additional Forbidden Patterns
-
-- ❌ **Emojis as icons** — Use SVG icons (Heroicons, Lucide, Simple Icons)
-- ❌ **Missing cursor:pointer** — All clickable elements must have cursor:pointer
-- ❌ **Layout-shifting hovers** — Avoid scale transforms that shift layout
-- ❌ **Low contrast text** — Maintain 4.5:1 minimum contrast ratio
-- ❌ **Instant state changes** — Always use transitions (150-300ms)
-- ❌ **Invisible focus states** — Focus states must be visible for a11y
-
----
-
-## Pre-Delivery Checklist
-
-Before delivering any UI code, verify:
-
-- [ ] No emojis used as icons (use SVG instead)
-- [ ] All icons from consistent icon set (Heroicons/Lucide)
-- [ ] `cursor-pointer` on all clickable elements
-- [ ] Hover states with smooth transitions (150-300ms)
-- [ ] Light mode: text contrast 4.5:1 minimum
-- [ ] Focus states visible for keyboard navigation
-- [ ] `prefers-reduced-motion` respected
-- [ ] Responsive: 375px, 768px, 1024px, 1440px
-- [ ] No content hidden behind fixed navbars
-- [ ] No horizontal scroll on mobile
+- Generic consulting claims or invented proof
+- Decorative dashboards, data streams, brains, robots, chess pieces, or warning icons
+- Orange used as a general page wash
+- Tiny body text, low-contrast grey, or invisible focus states
+- Layout-shifting hover effects
+- Icon-only primary CTAs or permanently animated CTA effects
+- Methodology dominating the commercial offer
+- Unlabelled hypothetical or public-source cases

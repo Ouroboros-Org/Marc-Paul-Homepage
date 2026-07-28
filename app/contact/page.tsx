@@ -1,0 +1,113 @@
+import type { Metadata } from "next";
+import { ArrowRight, FileCheck2, LockKeyhole, Mail } from "lucide-react";
+import { CtaButton } from "@/components/cta-button";
+import { ShortContactForm } from "@/components/short-contact-form";
+import { PageHero } from "@/components/site-ui";
+
+const directEmailHref = "mailto:info@marcpaul.tech?subject=General%20enquiry";
+
+export const metadata: Metadata = {
+  title: "Contact Marc Paul | Decision Integrity Practice",
+  description:
+    "Contact Marc Paul with a general enquiry about the Decision Integrity Practice, or use the dedicated form to request an independent initiative review.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Marc Paul | Decision Integrity Practice",
+    description: "Send a general enquiry or start a defined initiative review request.",
+    url: "/contact"
+  }
+};
+
+export default function ContactPage() {
+  return (
+    <main id="main-content">
+      <PageHero
+        eyebrow="Contact"
+        title="Ask about the practice or a possible review."
+        lead="Use this page for a question about the practice or a message that is not tied to a defined review decision. If an AI or software decision already has an owner and deadline, use the review request instead."
+        breadcrumbs={[{ label: "Contact" }]}
+        actions={
+          <>
+            <CtaButton
+              href="#general-enquiry"
+              variant="primary"
+              icon={<ArrowRight size={17} />}
+            >
+              Write a message
+            </CtaButton>
+            <CtaButton
+              href="/request-a-review"
+              variant="secondary"
+              icon={<FileCheck2 size={17} />}
+            >
+              Request a review
+            </CtaButton>
+          </>
+        }
+        aside={
+          <dl className="service-summary">
+            <div>
+              <dt>This form</dt>
+              <dd>General enquiries</dd>
+            </div>
+            <div>
+              <dt>Review form</dt>
+              <dd>A defined initiative and decision</dd>
+            </div>
+          </dl>
+        }
+      />
+
+      <section
+        className="section section-tight"
+        id="general-enquiry"
+        aria-labelledby="contact-form-title"
+      >
+        <div className="shell request-layout">
+          <aside className="request-sidebar">
+            <p className="section-kicker">General contact</p>
+            <h2 id="contact-form-title">Send a short general enquiry.</h2>
+            <p>Include your subject and enough context for a useful reply.</p>
+            <div className="request-privacy-note">
+              <LockKeyhole size={19} strokeWidth={1.5} aria-hidden="true" />
+              <p>Leave out credentials, source code, personal data, and confidential attachments.</p>
+            </div>
+            <CtaButton
+              href={directEmailHref}
+              variant="secondary"
+              className="button-contact-secondary"
+              icon={<Mail size={17} />}
+            >
+              Email directly
+            </CtaButton>
+          </aside>
+          <div className="request-form-panel">
+            <ShortContactForm />
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-contrast" aria-labelledby="review-contact-title">
+        <div className="shell content-split">
+          <div>
+            <p className="section-kicker">For a defined decision</p>
+            <h2 id="review-contact-title">Use the review request when a commitment is due.</h2>
+          </div>
+          <div className="prose-block">
+            <p>
+              The review form asks for the initiative, decision, deadline, commitment, owner,
+              sponsor, and evidence available. That information is needed to assess scope and fit.
+            </p>
+            <CtaButton
+              href="/request-a-review"
+              variant="secondary"
+              icon={<ArrowRight size={17} />}
+            >
+              Go to the review request
+            </CtaButton>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

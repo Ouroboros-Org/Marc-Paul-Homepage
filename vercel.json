@@ -1,4 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "vite build"
+  "buildCommand": "vite build",
+  "redirects": [
+    {
+      "source": "/book-a-session",
+      "destination": "/request-a-review",
+      "permanent": true
+    }
+  ]
 }

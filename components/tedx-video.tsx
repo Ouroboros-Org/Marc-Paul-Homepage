@@ -37,7 +37,7 @@ export function TedxVideo() {
       <span className="play-button" aria-hidden="true">
         <Play fill="currentColor" size={22} />
       </span>
-      <span className="video-label">Watch the talk · 12 min</span>
+      <span className="video-label">TEDxValletta · 12 min</span>
     </button>
   );
 }

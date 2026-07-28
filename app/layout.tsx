@@ -1,35 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ContactModalProvider } from "@/components/contact-modal";
-import "@fontsource-variable/manrope";
-import "@fontsource-variable/newsreader";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { GlobalStyles } from "./global-styles";
+import { FloatingReviewCta } from "@/components/floating-review-cta";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marcpaul.tech"),
-  title: "Marc Paul | Independent Technical & AI Advisor",
+  title: {
+    default: "Marc Paul | Independent AI & Software Initiative Reviews",
+    template: "%s | Marc Paul"
+  },
   description:
-    "Independent technical and AI advisory for founders, product leaders and engineering teams. AI feasibility, product direction, agentic systems, automation and technical review from Malta across Europe.",
+    "Independent reviews of consequential AI and software initiatives for CEOs, CFOs, founders, boards and investors.",
   keywords: [
+    "independent initiative review",
+    "AI initiative review",
+    "AI investment review",
+    "AI pilot to production review",
+    "software initiative review",
+    "technology investment decision",
+    "AI business case review",
     "independent AI advisor",
-    "technical AI advisor",
-    "AI strategy consultant",
-    "AI feasibility assessment",
-    "technical product strategy",
-    "AI agent workflows",
-    "agentic systems consultant",
-    "technical due diligence",
-    "emerging technology advisor",
-    "AI consultant Malta",
     "Marc Paul"
   ],
-  authors: [{ name: "Marc Paul", url: "https://www.marcpaul.tech" }],
+  authors: [{ name: "Marc Paul", url: "https://www.marcpaul.tech/about" }],
   creator: "Marc Paul",
-  alternates: {
-    canonical: "/"
-  },
-  category: "technology consulting",
+  category: "technology advisory",
   robots: {
     index: true,
     follow: true,
@@ -42,36 +40,35 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Marc Paul | Independent Technical & AI Advisor",
+    title: "Marc Paul | Independent AI & Software Initiative Reviews",
     description:
-      "Clear decisions, buildable scope and practical delivery plans for AI, technical products and emerging technology.",
+      "Test the case behind an AI or software initiative before the next commitment.",
     type: "website",
     locale: "en_GB",
     url: "/",
-    siteName: "Marc Paul",
+    siteName: "Marc Paul — Decision Integrity Practice",
     images: [
       {
-        url: "/images/advisory-working-session.jpg",
+        url: "/images/marc-paul-hero.png",
         width: 1672,
         height: 941,
-        alt: "A small team reviewing technical system diagrams during a working session"
+        alt: "Marc Paul speaking about technology decisions"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marc Paul | Independent Technical & AI Advisor",
-    description:
-      "AI strategy, product direction, agentic systems and technical review for teams making difficult technology decisions.",
-    images: ["/images/advisory-working-session.jpg"]
+    title: "Marc Paul | Independent AI & Software Initiative Reviews",
+    description: "Test the case behind an AI or software initiative before the next commitment.",
+    images: ["/images/advisory-working-session.png"]
   },
   icons: {
-    icon: "/favicon.svg"
+    icon: "/favicon.ico"
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f3f4ee",
+  themeColor: "#f2f1eb",
   colorScheme: "light"
 };
 
@@ -81,9 +78,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <ContactModalProvider>{children}</ContactModalProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <GlobalStyles />
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
+        <SiteHeader />
+        <FloatingReviewCta />
+        {children}
+        <SiteFooter />
         <Analytics />
         <SpeedInsights />
       </body>

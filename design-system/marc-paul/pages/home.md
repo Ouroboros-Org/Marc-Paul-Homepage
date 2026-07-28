@@ -1,33 +1,29 @@
 # Home page override
 
-This file overrides the generated `MASTER.md` where the reference media and portfolio positioning require a more specific direction.
+## Page order
 
-## Pattern
+1. Dark contained hero: service descriptor, primary statement, qualification CTA, interactive decision cube
+2. Decision moments
+3. Independent Initiative Review
+4. Three engagements
+5. Decision package
+6. Buyer situations
+7. AI-specific review
+8. Buyers
+9. Independence
+10. Relevant experience
+11. Current writing
+12. FAQ and final CTA
 
-Use a product-canvas portfolio rather than a traditional personal-brand hero:
+## Home-specific rules
 
-1. Contained dark workspace hero with live 3D system
-2. Service grid written around client decisions
-3. Natural working-session image with concrete engagement outputs
-4. Working principle feature panel
-5. Method cards and engagement formats
-6. Selected-experience artifacts
-7. Distant TEDx proof and published writing
-8. Search-oriented FAQ
-9. Low-friction contact panel
-
-## Style override
-
-- Light-first neutral page with contained dark surfaces
-- Framer-like layout precision: fluid stacks, consistent grids, restrained motion
-- Replit-like artifact hierarchy: tasks, systems and outputs before biography
-- Soft 20–30px radii rather than the master system’s thick neo-brutalist borders
-- Muted clay is the action signal; sage is reserved for status and system health
-- Photography stays out of the hero and appears only where it provides process or proof context
-
-## Accessibility and responsive rules
-
-- Default styles are mobile-first
-- Reflow at content-driven breakpoints near 560px, 780px and 1120px
-- Preserve 44px targets, clear focus rings and sequential heading order
-- Disable nonessential transforms and continuous WebGL animation under reduced motion
+- Keep the portrait below the service, outputs, situations, and independence sections.
+- The black Rubik's Cube is an explicit visual exception for the home hero: one orange corner, restrained surrounding particles, legal scramble-and-solve moves, and user-controlled rotation.
+- Keep the cube above the dark panel surface but below hero copy, buttons, the global review CTA, and the site header.
+- Do not show a visible interaction hint. Keep instructions available to assistive technology and support arrow-key rotation.
+- Pause WebGL rendering off-screen and while the document is hidden. Under reduced motion, stop automatic cube and particle movement while retaining deliberate interaction.
+- Give the primary service more weight than the two follow-on engagements.
+- Keep methodology off the hero and link to the Approach page for detail.
+- Use the black refractive pill CTA system for primary and secondary actions; keep the label and icon constant across states.
+- The global review CTA stays compact at rest and expands only during active scrolling, hover, or keyboard focus. Remove the expansion transition and refractive effect under reduced motion.
+- Preserve the same Reviews, Evidence, Practice, and Contact disclosure hierarchy used on every route.

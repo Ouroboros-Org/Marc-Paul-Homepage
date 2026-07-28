@@ -30,9 +30,7 @@ export function Navigation() {
     <header className="site-header">
       <div className="shell nav-shell">
         <a className="brand" href="#top" aria-label="Marc Paul, home">
-          <span className="brand-mark" aria-hidden="true">
-            MP
-          </span>
+          <img className="brand-mark" aria-hidden="true" src="/logo/logo-black-small.png" alt="Marc Paul logo" />
           <span className="brand-name">Marc Paul</span>
         </a>
 
