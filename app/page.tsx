@@ -103,10 +103,12 @@ export default function Home() {
           <div className="home-hero-copy">
             <p className="eyebrow"><span aria-hidden="true" />Independent Initiative Review for AI and software</p>
             <h1 id="home-title">
-              Get an independent opinion <br /><em>before you commit.</em>
+              An independent opinion <br />
+              <em>before you commit.</em>
             </h1>
             <p className="home-hero-lede">
-              Marc Paul reviews one defined initiative before approval, funding, production, scale, or continuation. In 5–10 working days, you receive a written opinion to proceed, add conditions, stage the commitment, rework the case, pause, or stop.
+              Reviewing initiatives before approval, funding, production, scale, or continuation. <br />
+              Get the right framing, written opinion to proceed, add conditions, stage the commitment, rework the case, pause, or stop.
             </p>
             <div className="hero-actions">
               <Button

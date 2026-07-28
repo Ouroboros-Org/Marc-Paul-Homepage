@@ -246,7 +246,7 @@ export function SiteHeader() {
           aria-label="Marc Paul / Decision Integrity Practice, home"
           onClick={closeNavigation}
         >
-          <img className="brand-mark" aria-hidden="true" src="/logo/logo-black-small.png" alt="Marc Paul logo" />
+          <img className="brand-mark" aria-hidden="true" src="/logo/logo-compact-black-small.png" alt="Marc Paul logo" />
           <span className="brand-name">
             <span>Marc Paul</span>
             <span className="brand-divider" aria-hidden="true">

@@ -1133,11 +1133,11 @@ body[data-menu-open="true"] .floating-review-cta,
   outline: none;
 }
 
-.rubiks-blob-fallback {
+.rubiks-blob-background {
   position: absolute;
   z-index: 0;
   inset: 8% 6%;
-  overflow: hidden;
+  overflow: visible;
   opacity: 1;
   pointer-events: none;
   transition: opacity 220ms ease-out;
@@ -1200,24 +1200,24 @@ body[data-menu-open="true"] .floating-review-cta,
 
 @keyframes rubiks-blob-drift {
   0% {
-    opacity: 0.55;
+    opacity: 0.35;
     transform: translate3d(0, 0, 0) scale(1);
   }
 
   50% {
-    opacity: 0.9;
+    opacity: 0.7;
     transform: translate3d(4%, -5%, 0) scale(1.08);
   }
 
   100% {
-    opacity: 0.65;
+    opacity: 0.45;
     transform: translate3d(-5%, 3%, 0) scale(0.96);
   }
 }
 
-.rubiks-cube-frame[data-webgl="ready"] .rubiks-blob-fallback {
+/* .rubiks-cube-frame[data-webgl="ready"] .rubiks-blob-fallback {
   opacity: 0;
-}
+} */
 
 .rubiks-cube-frame[data-webgl="unavailable"] .rubiks-cube-canvas {
   display: none;

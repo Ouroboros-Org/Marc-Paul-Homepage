@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef } from "react";
 import type {
   Group,
-  Mesh,
+  Material,
   Points,
   Scene,
   Vector3,
@@ -22,7 +22,7 @@ type Move = {
 
 type ActiveMove = Move & {
   pivot: Group;
-  selected: Mesh[];
+  selected: Group[];
   start: number;
 };
 
@@ -122,6 +122,25 @@ export function InteractiveRubiksCube() {
         scene.environmentIntensity = 0.28;
         pmrem.dispose();
 
+
+        function addAreaLight(
+          color: number,
+          intensity: number,
+          width: number,
+          height: number,
+          position: InstanceType<typeof THREE.Vector3>
+        ) {
+          const light = new THREE.RectAreaLight(color, intensity, width, height);
+          light.position.copy(position);
+          light.lookAt(0, 0, 0);
+          scene!.add(light);
+          return light;
+        }
+        addAreaLight(0xffffff, 6.4, 6.2, 0.42, new THREE.Vector3(-3.65, 6.1, 4.75));
+        addAreaLight(0xf5f9ff, 5.2, 0.35, 6.4, new THREE.Vector3(5.65, 1.25, 2.7));
+        addAreaLight(0xaab0b8, 3.1, 5.2, 0.8, new THREE.Vector3(-5.1, -1.2, 4.75));
+        addAreaLight(0xffffff, 3.4, 0.65, 5.5, new THREE.Vector3(-4.15, 2.7, -5.55));
+
         const key = new THREE.DirectionalLight(0xf2efe8, 1.55);
         key.position.set(4.5, 7, 5.5);
         key.castShadow = true;
@@ -144,6 +163,8 @@ export function InteractiveRubiksCube() {
         scene.add(fill);
         scene.add(new THREE.HemisphereLight(0xb8bbb4, 0x080908, 0.35));
 
+        const width = Math.max(1, activeFrame.clientWidth);
+
         const floorGeometry = new THREE.PlaneGeometry(30, 30);
         const floorMaterial = new THREE.ShadowMaterial({
           color: 0x000000,
@@ -151,7 +172,7 @@ export function InteractiveRubiksCube() {
         });
         const floor = new THREE.Mesh(floorGeometry, floorMaterial);
         floor.rotation.x = -Math.PI / 2;
-        floor.position.y = -6.35;
+        floor.position.y = width < 560 ? -3.35 : -6.35;
         floor.receiveShadow = true;
         scene.add(floor);
 
@@ -160,66 +181,254 @@ export function InteractiveRubiksCube() {
         cubeRoot.add(cubeGroup);
         scene.add(cubeRoot);
 
-        const sandpaperMap = (() => {
-          const size = 32;
-          const data = new Uint8Array(size * size);
-          let seed = 90210;
-          const random = () => {
-            seed = (seed * 16807) % 2147483647;
-            return (seed - 1) / 2147483646;
-          };
-          for (let index = 0; index < data.length; index += 1) {
-            data[index] = Math.floor(110 + random() * 110);
-          }
-          const texture = new THREE.DataTexture(data, size, size, THREE.RedFormat);
+        const texturePaths = [
+          "/textures/rubiks/perforated-metal.webp",
+          "/textures/rubiks/black-marble.webp",
+          "/textures/rubiks/brushed-gunmetal.webp",
+          "/textures/rubiks/polished-steel.webp"
+        ] as const;
+        const textureLoader = new THREE.TextureLoader();
+        const finishTextures = await Promise.all(
+          texturePaths.map((path) => textureLoader.loadAsync(path))
+        );
+
+        if (disposed) {
+          finishTextures.forEach((texture) => texture.dispose());
+          return;
+        }
+
+        finishTextures.forEach((texture, i) => {
+          texture.colorSpace = THREE.SRGBColorSpace;
           texture.wrapS = THREE.RepeatWrapping;
           texture.wrapT = THREE.RepeatWrapping;
-          texture.repeat.set(3.2, 3.2);
-          texture.needsUpdate = true;
-          return texture;
-        })();
+          texture.minFilter = THREE.LinearMipmapLinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          texture.generateMipmaps = true;
+          texture.anisotropy = Math.min(
+            4,
+            renderer!.capabilities.getMaxAnisotropy()
+          );
+          // Make rotation deterministic: pseudo-random but dependent on index
+          const n = i % 4; // yields 0,1,2,3, or use any other function of i for variety
+          texture.rotation = n * (Math.PI / 2);
+          texture.center.set(0.5, 0.5);
+        });
+
+
+
+        const [perforated, marble, brushed, polished] = finishTextures;
+
+        function createSurfaceMaterial(
+          map: (typeof finishTextures)[number],
+          roughness: number,
+          metalness: number,
+          bumpScale: number,
+          color = 0xffffff
+        ) {
+          return new THREE.MeshStandardMaterial({
+            color,
+            map,
+            bumpMap: map,
+            bumpScale,
+            roughness,
+            metalness,
+            envMapIntensity: 0.72,
+            dithering: true,
+          });
+        }
+
+        // Dotted and marble faces stay occasional accents; most panels use the
+        // same dark metals at different polishing levels.
+        const panelMaterials = [
+          createSurfaceMaterial(perforated, 0.4, 0.78, 0.028),
+          createSurfaceMaterial(marble, 0.52, 0.12, 0.008),
+          createSurfaceMaterial(brushed, 0.96, 0.6, 0.012),
+          createSurfaceMaterial(brushed, 0.7, 0.66, 0.008),
+          createSurfaceMaterial(polished, 0.38, 0.74, 0.5),
+          createSurfaceMaterial(polished, 0.28, 0.82, 0.6)
+
+        ];
+        const bodyMaterials = [
+          createSurfaceMaterial(brushed, 0.82, 0.78, 0.007, 0xc7c9ca),
+          createSurfaceMaterial(brushed, 0.62, 0.84, 0.006, 0xb8bbbd),
+          createSurfaceMaterial(polished, 0.44, 0.88, 0.003, 0xb4b6b8)
+        ];
+        const orangeMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0xbf411a,
+          metalness: 0.54,
+          roughness: 0.56,
+          sheen: 0.1,
+          sheenRoughness: 0.8,
+          sheenColor: 0xbf411a,
+          emissive: 0xbf411a,
+          emissiveIntensity: 0.5,
+        });
+        const surfaceMaterials: Material[] = [
+          ...panelMaterials,
+          ...bodyMaterials,
+          orangeMaterial
+        ];
+
+        function stableHash(x: number, y: number, z: number, face = 0) {
+          return Math.abs(
+            (x + 2) * 73 + (y + 2) * 137 + (z + 2) * 211 + face * 47
+          );
+        }
+
+        function variantUnit(hash: number, offset = 0) {
+          return (
+            ((Math.sin(hash * 12.9898 + offset * 78.233) * 43758.5453) %
+              1) +
+            1
+          ) % 1;
+        }
+
+        function faceVariant(x: number, y: number, z: number, face: number) {
+          const hash = stableHash(x, y, z, face);
+          return {
+            baseScale: 0.965 + variantUnit(hash, 1) * 0.07,
+            baseInset: variantUnit(hash, 4) * 0.004
+          };
+        }
+
+        function makeBodyMaterial(
+          x: number,
+          y: number,
+          z: number,
+          orange: boolean
+        ) {
+          if (orange) return orangeMaterial;
+          return bodyMaterials[stableHash(x, y, z, 9) % bodyMaterials.length];
+        }
+
+        function makePanelBaseMaterial(
+          x: number,
+          y: number,
+          z: number,
+          face: number
+        ) {
+          return panelMaterials[
+            stableHash(x, y, z, face) % panelMaterials.length
+          ];
+        }
 
         const cubieSize = 0.92;
-        const spacing = cubieSize + 0.35;
-        const geometry = new RoundedBoxGeometry(cubieSize, cubieSize, cubieSize, 6, 0.04);
-        const blackMaterial = new THREE.MeshPhysicalMaterial({
-          color: 0x121412,
-          metalness: 0.25,
-          roughness: 0.55,
-          clearcoat: 0.1,
-          clearcoatRoughness: 0.3,
-          // bumpMap: sandpaperMap,
-          // bumpScale: 0.4,
-          envMapIntensity: 0.28
-        });
-        const orangeMaterial = new THREE.MeshPhysicalMaterial({
-          color: 0xff5722,
-          metalness: 0,
-          roughness: 0.98,
-          bumpMap: sandpaperMap,
-          bumpScale: 0.045,
-          envMapIntensity: 0.12
-        });
+        const spacing = cubieSize + 0.015;
+        const panelBaseSize = 0.82;
+        const panelBaseDepth = 0.045;
+        const panelBaseOffset = cubieSize * 0.5 - 0.022;
 
-        const cubies: Mesh[] = [];
+        const cubieGeometry = new RoundedBoxGeometry(
+          cubieSize,
+          cubieSize,
+          cubieSize,
+          6,
+          0.06
+        );
+        const panelBaseGeometry = new RoundedBoxGeometry(
+          panelBaseSize,
+          panelBaseSize,
+          panelBaseDepth,
+          6,
+          0.064
+        );
+
+        const faceTransforms: Array<{
+          axis: "x" | "y" | "z";
+          sign: number;
+          rotation: [number, number, number];
+        }> = [
+            { axis: "x", sign: 1, rotation: [0, Math.PI / 2, 0] },
+            { axis: "x", sign: -1, rotation: [0, -Math.PI / 2, 0] },
+            { axis: "y", sign: 1, rotation: [-Math.PI / 2, 0, 0] },
+            { axis: "y", sign: -1, rotation: [Math.PI / 2, 0, 0] },
+            { axis: "z", sign: 1, rotation: [0, 0, 0] },
+            { axis: "z", sign: -1, rotation: [0, Math.PI, 0] }
+          ];
+
+        const cubies: Group[] = [];
+
         for (let x = -1; x <= 1; x += 1) {
           for (let y = -1; y <= 1; y += 1) {
             for (let z = -1; z <= 1; z += 1) {
               if (x === 0 && y === 0 && z === 0) continue;
 
-              const material = x === 1 && y === 1 && z === 1
-                ? orangeMaterial
-                : blackMaterial;
-              const cubie = new THREE.Mesh(geometry, material);
+              const isOrangeCorner = x === 1 && y === 1 && z === 1;
+              const cubie = new THREE.Group();
               cubie.position.set(x * spacing, y * spacing, z * spacing);
-              cubie.castShadow = true;
-              cubie.receiveShadow = true;
               cubie.userData.coord = new THREE.Vector3(x, y, z);
+              const orangeCubieGeometry = new RoundedBoxGeometry(
+                cubieSize,
+                cubieSize,
+                cubieSize,
+                6,
+                0.04
+              );
+              const bodyMaterial = makeBodyMaterial(x, y, z, isOrangeCorner);
+              const body = new THREE.Mesh(isOrangeCorner ? orangeCubieGeometry : cubieGeometry, bodyMaterial);
+              body.castShadow = true;
+              body.receiveShadow = true;
+              cubie.add(body);
+
+              faceTransforms.forEach((face, faceIndex) => {
+                const coord = { x, y, z }[face.axis];
+                if (coord !== face.sign) return;
+                if (isOrangeCorner) return;
+
+                const variant = faceVariant(x, y, z, faceIndex);
+
+                const baseMaterial = makePanelBaseMaterial(x, y, z, faceIndex);
+                const basePanel = new THREE.Mesh(panelBaseGeometry, baseMaterial);
+                basePanel.position[face.axis] =
+                  face.sign * (panelBaseOffset + variant.baseInset);
+                basePanel.rotation.set(...face.rotation);
+                basePanel.scale.set(variant.baseScale, variant.baseScale, 1);
+                basePanel.castShadow = true;
+                basePanel.receiveShadow = true;
+                cubie.add(basePanel);
+              });
+
               cubies.push(cubie);
               cubeGroup.add(cubie);
             }
           }
         }
+
+        function createSoftParticleTexture() {
+          const size = 32;
+          const data = new Uint8Array(size * size * 4);
+          const center = (size - 1) * 0.5;
+          const radius = size * 0.5;
+
+          for (let y = 0; y < size; y += 1) {
+            for (let x = 0; x < size; x += 1) {
+              const distance = Math.hypot(x - center, y - center) / radius;
+              const falloff = THREE.MathUtils.clamp(1 - distance, 0, 1);
+              const alpha = falloff * falloff * (3 - 2 * falloff);
+              const offset = (y * size + x) * 4;
+              data[offset] = 255;
+              data[offset + 1] = 255;
+              data[offset + 2] = 255;
+              data[offset + 3] = Math.round(alpha * 255);
+            }
+          }
+
+          const texture = new THREE.DataTexture(
+            data,
+            size,
+            size,
+            THREE.RGBAFormat,
+            THREE.UnsignedByteType
+          );
+          texture.colorSpace = THREE.NoColorSpace;
+          texture.minFilter = THREE.LinearMipmapLinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          texture.generateMipmaps = true;
+          texture.needsUpdate = true;
+          return texture;
+        }
+
+        const particleTexture = createSoftParticleTexture();
 
         function createParticles(
           count: number,
@@ -251,8 +460,10 @@ export function InteractiveRubiksCube() {
           const particleMaterial = new THREE.PointsMaterial({
             color,
             size,
+            map: particleTexture,
             transparent: true,
             opacity,
+            alphaTest: 0.01,
             depthWrite: false,
             blending: THREE.AdditiveBlending,
             sizeAttenuation: true
@@ -316,7 +527,7 @@ export function InteractiveRubiksCube() {
           activeMove = { ...move, pivot, selected, start: now };
         }
 
-        function snapCubie(cubie: Mesh) {
+        function snapCubie(cubie: Group) {
           cubie.position.set(
             Math.round(cubie.position.x / spacing) * spacing,
             Math.round(cubie.position.y / spacing) * spacing,
@@ -383,7 +594,6 @@ export function InteractiveRubiksCube() {
         let ambientYaw = 0.52;
         let manualYaw = 0;
         let manualPitch = 0;
-        let userActiveUntil = 0;
         let draggingPointer: number | null = null;
         let lastPointerX = 0;
         let lastPointerY = 0;
@@ -431,11 +641,9 @@ export function InteractiveRubiksCube() {
           const delta = Math.min((now - lastFrameTime) / 1000, 0.05);
           lastFrameTime = now;
 
-          if (now >= userActiveUntil) {
-            timelineTime += delta * 1000;
-            advanceChoreography(timelineTime);
-            ambientYaw += delta * 0.105;
-          }
+          timelineTime += delta * 1000;
+          advanceChoreography(timelineTime);
+          ambientYaw += delta * 0.105;
 
           cubeRoot!.rotation.y = ambientYaw + manualYaw;
           cubeRoot!.rotation.x =
@@ -490,7 +698,6 @@ export function InteractiveRubiksCube() {
           pointerStartX = event.clientX;
           pointerStartY = event.clientY;
           horizontalTouchDrag = event.pointerType === "mouse";
-          userActiveUntil = Number.POSITIVE_INFINITY;
           activeCanvas.dataset.dragging = "true";
           activeCanvas.focus({ preventScroll: true });
           if (event.pointerType === "mouse") {
@@ -534,7 +741,6 @@ export function InteractiveRubiksCube() {
           }
           draggingPointer = null;
           horizontalTouchDrag = false;
-          userActiveUntil = performance.now() + 1500;
           delete activeCanvas.dataset.dragging;
         }
 
@@ -554,7 +760,6 @@ export function InteractiveRubiksCube() {
           }
 
           event.preventDefault();
-          userActiveUntil = performance.now() + 1500;
           renderScene();
         }
 
@@ -588,10 +793,11 @@ export function InteractiveRubiksCube() {
           activeCanvas.removeEventListener("keydown", onKeyDown);
           floorGeometry.dispose();
           floorMaterial.dispose();
-          geometry.dispose();
-          sandpaperMap.dispose();
-          blackMaterial.dispose();
-          orangeMaterial.dispose();
+          cubieGeometry.dispose();
+          panelBaseGeometry.dispose();
+          finishTextures.forEach((texture) => texture.dispose());
+          particleTexture.dispose();
+          surfaceMaterials.forEach((material) => material.dispose());
           room.traverse((object) => {
             if (!(object instanceof THREE.Mesh)) return;
             object.geometry.dispose();
@@ -641,7 +847,7 @@ export function InteractiveRubiksCube() {
   return (
     <div className="hero-cube-stage">
       <div className="rubiks-cube-frame" ref={frameRef}>
-        <div className="rubiks-blob-fallback" aria-hidden="true">
+        <div className="rubiks-blob-background" aria-hidden="true">
           <span className="rubiks-blob rubiks-blob--one" />
           <span className="rubiks-blob rubiks-blob--two" />
           <span className="rubiks-blob rubiks-blob--three" />
