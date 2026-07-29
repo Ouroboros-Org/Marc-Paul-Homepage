@@ -3,7 +3,6 @@
 import { useEffect, useId, useRef } from "react";
 import type {
   Group,
-  Material,
   Points,
   Scene,
   Vector3,
@@ -86,9 +85,12 @@ export function InteractiveRubiksCube() {
     async function initialise() {
       try {
         const THREE = await import("three");
-        const [{ RoundedBoxGeometry }, { RoomEnvironment }] = await Promise.all([
+        const [
+          { RoundedBoxGeometry },
+          { RectAreaLightUniformsLib }
+        ] = await Promise.all([
           import("three/addons/geometries/RoundedBoxGeometry.js"),
-          import("three/addons/environments/RoomEnvironment.js")
+          import("three/addons/lights/RectAreaLightUniformsLib.js")
         ]);
 
         if (disposed || !frameRef.current || !canvasRef.current) return;
@@ -111,70 +113,170 @@ export function InteractiveRubiksCube() {
         });
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 0.92;
+        renderer.toneMappingExposure = 1.44;
         renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.shadowMap.type = THREE.VSMShadowMap;
+
+        RectAreaLightUniformsLib.init();
+
+        const focus = new THREE.Vector3(0, 0, 0);
+        const view = new THREE.Vector3()
+          .subVectors(camera.position, focus)
+          .normalize();
+        const camRight = new THREE.Vector3()
+          .crossVectors(view, new THREE.Vector3(0, 1, 0))
+          .normalize();
+        const camUp = new THREE.Vector3().crossVectors(camRight, view).normalize();
+
+        // Dark studio probe: only slim strips so IBL speculars stay thin.
+        const room = new THREE.Scene();
+        room.background = new THREE.Color(0x040406);
+        function addEnvStrip(
+          width: number,
+          height: number,
+          intensity: number,
+          position: Vector3
+        ) {
+          const mesh = new THREE.Mesh(
+            new THREE.PlaneGeometry(width, height),
+            new THREE.MeshBasicMaterial({
+              color: new THREE.Color(intensity, intensity, intensity)
+            })
+          );
+          mesh.position.copy(position);
+          mesh.lookAt(0, 0, 0);
+          room.add(mesh);
+        }
+        addEnvStrip(5.5, 0.05, 16, new THREE.Vector3(0, 4.8, 0.8));
+        addEnvStrip(0.08, 5.2, 14, new THREE.Vector3(-3.4, 2.2, -2.6));
+        addEnvStrip(0.08, 4.2, 12, new THREE.Vector3(3.8, 0.6, 2.4));
+        addEnvStrip(3.2, 0.05, 10, new THREE.Vector3(1.2, 3.6, -3.2));
+        // Camera-adjacent lower-right streak in reflections.
+        addEnvStrip(0.06, 2.4, 18, new THREE.Vector3(5.2, 1.2, 6.1));
+        // Softbox / camera top-left streak in reflections.
+        addEnvStrip(0.06, 2.4, 18, new THREE.Vector3(3.6, 5.8, 7.2));
 
         const pmrem = new THREE.PMREMGenerator(renderer);
-        const room = new RoomEnvironment();
-        environmentTarget = pmrem.fromScene(room, 0.04);
+        environmentTarget = pmrem.fromScene(room, 0.005);
         scene.environment = environmentTarget.texture;
-        scene.environmentIntensity = 0.28;
+        scene.environmentIntensity = 0.8;
         pmrem.dispose();
-
 
         function addAreaLight(
           color: number,
           intensity: number,
           width: number,
           height: number,
-          position: InstanceType<typeof THREE.Vector3>
+          position: Vector3
         ) {
           const light = new THREE.RectAreaLight(color, intensity, width, height);
           light.position.copy(position);
-          light.lookAt(0, 0, 0);
+          light.lookAt(focus);
           scene!.add(light);
-          return light;
         }
-        addAreaLight(0xffffff, 6.4, 6.2, 0.42, new THREE.Vector3(-3.65, 6.1, 4.75));
-        addAreaLight(0xf5f9ff, 5.2, 0.35, 6.4, new THREE.Vector3(5.65, 1.25, 2.7));
-        addAreaLight(0xaab0b8, 3.1, 5.2, 0.8, new THREE.Vector3(-5.1, -1.2, 4.75));
-        addAreaLight(0xffffff, 3.4, 0.65, 5.5, new THREE.Vector3(-4.15, 2.7, -5.55));
 
-        const key = new THREE.DirectionalLight(0xf2efe8, 1.55);
-        key.position.set(4.5, 7, 5.5);
+        // One softbox: camera-left, aimed at the cube — carries scene readability.
+        addAreaLight(
+          0xfff4ea,
+          9.8,
+          3.6,
+          4.4,
+          new THREE.Vector3()
+            .copy(camera.position)
+            .addScaledVector(camRight, -3.4)
+            .addScaledVector(camUp, 2.2)
+            .addScaledVector(view, -3.2)
+        );
+
+        // Slim studio strips — crisp specular only.
+        addAreaLight(0xffffff, 20, 4.2, 0.07, new THREE.Vector3(0.1, 6.4, 1.6));
+        addAreaLight(0xffffff, 16, 0.09, 5.4, new THREE.Vector3(-3.6, 3.2, -4.8));
+        addAreaLight(0xffffff, 14, 0.09, 3.6, new THREE.Vector3(4.8, 0.8, 1.4));
+        addAreaLight(0xf2f6ff, 11, 2.8, 0.07, new THREE.Vector3(-0.8, 2.8, -5.2));
+        // Front lower-right stripe, tucked right next to the camera.
+        addAreaLight(
+          0xffffff,
+          24,
+          0.07,
+          2.6,
+          new THREE.Vector3()
+            .copy(camera.position)
+            .addScaledVector(camRight, 1.05)
+            .addScaledVector(camUp, -1.15)
+            .addScaledVector(view, -0.35)
+        );
+        // Top-left stripe beside the softbox / camera.
+        addAreaLight(
+          0xffffff,
+          24,
+          0.07,
+          2.6,
+          new THREE.Vector3()
+            .copy(camera.position)
+            .addScaledVector(camRight, -1.15)
+            .addScaledVector(camUp, 2.2)
+            .addScaledVector(view, -0.4)
+        );
+
+        // Shadow-only directional, aligned with the softbox side.
+        const key = new THREE.DirectionalLight(0xfff4ea, 0.32);
         key.castShadow = true;
-        key.shadow.mapSize.set(1024, 1024);
-        key.shadow.camera.left = -6;
-        key.shadow.camera.right = 6;
-        key.shadow.camera.top = 6;
-        key.shadow.camera.bottom = -6;
-        key.shadow.camera.near = 0.1;
-        key.shadow.camera.far = 20;
-        key.shadow.bias = -0.0004;
+        key.shadow.mapSize.set(768, 768);
+        key.shadow.camera.left = -8;
+        key.shadow.camera.right = 8;
+        key.shadow.camera.top = 8;
+        key.shadow.camera.bottom = -8;
+        key.shadow.camera.near = 1;
+        key.shadow.camera.far = 40;
+        key.shadow.bias = -0.001;
+        key.shadow.normalBias = 0.04;
+        key.shadow.radius = 7;
+        key.shadow.blurSamples = 8;
         scene.add(key);
+        scene.add(key.target);
 
-        const rim = new THREE.DirectionalLight(0xf0e0c1, 0.15);
-        rim.position.set(-10, 2.5, -5);
-        scene.add(rim);
+        // Tiny ambient floor so cavities don't crush to black.
+        scene.add(new THREE.HemisphereLight(0x8e949c, 0x050607, 0.2));
 
-        const fill = new THREE.DirectionalLight(0x6a7368, 0.32);
-        fill.position.set(-3, -1, 4);
-        scene.add(fill);
-        scene.add(new THREE.HemisphereLight(0xb8bbb4, 0x080908, 0.35));
-
-        const width = Math.max(1, activeFrame.clientWidth);
-
-        const floorGeometry = new THREE.PlaneGeometry(30, 30);
-        const floorMaterial = new THREE.ShadowMaterial({
+        const shadowGeometry = new THREE.PlaneGeometry(28, 28);
+        const shadowMaterial = new THREE.ShadowMaterial({
           color: 0x000000,
-          opacity: 0.25
+          opacity: 0.6,
+          side: THREE.DoubleSide
         });
-        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
-        floor.rotation.x = -Math.PI / 2;
-        floor.position.y = width < 560 ? -3.35 : -6.35;
-        floor.receiveShadow = true;
-        scene.add(floor);
+        const shadowCatcher = new THREE.Mesh(shadowGeometry, shadowMaterial);
+        shadowCatcher.receiveShadow = true;
+        scene.add(shadowCatcher);
+
+        function placeShadowCatcher() {
+          // Further back softens and enlarges the cast on the page plane.
+          const depth = activeFrame.clientWidth < 560 ? 3.8 : 4.4;
+          const viewDir = new THREE.Vector3()
+            .subVectors(camera.position, focus)
+            .normalize();
+          const right = new THREE.Vector3()
+            .crossVectors(viewDir, new THREE.Vector3(0, 1, 0))
+            .normalize();
+          const up = new THREE.Vector3().crossVectors(right, viewDir).normalize();
+
+          shadowCatcher.position.copy(viewDir).multiplyScalar(-depth);
+          shadowCatcher.quaternion.setFromUnitVectors(
+            new THREE.Vector3(0, 0, 1),
+            viewDir
+          );
+
+          // Light from below-left → shadow reads up and to the right of the cube.
+          key.position
+            .copy(camera.position)
+            .addScaledVector(up, 3)
+            .addScaledVector(right, 4);
+          key.target.position
+            .copy(focus)
+            .addScaledVector(up, 0.85)
+            .addScaledVector(right, 0.9);
+          key.target.updateMatrixWorld();
+          key.shadow.camera.updateProjectionMatrix();
+        }
 
         cubeRoot = new THREE.Group();
         const cubeGroup = new THREE.Group();
@@ -197,7 +299,7 @@ export function InteractiveRubiksCube() {
           return;
         }
 
-        finishTextures.forEach((texture, i) => {
+        finishTextures.forEach((texture) => {
           texture.colorSpace = THREE.SRGBColorSpace;
           texture.wrapS = THREE.RepeatWrapping;
           texture.wrapT = THREE.RepeatWrapping;
@@ -208,13 +310,7 @@ export function InteractiveRubiksCube() {
             4,
             renderer!.capabilities.getMaxAnisotropy()
           );
-          // Make rotation deterministic: pseudo-random but dependent on index
-          const n = i % 4; // yields 0,1,2,3, or use any other function of i for variety
-          texture.center.set(0.5, 0.5);
-          texture.rotation = n * (Math.PI / 2);
         });
-
-
 
         const [perforated, marble, brushed, polished] = finishTextures;
 
@@ -230,57 +326,42 @@ export function InteractiveRubiksCube() {
           tex.needsUpdate = true;
           tex.center.set(0.5, 0.5);
           tex.rotation = rotation * (Math.PI / 2);
-          return new THREE.MeshStandardMaterial({
+          return new THREE.MeshPhysicalMaterial({
             color,
             map: tex,
             bumpMap: tex,
             bumpScale,
             roughness,
             metalness,
-            envMapIntensity: 0.72,
-            dithering: true,
+            envMapIntensity: 1.45,
+            dithering: true
           });
         }
 
         // Dotted and marble finishes stay occasional accents; most cubies use the
         // same dark metals at different polishing levels.
         const bodyMaterials = [
-          createSurfaceMaterial(perforated, 0.4, 0.78, 0.028),
-          createSurfaceMaterial(perforated, 0.4, 0.78, 0.028, 1),
-          createSurfaceMaterial(marble, 0.52, 0.12, 0.008),
-          createSurfaceMaterial(marble, 0.52, 0.12, 0.008, 3),
-          createSurfaceMaterial(brushed, 0.96, 0.6, 0.012),
-          createSurfaceMaterial(brushed, 0.96, 0.6, 0.012, 2),
-          createSurfaceMaterial(brushed, 0.7, 0.66, 0.008),
-          createSurfaceMaterial(brushed, 0.7, 0.66, 0.008, 1),
-          createSurfaceMaterial(polished, 0.38, 0.74, 0.5),
-          createSurfaceMaterial(polished, 0.38, 0.74, 0.5, 3),
-          createSurfaceMaterial(polished, 0.28, 0.82, 0.6),
-          createSurfaceMaterial(polished, 0.28, 0.82, 0.6, 1)
+          createSurfaceMaterial(perforated, 0.42, 0.62, 0.045, 0, 0xd8d8d8),
+          createSurfaceMaterial(perforated, 0.42, 0.62, 0.045, 1, 0xd8d8d8),
+          createSurfaceMaterial(marble, 0.62, 0.18, 0.014, 0, 0xe4e4e4),
+          createSurfaceMaterial(marble, 0.62, 0.18, 0.014, 3, 0xe4e4e4),
+          createSurfaceMaterial(brushed, 0.58, 0.68, 0.28, 0, 0xcfd2d4),
+          createSurfaceMaterial(polished, 0.22, 0.92, 0.55, 0, 0xe8e8e8),
+          createSurfaceMaterial(polished, 0.22, 0.92, 0.55, 3, 0xe8e8e8),
+          createSurfaceMaterial(polished, 0.04, 0.98, 0.62, 0, 0xf0f0f0),
+          createSurfaceMaterial(polished, 0.04, 0.98, 0.62, 1, 0xf0f0f0)
+        ];
 
-        ];
-        const bodyMaterial = new THREE.MeshStandardMaterial({
-          color: 0x121412,
-          roughness: 0.72,
-          metalness: 0.54,
-          envMapIntensity: 0.72,
-          dithering: true,
+        // Flat, saturated digital accent — no clearcoat/sheen, reads graphic
+        // against the lit solid metals.
+        const orangeMaterial = new THREE.MeshStandardMaterial({
+          color: 0xff2a00,
+          emissive: 0xff2a00,
+          emissiveIntensity: 0.45,
+          metalness: 1,
+          roughness: 1,
+          envMapIntensity: 0
         });
-        const orangeMaterial = new THREE.MeshPhysicalMaterial({
-          color: 0xbf411a,
-          metalness: 0.54,
-          roughness: 0.56,
-          sheen: 0.1,
-          sheenRoughness: 0.8,
-          sheenColor: 0xbf411a,
-          emissive: 0xbf411a,
-          emissiveIntensity: 0.5,
-        });
-        const surfaceMaterials: Material[] = [
-          ...bodyMaterials,
-          bodyMaterial,
-          orangeMaterial
-        ];
 
         function stableHash(x: number, y: number, z: number, salt = 0) {
           return Math.abs(
@@ -301,13 +382,13 @@ export function InteractiveRubiksCube() {
         }
 
         const cubieSize = 0.92;
-        const spacing = cubieSize + 0.4;
+        const spacing = cubieSize + 0.01;
 
         const cubieGeometry = new RoundedBoxGeometry(
           cubieSize,
           cubieSize,
           cubieSize,
-          6,
+          16,
           0.045
         );
 
@@ -322,15 +403,9 @@ export function InteractiveRubiksCube() {
               const cubie = new THREE.Group();
               cubie.position.set(x * spacing, y * spacing, z * spacing);
               cubie.userData.coord = new THREE.Vector3(x, y, z);
-              const orangeCubieGeometry = new RoundedBoxGeometry(
-                cubieSize,
-                cubieSize,
-                cubieSize,
-                6,
-                0.035
-              );
+
               const body = new THREE.Mesh(
-                isOrangeCorner ? orangeCubieGeometry : cubieGeometry,
+                cubieGeometry,
                 makeBodyMaterial(isOrangeCorner, x, y, z)
               );
               body.castShadow = true;
@@ -571,7 +646,7 @@ export function InteractiveRubiksCube() {
           camera.updateProjectionMatrix();
           renderer.setPixelRatio(Math.min(window.devicePixelRatio, width < 560 ? 1.5 : 2));
           renderer.setSize(width, height, false);
-          key.shadow.mapSize.set(width < 560 ? 512 : 1024, width < 560 ? 512 : 1024);
+          placeShadowCatcher();
           renderScene();
         }
 
@@ -740,12 +815,16 @@ export function InteractiveRubiksCube() {
           activeCanvas.removeEventListener("pointerup", finishPointerInteraction);
           activeCanvas.removeEventListener("pointercancel", finishPointerInteraction);
           activeCanvas.removeEventListener("keydown", onKeyDown);
-          floorGeometry.dispose();
-          floorMaterial.dispose();
+          shadowGeometry.dispose();
+          shadowMaterial.dispose();
           cubieGeometry.dispose();
           finishTextures.forEach((texture) => texture.dispose());
           particleTexture.dispose();
-          surfaceMaterials.forEach((material) => material.dispose());
+          bodyMaterials.forEach((material) => {
+            material.map?.dispose();
+            material.dispose();
+          });
+          orangeMaterial.dispose();
           room.traverse((object) => {
             if (!(object instanceof THREE.Mesh)) return;
             object.geometry.dispose();
