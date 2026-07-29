@@ -624,6 +624,10 @@ li {
   text-decoration-color: currentColor;
 }
 
+.text-link svg {
+  padding-top: 2px;
+}
+
 .hero-actions,
 .cta-actions,
 .section-link-row {
@@ -1592,7 +1596,6 @@ body[data-menu-open="true"] .floating-review-cta,
 .choice-grid svg,
 .experience-grid svg,
 .case-type-grid svg {
-  margin-bottom: 40px;
   color: var(--accent-dark);
 }
 
