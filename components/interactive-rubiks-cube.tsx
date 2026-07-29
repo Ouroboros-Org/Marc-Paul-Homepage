@@ -242,9 +242,9 @@ export function InteractiveRubiksCube() {
           });
         }
 
-        // Dotted and marble faces stay occasional accents; most panels use the
+        // Dotted and marble finishes stay occasional accents; most cubies use the
         // same dark metals at different polishing levels.
-        const panelMaterials = [
+        const bodyMaterials = [
           createSurfaceMaterial(perforated, 0.4, 0.78, 0.028),
           createSurfaceMaterial(perforated, 0.4, 0.78, 0.028, 1),
           createSurfaceMaterial(marble, 0.52, 0.12, 0.008),
@@ -277,82 +277,39 @@ export function InteractiveRubiksCube() {
           emissiveIntensity: 0.5,
         });
         const surfaceMaterials: Material[] = [
-          ...panelMaterials,
+          ...bodyMaterials,
           bodyMaterial,
           orangeMaterial
         ];
 
-        function stableHash(x: number, y: number, z: number, face = 0) {
+        function stableHash(x: number, y: number, z: number, salt = 0) {
           return Math.abs(
-            (x + 2) * 73 + (y + 2) * 137 + (z + 2) * 211 + face * 47
+            (x + 2) * 73 + (y + 2) * 137 + (z + 2) * 211 + salt * 47
           );
         }
 
-        function variantUnit(hash: number, offset = 0) {
-          return (
-            ((Math.sin(hash * 12.9898 + offset * 78.233) * 43758.5453) %
-              1) +
-            1
-          ) % 1;
-        }
-
-        function faceVariant(x: number, y: number, z: number, face: number) {
-          const hash = stableHash(x, y, z, face);
-          return {
-            baseScale: 0.965 + variantUnit(hash, 1) * 0.07,
-            baseInset: variantUnit(hash, 4) * 0.004
-          };
-        }
-
-        function makeBodyMaterial(orange: boolean) {
-          if (orange) return orangeMaterial;
-          return bodyMaterial;
-        }
-
-        function makePanelBaseMaterial(
+        function makeBodyMaterial(
+          orange: boolean,
           x: number,
           y: number,
-          z: number,
-          face: number
+          z: number
         ) {
-          return panelMaterials[
-            stableHash(x, y, z, face) % panelMaterials.length
+          if (orange) return orangeMaterial;
+          return bodyMaterials[
+            stableHash(x, y, z, x + y + z) % bodyMaterials.length
           ];
         }
 
         const cubieSize = 0.92;
         const spacing = cubieSize + 0.4;
-        const panelBaseSize = 0.82;
-        const panelBaseDepth = 0.045;
-        const panelBaseOffset = cubieSize * 0.5 - 0.022;
 
         const cubieGeometry = new RoundedBoxGeometry(
           cubieSize,
           cubieSize,
           cubieSize,
           6,
-          0.06
+          0.045
         );
-        const panelBaseGeometry = new RoundedBoxGeometry(
-          panelBaseSize,
-          panelBaseSize,
-          panelBaseDepth,
-          6,
-          0.064
-        );
-
-        const faceTransforms: Array<{
-          axis: "x" | "y" | "z";
-          sign: number;
-          rotation: [number, number, number];
-        }> = [
-            { axis: "x", sign: 1, rotation: [0, Math.PI / 2, 0] },
-            { axis: "x", sign: -1, rotation: [0, -Math.PI / 2, 0] },
-            { axis: "y", sign: 1, rotation: [-Math.PI / 2, 0, 0] },
-            { axis: "y", sign: -1, rotation: [Math.PI / 2, 0, 0] },
-            { axis: "z", sign: 1, rotation: [0, 0, 0] },
-            { axis: "z", sign: -1, rotation: [0, Math.PI, 0] }
-          ];
 
         const cubies: Group[] = [];
 
@@ -370,33 +327,15 @@ export function InteractiveRubiksCube() {
                 cubieSize,
                 cubieSize,
                 6,
-                0.04
+                0.035
               );
               const body = new THREE.Mesh(
                 isOrangeCorner ? orangeCubieGeometry : cubieGeometry,
-                makeBodyMaterial(isOrangeCorner)
+                makeBodyMaterial(isOrangeCorner, x, y, z)
               );
               body.castShadow = true;
               body.receiveShadow = true;
               cubie.add(body);
-
-              faceTransforms.forEach((face, faceIndex) => {
-                const coord = { x, y, z }[face.axis];
-                if (coord !== face.sign) return;
-                if (isOrangeCorner) return;
-
-                const variant = faceVariant(x, y, z, faceIndex);
-
-                const baseMaterial = makePanelBaseMaterial(x, y, z, faceIndex);
-                const basePanel = new THREE.Mesh(panelBaseGeometry, baseMaterial);
-                basePanel.position[face.axis] =
-                  face.sign * (panelBaseOffset + variant.baseInset);
-                basePanel.rotation.set(...face.rotation);
-                basePanel.scale.set(variant.baseScale, variant.baseScale, 1);
-                basePanel.castShadow = true;
-                basePanel.receiveShadow = true;
-                cubie.add(basePanel);
-              });
 
               cubies.push(cubie);
               cubeGroup.add(cubie);
@@ -804,7 +743,6 @@ export function InteractiveRubiksCube() {
           floorGeometry.dispose();
           floorMaterial.dispose();
           cubieGeometry.dispose();
-          panelBaseGeometry.dispose();
           finishTextures.forEach((texture) => texture.dispose());
           particleTexture.dispose();
           surfaceMaterials.forEach((material) => material.dispose());
