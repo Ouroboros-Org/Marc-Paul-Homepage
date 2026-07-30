@@ -6,9 +6,9 @@ import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Independent AI Initiative Review for Funding and Scale Decisions",
+  title: "Independent AI Initiative & Production Readiness Review",
   description:
-    "Independent review of an AI business case, pilot-to-production decision, automation programme, or AI product investment before material commitment.",
+    "Independent review of an AI business case, production-readiness decision, automation programme, or AI product investment before funding, deployment, or scale.",
   keywords: [
     "AI initiative review",
     "AI investment review",
@@ -29,27 +29,27 @@ const areas = [
   {
     icon: Bot,
     title: "Problem and capability",
-    text: "I ask whether the problem warrants AI and whether the proposed system can perform the task under ordinary operating conditions."
+    text: "Whether the problem warrants AI and the proposed system can perform the task under ordinary operating conditions."
   },
   {
     icon: Database,
     title: "Evaluation and data",
-    text: "I check whether the evaluation represents actual use, then examine data suitability, permission, access, quality, and upkeep."
+    text: "Whether the evaluation represents actual use, together with data suitability, permission, access, quality, and upkeep."
   },
   {
     icon: UserRoundCheck,
     title: "Human work",
-    text: "I account for review, correction, escalation, support, and service work that remains after deployment, including work omitted from the proposal."
+    text: "Review, correction, escalation, support, and service work that remains after deployment, including work omitted from the proposal."
   },
   {
     icon: CircleDollarSign,
     title: "Production economics",
-    text: "I calculate model, infrastructure, integration, support, monitoring, and oversight costs at the proposed volume and service level."
+    text: "Model, infrastructure, integration, support, monitoring, and oversight costs at the proposed volume and service level."
   },
   {
     icon: ShieldAlert,
     title: "Reliability and containment",
-    text: "I identify which failures matter, how the organisation will detect and correct them, and how far a poor output can travel."
+    text: "Which failures matter, how they will be detected and corrected, and how far an unreliable output can travel."
   }
 ] as const;
 
@@ -72,9 +72,9 @@ export default function AiInitiativeReviewPage() {
     <main id="main-content">
       <StructuredData data={jsonLd} />
       <PageHero
-        eyebrow="Independent Initiative Review / AI application"
-        title="I review the AI investment before funding or scale."
-        lead="I test whether the evidence supports a defined AI funding, production, expansion, or continuation decision. I include the operating work and dependencies that a model demo may leave out."
+        eyebrow="AI investment and production-readiness review"
+        title="Independent AI review before funding, production, or scale."
+        lead="I assess whether the commercial, product, technical, data, operating, and governance evidence supports a defined AI commitment."
         breadcrumbs={[
           { label: "Reviews", href: "/reviews" },
           { label: "AI initiatives" }
@@ -109,11 +109,11 @@ export default function AiInitiativeReviewPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">From pilot to production</p>
-            <h2 id="demo-title">A demo answers a narrow question.</h2>
+            <h2 id="demo-title">A successful pilot does not establish production readiness.</h2>
           </div>
           <div className="prose-block">
-            <p>A convincing demonstration may reveal little about model instability, edge cases, correction work, integration and inference cost, monitoring, legal restrictions, user trust, or responsibility for a wrong output.</p>
-            <p>I test the proposed task under its operating conditions and record what the evidence can support before the organisation commits.</p>
+            <p>Production introduces reliability requirements, edge cases, correction work, integration and inference cost, monitoring, data restrictions, customer impact, and accountability that a limited demonstration may not test.</p>
+            <p>The review assesses the proposed task under its intended operating conditions and sets out what the available evidence supports before the organisation commits.</p>
           </div>
         </div>
       </section>
@@ -122,9 +122,9 @@ export default function AiInitiativeReviewPage() {
         <div className="shell">
           <SectionHeading
             kicker="AI-specific review areas"
-            title="The work around the model belongs in the case."
+            title="The operating model belongs in the investment case."
             id="ai-areas-title"
-            intro={<p>I also cover demand, product fit, delivery, economics, exposure, alternatives, and approval conditions.</p>}
+            intro={<p>The wider review also covers demand, product fit, delivery, economics, exposure, alternatives, and approval conditions.</p>}
           />
           <div className="ai-area-grid">
             {areas.map((area, index) => {
@@ -145,11 +145,11 @@ export default function AiInitiativeReviewPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Dependencies and accountability</p>
-            <h2 id="dependencies-title">I want to know who can change, suspend, or stop the system.</h2>
+            <h2 id="dependencies-title">Control, accountability, and exit conditions must be explicit.</h2>
           </div>
           <div className="prose-block">
-            <p>I treat an agent with tool access much like an external contractor. It needs a clear job, bounded permissions, relevant context, a task record, and someone who checks completion. A flexible system still needs a safe operating space.</p>
-            <p>I also look for named responsibility for performance, incidents, overrides, monitoring, vendor changes, and retirement. Legal, security, privacy, or compliance review may be required; I check whether those questions have owners and evidence, but I do not provide a legal opinion or assurance certification.</p>
+            <p>For AI agents with tool access, role definition, bounded permissions, relevant context, auditability, and accountable oversight are operating requirements. Flexibility does not remove the need for a controlled working boundary.</p>
+            <p>The review also requires named responsibility for performance, incidents, overrides, monitoring, vendor changes, and retirement. Legal, security, privacy, or compliance review may be required; I assess whether those questions have owners and evidence but do not provide legal opinions or assurance certification.</p>
           </div>
         </div>
       </section>
@@ -191,8 +191,8 @@ export default function AiInitiativeReviewPage() {
       </section>
 
       <CtaPanel
-        title="Ask me to review the case before approving AI production scope and cost."
-        text="Send me the decision, current evidence, proposed deployment, and approval date."
+        title="Review the AI case before approving production scope and cost."
+        text="Send the decision, current evidence, proposed deployment, and approval date for an initial fit assessment."
       />
     </main>
   );

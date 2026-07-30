@@ -44,7 +44,7 @@ export function SiteFooter() {
               <small>Decision Integrity Practice</small>
             </span>
           </Link>
-          <p>I provide independent reviews for AI and software decisions where money, delivery time, or customer exposure is at stake.</p>
+          <p>Independent review of AI and software investments before funding, production, scale, or continuation.</p>
           <Button
             className="footer-cta"
             href="/request-a-review"
@@ -81,7 +81,7 @@ export function SiteFooter() {
           <div className="footer-link-group">
             <p className="footer-group-title">Contact</p>
             <div className="footer-links">
-              <Link href="/contact">Contact me</Link>
+              <Link href="/contact">Contact</Link>
               <Link href="/request-a-review">Request a review</Link>
               <a href="mailto:info@marcpaul.tech">info@marcpaul.tech</a>
               <a
@@ -99,7 +99,7 @@ export function SiteFooter() {
 
         <div className="footer-meta">
           <p className="copyright">&copy; {currentYear} Marc Paul</p>
-          <p>I accept no implementation fees or vendor incentives.</p>
+          <p>Independent of implementation fees and vendor incentives.</p>
         </div>
       </div>
     </footer>

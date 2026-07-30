@@ -1,5 +1,11 @@
 import { currentPosts, featuredPosts } from "@/lib/posts";
-import { absoluteUrl, audience, reviews, situations, unsuitableWork } from "@/lib/site";
+import {
+  absoluteUrl,
+  audience,
+  reviews,
+  situations,
+  unsuitableWork,
+} from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -9,7 +15,13 @@ function link(title: string, path: string, note: string) {
 
 export async function GET() {
   const reviewLinks = reviews
-    .map((review) => link(review.title, review.href, `${review.description} Typical fee and timing: ${review.fee}; ${review.duration}.`))
+    .map((review) =>
+      link(
+        review.title,
+        review.href,
+        `${review.description} Typical timing: ${review.duration}.`,
+      ),
+    )
     .join("\n");
 
   const situationLinks = situations
@@ -17,8 +29,8 @@ export async function GET() {
       link(
         situation.title,
         `/situations#${situation.id}`,
-        `${situation.summary} Usual service: ${situation.review}.`
-      )
+        `${situation.summary} Usual service: ${situation.review}.`,
+      ),
     )
     .join("\n");
 
@@ -31,19 +43,21 @@ export async function GET() {
     .map((post) => link(post.title, `/blog/${post.slug}`, post.description))
     .join("\n");
 
-  const audienceNotes = audience.map((item) => `- ${item.title}: ${item.description}`).join("\n");
+  const audienceNotes = audience
+    .map((item) => `- ${item.title}: ${item.description}`)
+    .join("\n");
   const outOfScope = unsuitableWork.map((item) => `- ${item}`).join("\n");
 
   const body = `# Marc Paul: Decision Integrity Practice
 
-> I provide independent reviews of AI and software initiatives before approval, funding, production, or continuation.
+> Independent reviews of AI and software investments before funding, production, scale, or continuation.
 
-I am based in Malta and work with international clients. I do not sell implementation, coaching, audit opinions, legal advice, or investment advice. My primary service is a written independent opinion on a named decision.
+The practice serves founders, boards, investors, finance leaders, and executive sponsors responsible for a material technology commitment. Marc Paul is based in Malta and works with international clients. The primary service is a written independent opinion on one defined decision.
 
 Important distinctions:
 
-- I use an Independent Initiative Review for one defined initiative and the decision attached to it. General strategy and full transaction diligence sit outside the scope.
-- My opinion may support proceeding, adding conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented.
+- An Independent Initiative Review covers one defined initiative and the decision attached to it. General strategy and full transaction diligence sit outside the scope.
+- The opinion may support proceeding, adding conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented.
 - Contact for a general enquiry is ${absoluteUrl("/contact")}. Qualification for a review is ${absoluteUrl("/request-a-review")}. Email: info@marcpaul.tech.
 
 Typical sponsors:
@@ -69,7 +83,7 @@ ${situationLinks}
 
 ${link("Home", "/", "Service offer, review outcomes, audiences, and FAQ.")}
 ${link("Approach", "/approach", "How a review is scoped, evidenced, and reported.")}
-${link("About Marc Paul", "/about", "My background in AI development, product delivery, technical production, and cross-functional leadership.")}
+${link("About Marc Paul", "/about", "Relevant product, technical, delivery, and cross-functional experience; scope and professional independence.")}
 ${link("Sample case", "/cases/sample-ai-pilot", "Illustrative AI pilot-to-production decision record.")}
 ${link("Cases", "/cases", "Evidence and illustrative cases.")}
 
@@ -94,7 +108,7 @@ ${link("Robots", "/robots.txt", "Crawler access policy; AI search and training c
   return new Response(body, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800"
-    }
+      "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+    },
   });
 }

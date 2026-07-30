@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ReviewServicePage, type ServicePageContent } from "@/components/review-service-page";
 
 export const metadata: Metadata = {
-  title: "Decision Case Reconstruction for AI and Software Initiatives",
+  title: "AI & Software Decision Case Reconstruction",
   description:
     "Rebuild an incomplete AI or software investment case before the next approval, funding, or scale decision.",
   alternates: { canonical: "/reviews/decision-case-reconstruction" },
@@ -15,18 +15,17 @@ export const metadata: Metadata = {
 
 const content: ServicePageContent = {
   slug: "decision-case-reconstruction",
-  eyebrow: "Follow-on service / Rebuild the case",
+  eyebrow: "Investment case service / Rebuild the proposal",
   title: "Decision Case Reconstruction",
   lead:
-    "I rebuild a technology proposal whose evidence, scope, economics, delivery plan, or ownership cannot yet support approval.",
+    "A structured reconstruction of an AI or software proposal whose evidence, scope, economics, delivery plan, or ownership cannot yet support approval.",
   status: "Defined proposal / incomplete case",
   duration: "Scoped to the gaps in the case",
-  fee: "$20,000–$35,000",
   decision:
     "What must change, and what evidence is still needed, before this initiative can return for a decision?",
   introduction: [
-    "Ask me to reconstruct the case when the opportunity may be real but the requested scope, timing, product mechanism, resource plan, or return lacks enough support.",
-    "I return a reconstructed decision case, a record of the alternatives and revised scope, a validation plan, and a brief for the next approval point. Management remains responsible for the proposal and final decision."
+    "Use this service when the opportunity may be real but the requested scope, timing, product mechanism, resource plan, or return lacks sufficient support.",
+    "I provide a reconstructed decision case, a record of the alternatives and revised scope, a validation plan, and a brief for the next approval point. Management remains responsible for the proposal and final decision."
   ],
   decisionExamples: [
     "Can a broad AI programme become a defensible first commitment?",
@@ -39,33 +38,33 @@ const content: ServicePageContent = {
   reviewAreas: [
     {
       title: "Decision structure",
-      description: "I separate the problem, solution fit, delivery choice, and timing so each part can be decided on its own evidence."
+      description: "The problem, solution fit, delivery choice, and timing are separated so each part can be assessed on its own evidence."
     },
     {
       title: "Investment logic",
-      description: "I rebuild the link from the problem and proposed mechanism through adoption, capability, operation, economics, and measurable result."
+      description: "The link from problem and proposed mechanism through adoption, capability, operation, economics, and measurable result."
     },
     {
       title: "Credible alternatives",
-      description: "I compare full approval with a smaller version, staged funding, a narrower test, buying, partnering, waiting, the current process, or closure."
+      description: "Comparison of full approval with a smaller version, staged funding, a narrower test, buying, partnering, waiting, the current process, or closure."
     },
     {
       title: "Evidence plan",
-      description: "I specify the evidence needed for the decisive assumptions and keep the validation work proportionate to the commitment."
+      description: "The evidence required for decisive assumptions, with validation work kept proportionate to the proposed commitment."
     },
     {
       title: "Scope and economics",
-      description: "I align the proposed result, technical boundary, resource model, operating cost, timing, and expected return."
+      description: "Alignment of the proposed result, technical boundary, resource model, operating cost, timing, and expected return."
     },
     {
       title: "Conditions and ownership",
-      description: "I give each evidence task, funding gate, stop condition, and next decision a named owner and date."
+      description: "A named owner and date for each evidence task, funding gate, stop condition, and next decision."
     }
   ],
   outputs: [
     {
       title: "Reconstructed decision case",
-      description: "My revised account of the problem, proposed mechanism, evidence, economics, delivery conditions, and exposure."
+      description: "A revised account of the problem, proposed mechanism, evidence, economics, delivery conditions, and exposure."
     },
     {
       title: "Alternative and scope record",
@@ -111,7 +110,7 @@ const content: ServicePageContent = {
     }
   ],
   ctaTitle: "Rebuild the proposal before it returns for a decision.",
-  ctaText: "Send me the decision, the parts of the case that no longer hold, and the date management needs a revised proposal."
+  ctaText: "Send the decision, the parts of the case that no longer hold, and the date management needs a revised proposal."
 };
 
 export default function DecisionCaseReconstructionPage() {

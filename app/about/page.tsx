@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Code2, Layers3, Presentation, UsersRound } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CircleDollarSign, Code2, Layers3, UsersRound } from "lucide-react";
 import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components/site-ui";
-import { TedxVideo } from "@/components/tedx-video";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Marc Paul | Independent AI Initiative Reviewer",
+  title: "Independent Technology Investment Reviewer",
   description:
-    "I bring experience in AI development, product delivery, technical production, immersive systems, and cross-functional leadership to independent review.",
+    "Independent AI and software investment review informed by experience across product, technology, delivery, operations, and cross-functional leadership.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Marc Paul",
-    description: "How my experience in AI development, product delivery, and technical production informs my review work.",
+    description: "The experience, professional boundaries, and independence behind Marc Paul's technology review practice.",
     url: "/about"
   }
 };
@@ -31,9 +30,9 @@ const jsonLd = {
   knowsAbout: [
     "AI development",
     "AI initiative review",
+    "AI production readiness",
     "Software product delivery",
-    "Technical production",
-    "Immersive technology",
+    "Technology business case review",
     "Technology investment decisions"
   ]
 };
@@ -43,9 +42,9 @@ export default function AboutPage() {
     <main id="main-content">
       <StructuredData data={jsonLd} />
       <PageHero
-        eyebrow="About me"
-        title="I review technology decisions from the point where a proposal meets delivery."
-        lead="I conduct independent reviews of AI and software initiatives. I compare the commercial case with the product, technical, and operating conditions needed to make it work."
+        eyebrow="About the practice"
+        title="Independent technology review across the full investment case."
+        lead="I assess material AI and software initiatives for founders, boards, investors, and finance leaders. The work connects commercial logic with product, technical, delivery, and operating evidence."
         breadcrumbs={[{ label: "About" }]}
         actions={
           <>
@@ -79,10 +78,10 @@ export default function AboutPage() {
           </div>
           <div className="prose-block">
             <p className="section-kicker">Relevant background</p>
-            <h2 id="bio-title">I learned early that a convincing prototype can still hide the hardest part.</h2>
-            <p>For my bachelor project, I built a virtual-reality golf-training system in Unity. I attached a Vive tracker to a physical club, worked with full-body tracking, and tested direct feedback on swing angle and direction. It worked at low and medium speeds. A professional swing exposed tracking drift, missed collisions, and physics limits that the earlier tests had not.</p>
-            <p>That experience is close to the work I do now. I have worked across AI and backend development, product and production delivery, learning systems, spatial computing, and real-time experiences. I know how easily a technical result can grow into a broader business claim as it moves from the project team to an approval paper.</p>
-            <p>I am based in Malta and work with international clients. I stay within AI, software, and digital-product decisions connected to my experience, and I bring in or recommend specialists when a question sits outside it.</p>
+            <h2 id="bio-title">A cross-functional perspective on consequential technology decisions.</h2>
+            <p>Technology investments rarely fail within a single discipline. A credible review has to connect the proposed business value with customer evidence, product fit, technical capability, delivery capacity, operating economics, and clear accountability.</p>
+            <p>My background spans AI and software development, product and production delivery, technical operations, and cross-functional leadership. It allows me to examine how a proposal moves from a plausible concept to a funded and operated system, and where assumptions become material commitments.</p>
+            <p>I am based in Malta and work with international clients. The practice stays focused on AI, software, and digital-product decisions. Legal, security, financial, regulatory, or specialist technical work is commissioned separately when required.</p>
           </div>
         </div>
       </section>
@@ -91,30 +90,30 @@ export default function AboutPage() {
         <div className="shell">
           <SectionHeading
             kicker="Relevant experience"
-            title="What I bring to a review."
+            title="Experience that supports the review."
             id="experience-title"
-            intro={<p>I test the commercial claim against what the product, technology, team, and operating environment can support.</p>}
+            intro={<p>The value lies in assessing the initiative as one investment case rather than as separate commercial and technical narratives.</p>}
           />
           <div className="experience-grid">
             <article>
-              <Code2 size={24} strokeWidth={1.5} aria-hidden="true" />
-              <h3>AI and technical development</h3>
-              <p>I have built AI, backend, real-time, and prototype systems. That helps me separate model or prototype performance from dependable product behaviour.</p>
+              <CircleDollarSign size={24} strokeWidth={1.5} aria-hidden="true" />
+              <h3>Commercial and investment logic</h3>
+              <p>Assessment of the intended value, demand evidence, full cost, expected return, alternatives, and conditions attached to further commitment.</p>
             </article>
             <article>
               <Layers3 size={24} strokeWidth={1.5} aria-hidden="true" />
               <h3>Product and production delivery</h3>
-              <p>I have worked across product definition, delivery planning, dependencies, technical trade-offs, and the coordination needed to move from proposal to operation.</p>
+              <p>Experience across product definition, delivery planning, dependencies, technical trade-offs, and the move from proposal to operation.</p>
+            </article>
+            <article>
+              <Code2 size={24} strokeWidth={1.5} aria-hidden="true" />
+              <h3>AI and software systems</h3>
+              <p>Technical experience helps distinguish prototype or model performance from dependable product behaviour under production conditions.</p>
             </article>
             <article>
               <UsersRound size={24} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Cross-functional leadership</h3>
-              <p>I am used to working across leadership, product, design, engineering, and production when ownership or expected outcomes are still unclear.</p>
-            </article>
-            <article>
-              <Presentation size={24} strokeWidth={1.5} aria-hidden="true" />
-              <h3>Public work</h3>
-              <p>I speak and write about AI, emerging technology, decision quality, immersive systems, and the evidence needed before a technical commitment.</p>
+              <h3>Cross-functional accountability</h3>
+              <p>Work across leadership, product, design, engineering, and production helps surface gaps between the approval case and delivery reality.</p>
             </article>
           </div>
         </div>
@@ -123,8 +122,8 @@ export default function AboutPage() {
       <section className="section section-dark" aria-labelledby="practice-title">
         <div className="shell content-split">
           <div>
-            <p className="section-kicker">My role</p>
-            <h2 id="practice-title">I keep the review separate from implementation.</h2>
+            <p className="section-kicker">Professional independence</p>
+            <h2 id="practice-title">Independence is part of the service.</h2>
           </div>
           <div className="prose-block">
             <p>I do not build the system I review, earn implementation fees, sell software, or depend on approval for further work. My commercial interest should not change with the conclusion.</p>
@@ -133,17 +132,6 @@ export default function AboutPage() {
               Read the independence and conduct standard <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="talk-title">
-        <div className="shell talk-grid">
-          <div>
-            <p className="section-kicker">TEDxValletta</p>
-            <h2 id="talk-title">I am curious about what technology makes possible, and skeptical of the shortcut from possible to ready.</h2>
-            <p>In my TEDxValletta talk, I argued for both sides of that coin. Curiosity gets a team moving. Skepticism is the circuit breaker: it creates room to hear concerns, test assumptions, and pause when the evidence changes. I use the same balance in review work.</p>
-          </div>
-          <TedxVideo />
         </div>
       </section>
 

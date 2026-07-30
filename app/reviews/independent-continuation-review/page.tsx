@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ReviewServicePage, type ServicePageContent } from "@/components/review-service-page";
 
 export const metadata: Metadata = {
-  title: "Independent Continuation Review for AI and Software Programmes",
+  title: "AI & Software Continuation Review",
   description:
     "Independent review of whether an active AI or software initiative still justifies more funding, scope, time, or vendor commitment.",
   alternates: { canonical: "/reviews/independent-continuation-review" },
@@ -15,18 +15,17 @@ export const metadata: Metadata = {
 
 const content: ServicePageContent = {
   slug: "independent-continuation-review",
-  eyebrow: "Follow-on service / Review the next release",
+  eyebrow: "Active initiative service / Review the next release",
   title: "Independent Continuation Review",
   lead:
-    "I review an active AI or software initiative before another tranche of money, scope, time, or customer exposure is released.",
+    "Independent reassessment of an active AI or software initiative before another tranche of funding, scope, time, or customer exposure is released.",
   status: "Active initiative / defined review points",
   duration: "Agreed periods and decision gates",
-  fee: "$5,000–$10,000 per month",
   decision:
     "Do the evidence and original conditions justify releasing the next commitment?",
   introduction: [
-    "Ask me to review the initiative at an agreed funding, production, scale, renewal, or continuation gate. I compare the original approval conditions with the evidence gathered since that decision.",
-    "I give you a continuation opinion, a status record for the original conditions, an updated exposure record, and the boundary for the next decision. I remain separate from daily programme management and the delivery team."
+    "Commission the review at an agreed funding, production, scale, renewal, or continuation gate. The original approval conditions are compared with the evidence gathered since that decision.",
+    "I provide a continuation opinion, a status record for the original conditions, an updated exposure record, and the boundary for the next decision. The review remains separate from daily programme management and the delivery team."
   ],
   decisionExamples: [
     "Should the next funding tranche be released after this milestone?",
@@ -39,33 +38,33 @@ const content: ServicePageContent = {
   reviewAreas: [
     {
       title: "Original conditions",
-      description: "I check whether the evidence, assumptions, boundaries, and controls attached to approval still hold."
+      description: "Whether the evidence, assumptions, boundaries, and controls attached to the original approval still hold."
     },
     {
       title: "New evidence",
-      description: "I review delivery, customer, technical, commercial, and operating evidence gathered since the last decision."
+      description: "Delivery, customer, technical, commercial, and operating evidence gathered since the last decision."
     },
     {
       title: "Spending and exposure",
-      description: "I establish whether the commitment remains inside its approved boundary and where new lock-in, customer, or vendor exposure has appeared."
+      description: "Whether the initiative remains inside its approved boundary and where new lock-in, customer, or vendor exposure has appeared."
     },
     {
       title: "Scope and benefit drift",
-      description: "I compare the current work with the intended result and reassess whether the expected benefit remains plausible."
+      description: "Comparison of the current work with the intended result and whether the expected benefit remains plausible."
     },
     {
       title: "Funding and stop conditions",
-      description: "I record which conditions were met, missed, reinterpreted, or overtaken by better evidence."
+      description: "The conditions that were met, missed, reinterpreted, or overtaken by better evidence."
     },
     {
       title: "Next commitment",
-      description: "I define the smallest defensible release of money, scope, time, or exposure and set its next review point."
+      description: "The smallest defensible release of funding, scope, time, or exposure, together with its next review point."
     }
   ],
   outputs: [
     {
       title: "Continuation opinion",
-      description: "My opinion on whether to release, condition, narrow, delay, rework, pause, or withhold the next commitment."
+      description: "A recommendation to release, condition, narrow, delay, rework, pause, or withhold the next commitment."
     },
     {
       title: "Condition status record",
@@ -111,7 +110,7 @@ const content: ServicePageContent = {
     }
   ],
   ctaTitle: "Request an Independent Continuation Review before the next release.",
-  ctaText: "Send me the original approval basis, the initiative's current position, the next commitment, and its decision date."
+  ctaText: "Send the original approval basis, the initiative's current position, the next commitment, and its decision date."
 };
 
 export default function IndependentContinuationReviewPage() {

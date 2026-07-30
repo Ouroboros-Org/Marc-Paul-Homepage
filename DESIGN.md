@@ -39,11 +39,15 @@ Primary and secondary calls to action use one black refractive pill system. Ever
 
 ## Content principles
 
-- Write visible copy in Marc's first-person voice. Use "I" for judgement, scope, experience, and professional limits.
-- Prefer a specific condition, example, or observed failure over a general claim of importance.
-- Keep the tone curious about new technology and skeptical of claims that outrun the test.
+- Lead with the service, decision, commercial question, or deliverable. Marc is the accountable practitioner, not the subject of every section.
+- Use first person selectively for professional judgement, independence, scope boundaries, and direct client interaction. Prefer neutral service language for headings, process steps, review areas, and outputs.
+- Write for founders, boards, investors, finance leaders, and executive sponsors in growth-stage technology companies.
+- Use plain-language search terms where they help the buyer: independent AI review, software investment review, AI production readiness, pilot-to-production review, and technology investment decision.
+- Prefer a specific operating condition or decision consequence over a personal anecdote or general claim of importance.
+- Keep the tone open to new technology and skeptical of claims that outrun the evidence.
 - Name the decision, commitment, evidence, limitation, consequence, and owner.
-- Describe services and outputs before method.
+- Describe the service, buyer fit, outputs, and decision value before method or biography.
+- Include experience only when it explains Marc's ability to assess the commercial, product, technical, delivery, and operating case.
 - Do not claim client outcomes, board use, savings, maturity, or prevented failure without evidence.
 - Label illustrative, public-source, and anonymised cases distinctly.
 - Keep old time-sensitive articles in a dated archive rather than presenting them as current guidance.

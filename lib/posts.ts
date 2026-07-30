@@ -177,11 +177,11 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-review",
-        text: "How I review a production decision",
+        text: "Independent review of a production decision",
       },
       {
         type: "paragraph",
-        text: "I treat the proposed production release as one defined decision. I compare the claimed business result with the product mechanism, test evidence and full operating cost. If management and engineering read the same result differently, I keep both readings visible in the decision record.",
+        text: "The proposed production release is treated as one defined decision. The claimed business result is compared with the product mechanism, test evidence and full operating cost. If management and engineering read the same result differently, both readings remain visible in the decision record.",
       },
       {
         type: "paragraph",
@@ -308,11 +308,11 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-business-case-review",
-        text: "How I review the business case",
+        text: "Independent review of the AI business case",
       },
       {
         type: "paragraph",
-        text: "I address the commitment in the funding paper. I trace the projected return to its supporting claims, check the evidence and compare the proposed plan with available alternatives. I put the funding conditions and any unresolved disagreement in the same decision record.",
+        text: "The review addresses the commitment in the funding paper. It traces the projected return to its supporting claims, tests the evidence and compares the proposed plan with available alternatives. Funding conditions and unresolved disagreement remain in the same decision record.",
       },
       {
         type: "paragraph",
@@ -436,11 +436,11 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-continuation-review",
-        text: "How I review continuation",
+        text: "Independent review of the continuation decision",
       },
       {
         type: "paragraph",
-        text: "I compare the approved initiative with the programme now requesting money. I check the original conditions, evidence gathered during delivery and changes in scope, then price the options still available. Programme management stays with the client team.",
+        text: "The review compares the approved initiative with the programme now requesting money. It tests the original conditions, evidence gathered during delivery and changes in scope, then prices the options still available. Programme management stays with the client team.",
       },
       {
         type: "paragraph",
@@ -450,11 +450,11 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "prototype-is-not-a-product",
-    title: "A prototype is evidence. I do not treat it as a product.",
+    title: "What an AI prototype proves before production",
     description:
-      "I use a prototype for the claim it tested, then shape the next experiment around the production question that remains open.",
+      "How to define the evidence from an AI prototype, identify the production questions that remain open, and scope the next investment decision.",
     dek:
-      "My VR golf prototype worked at ordinary speeds. A professional swing exposed the boundary of that result.",
+      "A prototype can establish technical feasibility under selected conditions. Production readiness requires evidence about ordinary use, operating cost, support, reliability, and control.",
     publishedAt: "2026-06-18",
     displayDate: "18 June 2026",
     updatedAt: "2026-07-30",
@@ -472,15 +472,15 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "For my bachelor project, I built a virtual-reality golf-training system in Unity. I tracked a physical club with an HTC Vive tracker and added feedback on swing angle and direction. At low and medium speeds, the impact system worked well enough to test the training idea.",
+        text: "A prototype is designed to answer a bounded question. It may show that a model can extract fields from a selected document set, generate a useful draft, or complete part of a workflow under supervised conditions.",
       },
       {
         type: "paragraph",
-        text: "Then a professional golfer swung the club. The faster double-pendulum motion exposed tracking drift and missed collisions that my own testing had not. The prototype was still useful; its result was simply narrower than “VR golf works.”",
+        text: "The mistake is to expand that result into a product claim. Technical feasibility under selected conditions does not establish adoption, reliability, operating cost, support capacity, compliance, or dependable performance at production volume.",
       },
       {
         type: "paragraph",
-        text: "I use the same distinction with AI prototypes. A short build can answer whether a system extracts fields from a particular document set or whether a team finds value in a generated draft. Adoption, reliability, support work and margin remain separate questions.",
+        text: "The prototype remains valuable because it narrows uncertainty. The next investment should target the production assumption that still carries the case rather than fund a broad rollout around an untested claim.",
       },
       {
         type: "heading",
@@ -494,7 +494,7 @@ export const posts: readonly Article[] = [
       },
       {
         type: "paragraph",
-        text: "I want the test record to list included cases, work performed outside the interface and any edited output. It should explain how quality was judged and where testing stopped. That boundary determines which funding claim the result can support.",
+        text: "The test record should list included cases, work performed outside the interface and any edited output. It should explain how quality was judged and where testing stopped. That boundary determines which funding claim the result can support.",
       },
       {
         type: "heading",
@@ -542,11 +542,11 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "where-agents-need-boundaries",
-    title: "Define the working boundary of an AI agent.",
+    title: "Define the operating boundary of an AI agent",
     description:
-      "Before I support funding an AI agent, I want its permissions, reversible actions, exception path and suspension owner on record.",
+      "An AI agent investment case should specify permissions, reversible actions, exception handling, auditability, operating cost, and authority to suspend the system.",
     dek:
-      "I treat an agent with tool access much like an external contractor: give it a clear job, a safe workspace and visible limits.",
+      "An agent with tool access needs a defined role, a controlled workspace, visible limits, and accountable oversight.",
     publishedAt: "2026-05-02",
     displayDate: "2 May 2026",
     updatedAt: "2026-07-30",
@@ -564,11 +564,11 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "I find the external-contractor analogy useful. Give the agent a clear brief, the context it needs, a place to keep notes and a task list that shows progress. Then define who reviews the work. Flexibility is useful only when the agent can stay oriented to the job.",
+        text: "The external-contractor analogy is useful. Give the agent a clear brief, the context it needs, a place to keep notes and a task list that shows progress. Then define who reviews the work. Flexibility is useful only when the agent can stay oriented to the job.",
       },
       {
         type: "paragraph",
-        text: "Once the agent can update a record, contact a customer, run code or approve a refund, it has authority inside an operating process. I want that authority specified action by action, including the handoff when the system reaches a limit or leaves a task half-complete.",
+        text: "Once the agent can update a record, contact a customer, run code or approve a refund, it has authority inside an operating process. That authority should be specified action by action, including the handoff when the system reaches a limit or leaves a task half-complete.",
       },
       {
         type: "heading",
@@ -578,7 +578,7 @@ export const posts: readonly Article[] = [
       },
       {
         type: "paragraph",
-        text: "I start with one purpose, a named set of tools and approved data sources. I mark which actions can be undone and which require confirmation. Uncertain cases need a destination, and the operator needs a usable history of what the agent attempted before the handoff.",
+        text: "Start with one purpose, a named set of tools and approved data sources. Mark which actions can be undone and which require confirmation. Uncertain cases need a destination, and the operator needs a usable history of what the agent attempted before the handoff.",
       },
       {
         type: "list",
@@ -634,11 +634,11 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "skepticism-is-a-design-tool",
-    title: "Skepticism is a design tool.",
+    title: "Constructive skepticism improves technology investment decisions",
     description:
-      "I use constructive skepticism to turn broad technology promises into assumptions that can be tested before expensive commitments begin.",
+      "How constructive skepticism turns broad technology promises into testable assumptions, funding conditions, and proportionate commitments.",
     dek:
-      "In my TEDx talk, I called skepticism a circuit breaker. In review work, that means turning concern into a test or a limit.",
+      "Skepticism works as a circuit breaker when it turns concern into a test, a funding condition, or a limit on exposure.",
     publishedAt: "2026-03-11",
     displayDate: "11 March 2026",
     updatedAt: "2026-07-30",
@@ -656,15 +656,15 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "In my TEDxValletta talk, I described curiosity as the spark that gets a team moving and skepticism as the circuit breaker. The phrase matters to me because skepticism should interrupt a risky current, not stop the whole system by default.",
+        text: "Curiosity gets a technology initiative moving. Skepticism acts as the circuit breaker: it should interrupt a risky current without stopping the whole system by default.",
       },
       {
         type: "paragraph",
-        text: "At the funding table, I give skepticism a practical job: identify the conditions on which the proposed result depends. A useful challenge ends with a claim the team can test or a commitment the approver can limit.",
+        text: "At the funding table, skepticism has a practical job: identify the conditions on which the proposed result depends. A useful challenge ends with a claim the team can test or a commitment the approver can limit.",
       },
       {
         type: "paragraph",
-        text: "I write those conditions plainly. The company has permission to use the required data. Staff can handle the system’s errors. Customers will accept the changed workflow. The saving remains after review time is counted. Each statement needs its own evidence.",
+        text: "Write those conditions plainly. The company has permission to use the required data. Staff can handle the system’s errors. Customers will accept the changed workflow. The saving remains after review time is counted. Each statement needs its own evidence.",
       },
       {
         type: "heading",

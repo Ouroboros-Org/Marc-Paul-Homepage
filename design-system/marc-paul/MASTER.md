@@ -6,11 +6,11 @@
 
 - Product: independent professional review service
 - Audience: CEOs, CFOs, founders, boards, investors, and executive sponsors
-- Tone: first person, controlled, serious, technically literate, direct
+- Tone: service-led, controlled, serious, technically literate, direct
 - Density: spacious marketing and long-form reading
 - Motion: restrained and state-based; the interactive home-hero cube is the only continuous illustrative motion
 
-Visible copy uses "I" for professional judgement, experience, scope, and limits. It favours concrete operating conditions over promotional claims and leaves unresolved questions visible.
+Visible copy leads with the buyer's decision, the review service, and the resulting deliverables. First person is reserved for Marc's judgement, independence, scope limits, and direct client interaction. Headings and service descriptions remain professional and neutral. Copy favours concrete operating conditions over promotional claims and leaves unresolved questions visible.
 
 ## Information hierarchy
 

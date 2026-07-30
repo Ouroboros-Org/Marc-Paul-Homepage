@@ -11,7 +11,6 @@ export type ServicePageContent = {
   lead: string;
   status: string;
   duration: string;
-  fee: string;
   decision: string;
   introduction: readonly string[];
   decisionExamples: readonly string[];
@@ -68,10 +67,6 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
               <dt>Timing</dt>
               <dd>{content.duration}</dd>
             </div>
-            <div>
-              <dt>Fee range</dt>
-              <dd>{content.fee}</dd>
-            </div>
           </dl>
         }
       />
@@ -92,7 +87,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Decisions covered"
-            title="Decisions I can address."
+            title="Decisions the review can address."
             id="examples-title"
           />
           <ul className="decision-example-grid">
@@ -110,9 +105,9 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Scope of review"
-            title="What I examine."
+            title="What the review examines."
             id="areas-title"
-            intro={<p>I keep the work tied to the defined commitment. Its depth depends on the available evidence and the exposure involved.</p>}
+            intro={<p>The work remains tied to the defined commitment. Its depth depends on the available evidence and the exposure involved.</p>}
           />
           <div className="review-area-grid">
             {content.reviewAreas.map((area, index) => (
@@ -130,7 +125,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Deliverables"
-            title="What you receive."
+            title="The decision package."
             id="outputs-title"
           />
           <div className="output-list">
@@ -152,7 +147,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell requirements-grid">
           <div>
             <p className="section-kicker">Access and limits</p>
-            <h2 id="access-title">What I need, and what I leave outside the scope.</h2>
+            <h2 id="access-title">Requirements and exclusions.</h2>
           </div>
           <div className="requirements-column">
             <h3><KeyRound size={19} aria-hidden="true" /> What is required</h3>
@@ -175,7 +170,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
 
       <section className="section section-contrast" aria-labelledby="related-title">
         <div className="shell">
-          <SectionHeading kicker="Related services" title="The state of the case determines the service." id="related-title" />
+          <SectionHeading kicker="Related services" title="Choose the next service by decision stage." id="related-title" />
           <div className="related-grid">
             {content.related.map((item) => (
               <Link key={item.href} href={item.href}>

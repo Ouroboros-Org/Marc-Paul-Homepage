@@ -6,12 +6,11 @@ export const primaryReview = {
   title: "Independent Initiative Review",
   label: "Primary engagement",
   description:
-    "I examine one defined AI or software initiative and give a written opinion before the next commitment.",
+    "Independent assessment of one defined AI or software initiative before funding, production, scale, or continuation.",
   decision:
     "Should the organisation proceed, stage the commitment, rework the case, pause, or stop under the evidence available now?",
   duration: "Usually 5 to 10 working days after access is confirmed",
-  fee: "Typical fee: $8,000 to $15,000",
-  href: "/reviews/independent-initiative-review"
+  href: "/reviews/independent-initiative-review",
 } as const;
 
 export const reviews = [
@@ -22,12 +21,11 @@ export const reviews = [
     title: "Decision Case Reconstruction",
     label: "When the current proposal cannot support approval",
     description:
-      "I rebuild the logic, evidence, scope, economics, and ownership of a proposal that may still be viable but is not ready for a decision.",
+      "Reconstruction of the logic, evidence, scope, economics, and ownership of a proposal that is not ready for approval.",
     decision:
       "What would make this a credible, bounded investment case, and what evidence is needed before approval?",
     duration: "Set by the gaps in the existing case",
-    fee: "Typical fee: $20,000 to $35,000",
-    href: "/reviews/decision-case-reconstruction"
+    href: "/reviews/decision-case-reconstruction",
   },
   {
     slug: "independent-continuation-review",
@@ -35,13 +33,12 @@ export const reviews = [
     title: "Independent Continuation Review",
     label: "For initiatives already under way",
     description:
-      "I reassess an active initiative at agreed decision points before more money, scope, time, or customer exposure is released.",
+      "Independent reassessment of an active initiative before another release of funding, scope, time, or customer exposure.",
     decision:
       "Do the original conditions still hold, and should the next commitment be released, narrowed, delayed, or withheld?",
     duration: "Defined review points over an agreed period",
-    fee: "Typical fee: $5,000 to $10,000 per month",
-    href: "/reviews/independent-continuation-review"
-  }
+    href: "/reviews/independent-continuation-review",
+  },
 ] as const;
 
 export const situations = [
@@ -54,10 +51,10 @@ export const situations = [
     signals: [
       "The initiative is difficult to challenge internally",
       "Alternatives received little serious attention",
-      "The proposed commitment will be expensive to reverse"
+      "The proposed commitment will be expensive to reverse",
     ],
     review: "Independent Initiative Review",
-    href: "/reviews/independent-initiative-review"
+    href: "/reviews/independent-initiative-review",
   },
   {
     id: "before-scale",
@@ -68,10 +65,10 @@ export const situations = [
     signals: [
       "Pilot results exclude manual correction or support work",
       "Production economics are still estimates",
-      "Failure detection and ownership remain unclear"
+      "Failure detection and ownership remain unclear",
     ],
     review: "Independent Initiative Review for AI",
-    href: "/reviews/ai-initiative-review"
+    href: "/reviews/ai-initiative-review",
   },
   {
     id: "after-drift",
@@ -82,10 +79,10 @@ export const situations = [
     signals: [
       "More work is being funded without better evidence",
       "The original decision conditions are no longer visible",
-      "Teams debate execution while the investment premise goes untested"
+      "Teams debate execution while the investment premise goes untested",
     ],
     review: "Independent Continuation Review",
-    href: "/reviews/independent-continuation-review"
+    href: "/reviews/independent-continuation-review",
   },
   {
     id: "before-funding",
@@ -96,10 +93,10 @@ export const situations = [
     signals: [
       "Progress reports list activity without evidence of outcomes",
       "The latest request relies on assumptions from an earlier plan",
-      "No one has defined what would justify withholding the next commitment"
+      "No one has defined what would justify withholding the next commitment",
     ],
     review: "Independent Initiative Review",
-    href: "/reviews/independent-initiative-review"
+    href: "/reviews/independent-initiative-review",
   },
   {
     id: "before-restructure",
@@ -110,38 +107,44 @@ export const situations = [
     signals: [
       "A narrower version of the initiative may remain viable",
       "Past spending is influencing the next decision",
-      "Management needs a usable record of why the direction changed"
+      "Management needs a usable record of why the direction changed",
     ],
     review: "Decision Case Reconstruction",
-    href: "/reviews/decision-case-reconstruction"
-  }
+    href: "/reviews/decision-case-reconstruction",
+  },
 ] as const;
 
 export const deliverables = [
   {
     title: "Review opinion",
-    description: "My conclusion, its limits, any conditions attached to it, and the points I could not resolve."
+    description:
+      "A clear recommendation, its limits, any conditions attached to it, and the points that remain unresolved.",
   },
   {
     title: "Decision map",
-    description: "The decision, intended result, proposed commitment, realistic alternatives, and decision owner."
+    description:
+      "The decision, intended result, proposed commitment, realistic alternatives, and decision owner.",
   },
   {
     title: "Assumption record",
-    description: "The claims carrying the case, the evidence for each claim, and the owner of any remaining uncertainty."
+    description:
+      "The claims carrying the case, the evidence for each claim, and the owner of any remaining uncertainty.",
   },
   {
     title: "Exposure record",
-    description: "Potential loss, delay, dependencies, customer impact, and commitments that would be hard to undo."
+    description:
+      "Potential loss, delay, dependencies, customer impact, and commitments that would be hard to undo.",
   },
   {
     title: "Conditions register",
-    description: "Observable requirements for releasing funds, expanding scope, entering production, or stopping."
+    description:
+      "Observable requirements for releasing funds, expanding scope, entering production, or stopping.",
   },
   {
     title: "Decision record",
-    description: "A short account of what was reviewed and decided, including material disagreement and the next review point."
-  }
+    description:
+      "A short account of what was reviewed and decided, including material disagreement and the next review point.",
+  },
 ] as const;
 
 export const reviewOutcomes = [
@@ -150,25 +153,25 @@ export const reviewOutcomes = [
   "Stage the commitment",
   "Rework the case",
   "Pause",
-  "Stop under the current case"
+  "Stop under the current case",
 ] as const;
 
 export const audience = [
   {
     title: "Company leadership",
     description:
-      "CEOs, CFOs, founders, and executive sponsors deciding whether to accept the cost, disruption, or customer exposure attached to an initiative."
+      "Founders, CEOs, CFOs, and executive sponsors in growth-stage technology companies deciding whether the expected value justifies the commitment.",
   },
   {
     title: "Boards and finance leaders",
     description:
-      "Decision-makers who need a clearer basis for approval, staged funding, continuation, or closure than the proposal provides on its own."
+      "Boards and finance leaders seeking a decision-ready view of the evidence, economics, delivery conditions, exposure, and alternatives.",
   },
   {
     title: "Investors",
     description:
-      "Investors examining a defined portfolio-company initiative, follow-on commitment, product reset, or recovery plan. Full transaction diligence remains outside the scope."
-  }
+      "Investors assessing a defined portfolio-company initiative, follow-on commitment, product reset, or recovery plan. Full transaction diligence remains outside scope.",
+  },
 ] as const;
 
 export const unsuitableWork = [
@@ -176,7 +179,7 @@ export const unsuitableWork = [
   "Implementation outsourcing, software development, or recruitment",
   "Source-code review, penetration testing, or security certification",
   "Financial audit, legal opinion, regulatory certification, or investment advice",
-  "Open-ended operational management or a mandate to validate a preferred answer"
+  "Open-ended operational management or a mandate to validate a preferred answer",
 ] as const;
 
 export function absoluteUrl(path = "/") {

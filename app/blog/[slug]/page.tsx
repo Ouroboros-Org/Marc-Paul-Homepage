@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div>
               <span>Related service</span>
               <Link href={post.legacy ? "/about" : "/reviews/independent-initiative-review"}>
-                {post.legacy ? "About me" : "Independent Initiative Review"}
+                {post.legacy ? "About Marc Paul" : "Independent Initiative Review"}
               </Link>
             </div>
           </aside>
@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div>
               <p className="section-kicker">A live decision</p>
               <h2>Review the case before the next commitment.</h2>
-              <p>Send the initiative, the decision due and the deadline. I will reply with a direct view on whether an independent review fits.</p>
+              <p>Send the initiative, the decision due, and the deadline for an initial assessment of review fit.</p>
             </div>
             <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
               Request a review
@@ -170,7 +170,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <header className="section-heading section-heading-stack">
               <div>
                 <p className="section-kicker">Related decision notes</p>
-                <h2 id="related-articles-title">Another note you may find useful.</h2>
+                <h2 id="related-articles-title">Related analysis.</h2>
               </div>
             </header>
             <div className="blog-grid">

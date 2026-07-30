@@ -51,7 +51,7 @@ export default function PrivacyPage() {
 
             <section aria-labelledby="cookies-title">
               <h2 id="cookies-title">Cookies and local storage</h2>
-              <p>I do not intentionally set advertising cookies or create an advertising profile. Third-party content, including the TEDx video, loads only after you choose to play it. Requests made after that point are governed by the provider&apos;s terms.</p>
+              <p>I do not intentionally set advertising cookies or create an advertising profile. Requests to third-party services are governed by the provider&apos;s terms.</p>
             </section>
 
             <section aria-labelledby="retention-title">

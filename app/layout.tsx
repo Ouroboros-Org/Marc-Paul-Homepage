@@ -9,11 +9,11 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marcpaul.tech"),
   title: {
-    default: "Marc Paul | Independent AI & Software Initiative Reviews",
+    default: "Independent AI & Software Investment Reviews | Marc Paul",
     template: "%s | Marc Paul"
   },
   description:
-    "I provide independent reviews of AI and software initiatives before approval, funding, production, or continuation.",
+    "Independent AI and software investment reviews for founders, boards, investors, and finance leaders before funding, production, scale, or continuation.",
   keywords: [
     "independent initiative review",
     "AI initiative review",
@@ -40,26 +40,26 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Marc Paul | Independent AI & Software Initiative Reviews",
+    title: "Independent AI & Software Investment Reviews | Marc Paul",
     description:
-      "I test the case behind an AI or software initiative before the next commitment.",
+      "Independent assessment of the commercial, product, technical, delivery, and operating case behind a material technology commitment.",
     type: "website",
     locale: "en_GB",
     url: "/",
     siteName: "Marc Paul — Decision Integrity Practice",
     images: [
       {
-        url: "/images/marc-paul-tedx-wide.jpg",
+        url: "/images/advisory-working-session.jpg",
         width: 960,
         height: 720,
-        alt: "Marc Paul speaking at TEDx about AI decisions"
+        alt: "Independent review of an AI or software investment decision"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marc Paul | Independent AI & Software Initiative Reviews",
-    description: "I test the case behind an AI or software initiative before the next commitment.",
+    title: "Independent AI & Software Investment Reviews | Marc Paul",
+    description: "Independent assessment before a material AI or software commitment.",
     images: ["/images/advisory-working-session.jpg"]
   },
   icons: {

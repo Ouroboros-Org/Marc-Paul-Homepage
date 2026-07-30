@@ -11,7 +11,7 @@
 7. AI-specific review
 8. Buyers
 9. Independence
-10. Relevant experience
+10. Cross-functional review perspective
 11. Current writing
 12. FAQ and final CTA
 

@@ -7,13 +7,13 @@ import { PageHero } from "@/components/site-ui";
 const directEmailHref = "mailto:info@marcpaul.tech?subject=General%20enquiry";
 
 export const metadata: Metadata = {
-  title: "Contact Marc Paul | Decision Integrity Practice",
+  title: "Contact the Decision Integrity Practice",
   description:
-    "Send me a general enquiry or use the dedicated form to request an independent initiative review.",
+    "Contact Marc Paul about an independent AI or software investment review, or use the dedicated form for a defined initiative and decision.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Marc Paul | Decision Integrity Practice",
-    description: "Send me a general enquiry or start a defined initiative review request.",
+    description: "Send a general enquiry or start a defined AI or software initiative review request.",
     url: "/contact"
   }
 };
@@ -23,8 +23,8 @@ export default function ContactPage() {
     <main id="main-content">
       <PageHero
         eyebrow="Contact"
-        title="Ask me about my work or a possible review."
-        lead="Use this page for a general question. If an AI or software decision already has an owner and deadline, send me a review request instead."
+        title="Contact the practice about a possible review."
+        lead="Use this page for a general enquiry. If an AI or software decision already has an owner and deadline, use the review request instead."
         breadcrumbs={[{ label: "Contact" }]}
         actions={
           <>
@@ -68,7 +68,7 @@ export default function ContactPage() {
         <div className="shell request-layout">
           <aside className="request-sidebar">
             <p className="section-kicker">General contact</p>
-            <h2 id="contact-form-title">Send me a short message.</h2>
+            <h2 id="contact-form-title">Send a short general enquiry.</h2>
             <p>Include your subject and enough context for a useful reply.</p>
             <div className="request-privacy-note">
               <LockKeyhole size={19} strokeWidth={1.5} aria-hidden="true" />
@@ -93,11 +93,11 @@ export default function ContactPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">For a defined decision</p>
-            <h2 id="review-contact-title">Send a review request when a commitment is due.</h2>
+            <h2 id="review-contact-title">Use the review request when a commitment is due.</h2>
           </div>
           <div className="prose-block">
             <p>
-              I ask for the initiative, decision, deadline, commitment, owner, sponsor, and
+              The request covers the initiative, decision, deadline, commitment, owner, sponsor, and
               evidence available. I use that information to assess scope and fit.
             </p>
             <Button

@@ -5,12 +5,12 @@ import { CtaPanel, PageHero, SectionHeading, StructuredData } from "@/components
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Illustrative AI Pilot-to-Production Initiative Review",
+  title: "AI Pilot-to-Production Review: Illustrative Case",
   description:
     "A fictional Independent Initiative Review of a customer-support AI pilot, covering evidence, production economics, alternatives, conditions, and the final opinion.",
   alternates: { canonical: "/cases/sample-ai-pilot" },
   openGraph: {
-    title: "Illustrative AI Pilot-to-Production Initiative Review",
+    title: "AI Pilot-to-Production Review: Illustrative Case",
     description: "A constructed decision record using a fictional company, figures, and circumstances.",
     url: "/cases/sample-ai-pilot"
   }
@@ -60,7 +60,7 @@ export default function SampleAiPilotPage() {
       <PageHero
         eyebrow="Constructed example / Not client work"
         title="Should the company move its customer-support AI pilot into production?"
-        lead="I built this sample to show how I would review a pilot seeking production funding. The company, figures, evidence, and circumstances are fictional."
+        lead="This constructed sample shows how an Independent Initiative Review assesses a pilot seeking production funding. The company, figures, evidence, and circumstances are fictional."
         breadcrumbs={[
           { label: "Cases", href: "/cases" },
           { label: "Illustrative AI Pilot" }
@@ -91,7 +91,7 @@ export default function SampleAiPilotPage() {
       <section className="sample-notice" aria-label="Status of this case">
         <div className="shell">
           <CircleAlert size={19} aria-hidden="true" />
-          <p><strong>This case is entirely fictional.</strong> I use it to show the form of the work. It does not describe a client, a real company, or a completed engagement.</p>
+          <p><strong>This case is entirely fictional.</strong> It shows the form of the work and does not describe a client, a real company, or a completed engagement.</p>
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function SampleAiPilotPage() {
         <div className="shell case-context-grid">
           <div>
             <p className="section-kicker">01 / Context</p>
-            <h2 id="context-title">I start with the commitment behind the positive pilot.</h2>
+            <h2 id="context-title">The review starts with the commitment behind the positive pilot.</h2>
           </div>
           <div className="prose-block">
             <p>A fictional B2B software company tested an AI assistant that drafts replies to routine support requests. Twenty invited agents used it for eight weeks. Average first-response time fell, the agents responded positively, and the executive sponsor now wants production funding.</p>
@@ -118,7 +118,7 @@ export default function SampleAiPilotPage() {
         <div className="shell">
           <SectionHeading
             kicker="02 / Investment case"
-            title="I separate the claims carrying the investment case."
+            title="The claims carrying the investment case are assessed separately."
             id="case-title"
             intro={<p>The expected return depends on usage, correction work, production cost, integration, customer acceptance, and accountable operation. The pilot does not settle all of them.</p>}
           />
@@ -168,7 +168,7 @@ export default function SampleAiPilotPage() {
         <div className="shell exposure-grid">
           <div>
             <p className="section-kicker">04 / Exposure</p>
-            <h2 id="exposure-title">I do not accept the cost case while correction work remains uncounted.</h2>
+            <h2 id="exposure-title">The cost case is incomplete while correction work remains uncounted.</h2>
           </div>
           <div className="prose-block">
             <p>The financial model removes planned hires but leaves out the pilot team&apos;s correction work. Its production saving has therefore not been observed under ordinary operating conditions.</p>
@@ -185,7 +185,7 @@ export default function SampleAiPilotPage() {
 
       <section className="section" aria-labelledby="alternatives-title">
         <div className="shell">
-          <SectionHeading kicker="05 / Alternatives" title="I compare full rollout with options that preserve room to change course." id="alternatives-title" />
+          <SectionHeading kicker="05 / Alternatives" title="Full rollout is compared with options that preserve room to change course." id="alternatives-title" />
           <div className="alternative-grid">
             {[
               ["Full approval", "Release the full budget and sign the proposed vendor contract.", "Evidence does not support it"],
@@ -204,7 +204,7 @@ export default function SampleAiPilotPage() {
 
       <section className="section section-contrast" aria-labelledby="conditions-title">
         <div className="shell">
-          <SectionHeading kicker="06 / Conditions" title="I attach a staged release to evidence from ordinary operations." id="conditions-title" />
+          <SectionHeading kicker="06 / Conditions" title="A staged release is tied to evidence from ordinary operations." id="conditions-title" />
           <div className="conditions-register">
             {[
               ["C-01", "Use", "At least 80% of eligible agents use the workflow each week for six consecutive weeks without dedicated pilot support."],
@@ -238,7 +238,7 @@ export default function SampleAiPilotPage() {
           <div>
             <FileText size={26} strokeWidth={1.5} aria-hidden="true" />
             <p className="section-kicker">07 / Decision record</p>
-            <h2 id="record-title">I would give the decision owner this record.</h2>
+            <h2 id="record-title">The decision owner receives a concise review record.</h2>
           </div>
           <dl>
             <div><dt>Material reviewed</dt><dd>Pilot evidence, production proposal, cost model, vendor terms, evaluation summary, and stakeholder accounts.</dd></div>
@@ -253,7 +253,7 @@ export default function SampleAiPilotPage() {
 
       <CtaPanel
         title="Planning a real pilot-to-production decision?"
-        text="Send the pilot evidence, proposed production commitment, decision owner, and deadline. I will assess whether the case is ready for independent review."
+        text="Send the pilot evidence, proposed production commitment, decision owner, and deadline for an initial review-fit assessment."
       />
     </main>
   );

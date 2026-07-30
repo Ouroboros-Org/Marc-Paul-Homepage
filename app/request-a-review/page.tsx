@@ -5,13 +5,13 @@ import { ReviewRequestForm } from "@/components/review-request-form";
 import { PageHero } from "@/components/site-ui";
 
 export const metadata: Metadata = {
-  title: "Request an Independent AI or Software Initiative Review",
+  title: "Request an Independent AI or Software Review",
   description:
     "Submit an AI or software decision, deadline, requested commitment, evidence, owner, sponsor, and reporting context for independent review.",
   alternates: { canonical: "/request-a-review" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Request an Independent AI or Software Initiative Review",
+    title: "Request an Independent AI or Software Review",
     description: "Send the decision, evidence available, and commitment being considered.",
     url: "/request-a-review"
   }
@@ -22,7 +22,7 @@ export default function RequestReviewPage() {
     <main id="main-content">
       <PageHero
         eyebrow="Request a review"
-        title="Tell me about the decision you need reviewed."
+        title="Request an independent AI or software initiative review."
         lead="I use the information below to assess whether the decision fits an Independent Initiative Review and what access I would need. Submitting the form does not book or begin an engagement."
         breadcrumbs={[{ label: "Request a Review" }]}
         aside={
@@ -45,8 +45,8 @@ export default function RequestReviewPage() {
         <div className="shell request-layout">
           <aside className="request-sidebar">
             <p className="section-kicker">Before submitting</p>
-            <h2 id="form-title">My opinion may disagree with the proposed direction.</h2>
-            <p>I am not the right reviewer when a preferred answer needs confirmation. My opinion may support proceeding, adding conditions, staging, reworking, pausing, or stopping under the current case.</p>
+            <h2 id="form-title">The conclusion is not predetermined.</h2>
+            <p>The service is not suitable when a preferred answer needs confirmation. The opinion may support proceeding, adding conditions, staging, reworking, pausing, or stopping under the current case.</p>
             <div className="request-privacy-note">
               <LockKeyhole size={19} strokeWidth={1.5} aria-hidden="true" />
               <p>Leave out source code, personal data, credentials, and confidential attachments at this stage.</p>
@@ -64,7 +64,7 @@ export default function RequestReviewPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">After submission</p>
-            <h2 id="next-title">I will reply with an assessment of fit and scope.</h2>
+            <h2 id="next-title">What happens after submission.</h2>
           </div>
           <div className="prose-block">
             <p>I will assess whether the work fits my scope, what information and stakeholder access it requires, and which engagement is proportionate.</p>

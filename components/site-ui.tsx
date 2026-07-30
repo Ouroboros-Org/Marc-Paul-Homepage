@@ -100,7 +100,6 @@ export function ReviewCard({
     description: string;
     decision: string;
     duration: string;
-    fee: string;
     href: string;
   };
   featured?: boolean;
@@ -122,10 +121,6 @@ export function ReviewCard({
           <dt>Timing</dt>
           <dd>{review.duration}</dd>
         </div>
-        <div>
-          <dt>Fee</dt>
-          <dd>{review.fee}</dd>
-        </div>
       </dl>
       <Link className="text-link" href={review.href}>
         See the service <ArrowRight size={16} aria-hidden="true" />
@@ -135,8 +130,8 @@ export function ReviewCard({
 }
 
 export function CtaPanel({
-  title = "Ask me for an independent opinion before the next commitment.",
-  text = "Send me the initiative, decision, deadline, and evidence available. I will identify the suitable service, required access, and any work that sits outside my scope."
+  title = "Request an independent review before the next commitment.",
+  text = "Send the initiative, decision, deadline, and evidence available for an initial assessment of service fit, required access, and scope."
 }: {
   title?: string;
   text?: string;
@@ -164,7 +159,7 @@ export function CtaPanel({
               icon={<MessageSquareText size={17} />}
               isCta={true}
             >
-              Contact me
+              Contact
             </Button>
           </div>
         </div>

@@ -5,13 +5,13 @@ import { Button } from "@/components/button";
 import { CtaPanel, PageHero, SectionHeading } from "@/components/site-ui";
 
 export const metadata: Metadata = {
-  title: "How Independent Initiative Reviews Are Conducted",
+  title: "Technology Review Process and Standards",
   description:
-    "How I examine evidence, handle disagreement, protect independence, and set clear limits in an Independent Initiative Review.",
+    "The evidence, decision analysis, independence, information handling, and professional standards used in an independent AI or software initiative review.",
   alternates: { canonical: "/approach" },
   openGraph: {
-    title: "How Independent Initiative Reviews Are Conducted",
-    description: "My working standards for evidence, judgement, disagreement, independence, and scope.",
+    title: "Technology Review Process and Standards",
+    description: "How evidence, alternatives, uncertainty, disagreement, independence, and scope are handled in an initiative review.",
     url: "/approach"
   }
 };
@@ -19,23 +19,23 @@ export const metadata: Metadata = {
 const sequence = [
   {
     title: "Set out the decision",
-    text: "I record the choice, its owner and deadline, the commitment requested, the intended result, and the consequences of acting or waiting."
+    text: "Record the choice, its owner and deadline, the commitment requested, the intended result, and the consequences of acting or waiting."
   },
   {
     title: "Rebuild the proposal's logic",
-    text: "I trace how the stated problem, proposed product, adoption, delivery, economics, and risks are meant to produce the result."
+    text: "Trace how the stated problem, proposed product, adoption, delivery, economics, and risks are expected to produce the result."
   },
   {
     title: "Examine the supporting evidence",
-    text: "I identify the claims carrying the decision, then assess the evidence and the cost of finding out late that a claim was wrong."
+    text: "Identify the claims carrying the decision, assess the supporting evidence, and consider the cost of discovering a weak assumption too late."
   },
   {
     title: "Compare real alternatives",
-    text: "I set full approval beside staged funding, a narrower scope, another test, buying, partnering, waiting, keeping the current process, or closing the work."
+    text: "Compare full approval with staged funding, narrower scope, another test, buying, partnering, waiting, the current process, or closure."
   },
   {
     title: "Give the opinion",
-    text: "I state my conclusion, any conditions, the owner of each next action, the evidence still required, and the next decision date."
+    text: "State the recommendation, any conditions, the owner of each next action, the evidence still required, and the next decision date."
   }
 ] as const;
 
@@ -43,9 +43,9 @@ export default function ApproachPage() {
   return (
     <main id="main-content">
       <PageHero
-        eyebrow="How I conduct a review"
-        title="I make the reasoning behind my opinion visible."
-        lead="I examine one material decision. The decision owner can see which evidence I used, where I applied judgement, what I left outside the scope, and which disagreements remain."
+        eyebrow="Review process and standards"
+        title="A transparent review process for material technology decisions."
+        lead="Each engagement is scoped around one decision. The final record distinguishes evidence from professional judgement, states what remains outside scope, and preserves material disagreement."
         breadcrumbs={[{ label: "Approach" }]}
         actions={
           <>
@@ -70,9 +70,9 @@ export default function ApproachPage() {
         <div className="shell">
           <SectionHeading
             kicker="From brief to opinion"
-            title="I begin with the decision that is due."
+            title="The decision defines the review."
             id="sequence-title"
-            intro={<p>Scope depends on the evidence, stakeholder access, deadline, and exposure. My final record states what I reviewed and what remains unresolved.</p>}
+            intro={<p>Scope depends on the evidence, stakeholder access, deadline, and exposure. The final record states what was reviewed and what remains unresolved.</p>}
           />
           <ol className="sequence-list">
             {sequence.map((item, index) => (
@@ -91,19 +91,19 @@ export default function ApproachPage() {
             <Eye size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Evidence</p>
             <h2 id="evidence-title">Each important claim needs support that fits it.</h2>
-            <p>I consider the source, method, recency, representativeness, observed behaviour, and whether another person could reconstruct the factual basis.</p>
+            <p>Evidence is assessed for source, method, recency, representativeness, observed behaviour, and whether another person could reconstruct the factual basis.</p>
           </article>
           <article>
             <Scale size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Judgment</p>
             <h2>Material uncertainty stays visible.</h2>
-            <p>Scores can organise issues, but they cannot turn assumptions into probabilities. I record the consequence, weak evidence, discovery delay, and difficulty of reversal.</p>
+            <p>Scores can organise issues, but they cannot turn assumptions into probabilities. The record covers consequence, evidence quality, discovery delay, and difficulty of reversal.</p>
           </article>
           <article>
             <ShieldCheck size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Disagreement</p>
             <h2>A material disagreement belongs in the record.</h2>
-            <p>Participants can correct facts and submit better evidence. If an important difference remains, I leave it visible to the decision owner.</p>
+            <p>Participants can correct facts and submit better evidence. Any important difference that remains is kept visible to the decision owner.</p>
           </article>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Independence</p>
-            <h2 id="independent-title">My fee does not depend on implementation.</h2>
+            <h2 id="independent-title">No commercial interest in implementation or approval.</h2>
           </div>
           <div className="prose-block">
             <p>I earn no implementation fee, software revenue, recruitment commission, vendor incentive, referral fee, success fee, or equity from an organisation I review.</p>
@@ -144,7 +144,7 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Information handling</p>
-            <h2 id="information-title">I limit access to what the decision requires.</h2>
+            <h2 id="information-title">Information access is limited to the agreed scope.</h2>
           </div>
           <div className="prose-block">
             <p>Where practical, I work in the client&apos;s controlled environment. I exclude unnecessary personal information and agree retention before any transfer.</p>
@@ -160,7 +160,7 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Limitations</p>
-            <h2 id="limits-title">My opinion reflects the evidence available at the time.</h2>
+            <h2 id="limits-title">The opinion reflects the evidence available at the time.</h2>
           </div>
           <div className="prose-block">
             <p>I cannot guarantee market success, product adoption, investment return, delivery performance, legal compliance, security, model accuracy, or future competitive conditions.</p>

@@ -79,12 +79,12 @@ const navigation = [
       {
         href: "/about",
         label: "About",
-        description: "My product, technical and advisory experience.",
+        description: "Experience, scope and professional independence.",
       },
       {
         href: "/approach",
         label: "Approach",
-        description: "How I handle evidence, limits and independence.",
+        description: "Review process, evidence standards and limitations.",
       },
     ],
   },
@@ -94,8 +94,8 @@ const navigation = [
     items: [
       {
         href: "/contact",
-        label: "Contact me",
-        description: "Send me a short general question.",
+        label: "Contact",
+        description: "Send a short general enquiry.",
       },
       {
         href: "/request-a-review",
