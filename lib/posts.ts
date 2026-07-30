@@ -6,15 +6,15 @@ export type ArticleCategory =
   | "Software investment"
   | "AI systems"
   | "Decision quality"
-  | "Archive — AI policy"
-  | "Archive — AI systems"
-  | "Archive — Media"
-  | "Archive — Future scenario"
-  | "Archive — Immersive learning"
-  | "Archive — Decision quality"
-  | "Archive — Speaking"
-  | "Archive — Emerging technology"
-  | "Archive — Digital economy";
+  | "Archive / AI policy"
+  | "Archive / AI systems"
+  | "Archive / Media"
+  | "Archive / Future scenario"
+  | "Archive / Immersive learning"
+  | "Archive / Decision quality"
+  | "Archive / Speaking"
+  | "Archive / Emerging technology"
+  | "Archive / Digital economy";
 
 export interface HeadingBlock {
   type: "heading";
@@ -88,6 +88,7 @@ export const posts: readonly Article[] = [
       "The demonstration ran on selected cases with the project team close by. A production budget has to cover the conditions the trial did not exercise.",
     publishedAt: "2026-07-28",
     displayDate: "28 July 2026",
+    updatedAt: "2026-07-30",
     readTime: "8 min",
     category: "AI delivery",
     featured: true,
@@ -176,15 +177,15 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-review",
-        text: "Scope of an independent production review",
+        text: "How I review a production decision",
       },
       {
         type: "paragraph",
-        text: "An Independent Initiative Review treats the proposed production release as one defined decision. It compares the claimed business result with the product mechanism, test evidence and full operating cost. If management and engineering read the same result differently, both readings remain visible in the decision record.",
+        text: "I treat the proposed production release as one defined decision. I compare the claimed business result with the product mechanism, test evidence and full operating cost. If management and engineering read the same result differently, I keep both readings visible in the decision record.",
       },
       {
         type: "paragraph",
-        text: "The opinion may support the proposed release, set conditions for a narrower one or call for another test. If correction time doubles when the project team steps away, the approval should already identify who measures it and which spending stops.",
+        text: "My opinion may support the proposed release, set conditions for a narrower one or call for another test. If correction time doubles when the project team steps away, the approval should already identify who measures it and which spending stops.",
       },
     ],
   },
@@ -197,6 +198,7 @@ export const posts: readonly Article[] = [
       "Model capability settles one claim in the AI business case. The budget still rests on customer behaviour, staff workload and costs that sit outside the prototype.",
     publishedAt: "2026-07-28",
     displayDate: "28 July 2026",
+    updatedAt: "2026-07-30",
     readTime: "9 min",
     category: "AI investment",
     featured: true,
@@ -306,11 +308,11 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-business-case-review",
-        text: "What the independent review covers",
+        text: "How I review the business case",
       },
       {
         type: "paragraph",
-        text: "An Independent Initiative Review addresses the commitment in the funding paper. It traces the projected return to its supporting claims, checks the evidence and compares the proposed plan with available alternatives. The same decision record contains the funding conditions and any disagreement that remains unresolved.",
+        text: "I address the commitment in the funding paper. I trace the projected return to its supporting claims, check the evidence and compare the proposed plan with available alternatives. I put the funding conditions and any unresolved disagreement in the same decision record.",
       },
       {
         type: "paragraph",
@@ -327,6 +329,7 @@ export const posts: readonly Article[] = [
       "The revised date explains the current schedule. The funding decision depends on the programme that exists now and the value still available.",
     publishedAt: "2026-07-28",
     displayDate: "28 July 2026",
+    updatedAt: "2026-07-30",
     readTime: "8 min",
     category: "Software investment",
     featured: true,
@@ -433,28 +436,28 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independent-continuation-review",
-        text: "Independent Continuation Review",
+        text: "How I review continuation",
       },
       {
         type: "paragraph",
-        text: "An Independent Continuation Review compares the approved initiative with the programme now requesting money. It checks the original conditions, evidence gathered during delivery and changes in scope, then prices the options still available. Programme management stays with the client team.",
+        text: "I compare the approved initiative with the programme now requesting money. I check the original conditions, evidence gathered during delivery and changes in scope, then price the options still available. Programme management stays with the client team.",
       },
       {
         type: "paragraph",
-        text: "The opinion may support another release, a smaller scope or an exit. A six-month extension that depends on one unresolved integration should identify the owner, test date and spending cap for that dependency before work resumes.",
+        text: "My opinion may support another release, a smaller scope or an exit. A six-month extension that depends on one unresolved integration should identify the owner, test date and spending cap for that dependency before work resumes.",
       },
     ],
   },
   {
     slug: "prototype-is-not-a-product",
-    title: "A prototype is evidence. It is not yet a product.",
+    title: "A prototype is evidence. I do not treat it as a product.",
     description:
-      "Use an AI prototype for the claim it tested, then fund the next experiment around the production question that remains open.",
+      "I use a prototype for the claim it tested, then shape the next experiment around the production question that remains open.",
     dek:
-      "A clean demonstration can answer a narrow feasibility question. Adoption, support work and production cost may still be untested.",
+      "My VR golf prototype worked at ordinary speeds. A professional swing exposed the boundary of that result.",
     publishedAt: "2026-06-18",
     displayDate: "18 June 2026",
-    updatedAt: "2026-07-28",
+    updatedAt: "2026-07-30",
     readTime: "6 min",
     category: "AI delivery",
     featured: false,
@@ -469,11 +472,15 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "A prototype should answer a bounded question. Can the system extract the required fields from the documents available? Will this team use a generated first draft? Does the interaction remove enough work to justify another test? A short build can produce a useful answer without carrying the whole product case.",
+        text: "For my bachelor project, I built a virtual-reality golf-training system in Unity. I tracked a physical club with an HTC Vive tracker and added feedback on swing angle and direction. At low and medium speeds, the impact system worked well enough to test the training idea.",
       },
       {
         type: "paragraph",
-        text: "The claim often widens after the demo. “The extraction worked on the test set” appears in the next presentation as “the product is feasible.” Adoption, reliability and margin enter the forecast even though the trial never measured them.",
+        text: "Then a professional golfer swung the club. The faster double-pendulum motion exposed tracking drift and missed collisions that my own testing had not. The prototype was still useful; its result was simply narrower than “VR golf works.”",
+      },
+      {
+        type: "paragraph",
+        text: "I use the same distinction with AI prototypes. A short build can answer whether a system extracts fields from a particular document set or whether a team finds value in a generated draft. Adoption, reliability, support work and margin remain separate questions.",
       },
       {
         type: "heading",
@@ -487,7 +494,7 @@ export const posts: readonly Article[] = [
       },
       {
         type: "paragraph",
-        text: "The test record should list included cases, work performed outside the interface and any edited output. It should explain how quality was judged and where testing stopped. That boundary determines which funding claim the result can support.",
+        text: "I want the test record to list included cases, work performed outside the interface and any edited output. It should explain how quality was judged and where testing stopped. That boundary determines which funding claim the result can support.",
       },
       {
         type: "heading",
@@ -504,7 +511,7 @@ export const posts: readonly Article[] = [
           "Where do unfinished cases go, and how much staff time do they consume?",
           "Who detects a quality change after the model or source data changes?",
           "Does the price or saving still work after support and review are included?",
-          "Can the company reverse a consequential wrong action before it spreads?",
+          "Can the company reverse a costly wrong action before it spreads?",
         ],
       },
       {
@@ -535,14 +542,14 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "where-agents-need-boundaries",
-    title: "Agentic systems need boundaries more than personalities.",
+    title: "Define the working boundary of an AI agent.",
     description:
-      "Before funding an AI agent, define its permissions, reversible actions, exception path and the person who can suspend it.",
+      "Before I support funding an AI agent, I want its permissions, reversible actions, exception path and suspension owner on record.",
     dek:
-      "Tool access gives a model a working role inside a process. The funding paper should specify its authority action by action.",
+      "I treat an agent with tool access much like an external contractor: give it a clear job, a safe workspace and visible limits.",
     publishedAt: "2026-05-02",
     displayDate: "2 May 2026",
-    updatedAt: "2026-07-28",
+    updatedAt: "2026-07-30",
     readTime: "6 min",
     category: "AI systems",
     featured: false,
@@ -557,11 +564,11 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "Agent demonstrations often centre on planning, memory and tool use. Once the system can update a record or send a message, it occupies a role in an operating process. Review the action beyond the chat window: what changed, who can see it and how it can be undone.",
+        text: "I find the external-contractor analogy useful. Give the agent a clear brief, the context it needs, a place to keep notes and a task list that shows progress. Then define who reviews the work. Flexibility is useful only when the agent can stay oriented to the job.",
       },
       {
         type: "paragraph",
-        text: "An agent that can contact a customer, run code or approve a refund has authority. The investment case should specify that authority action by action, including the handoff when the system reaches a limit or leaves a task half-complete.",
+        text: "Once the agent can update a record, contact a customer, run code or approve a refund, it has authority inside an operating process. I want that authority specified action by action, including the handoff when the system reaches a limit or leaves a task half-complete.",
       },
       {
         type: "heading",
@@ -571,7 +578,7 @@ export const posts: readonly Article[] = [
       },
       {
         type: "paragraph",
-        text: "Start with one purpose, a named set of tools and approved data sources. Mark which actions can be undone and which require confirmation. Define where uncertain cases go. The operator also needs a usable history of what the agent attempted before the handoff.",
+        text: "I start with one purpose, a named set of tools and approved data sources. I mark which actions can be undone and which require confirmation. Uncertain cases need a destination, and the operator needs a usable history of what the agent attempted before the handoff.",
       },
       {
         type: "list",
@@ -629,12 +636,12 @@ export const posts: readonly Article[] = [
     slug: "skepticism-is-a-design-tool",
     title: "Skepticism is a design tool.",
     description:
-      "Constructive skepticism improves an AI investment by turning broad promises into assumptions that can be tested before expensive commitments begin.",
+      "I use constructive skepticism to turn broad technology promises into assumptions that can be tested before expensive commitments begin.",
     dek:
-      "A direct question about data access or correction cost can change the release plan before either becomes a production problem.",
+      "In my TEDx talk, I called skepticism a circuit breaker. In review work, that means turning concern into a test or a limit.",
     publishedAt: "2026-03-11",
     displayDate: "11 March 2026",
-    updatedAt: "2026-07-28",
+    updatedAt: "2026-07-30",
     readTime: "5 min",
     category: "Decision quality",
     featured: false,
@@ -649,11 +656,15 @@ export const posts: readonly Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "At the funding table, skepticism has a practical job: identify the conditions on which the proposed result depends. A useful challenge ends with a claim that the team can test or a commitment the approver can limit.",
+        text: "In my TEDxValletta talk, I described curiosity as the spark that gets a team moving and skepticism as the circuit breaker. The phrase matters to me because skepticism should interrupt a risky current, not stop the whole system by default.",
       },
       {
         type: "paragraph",
-        text: "Write those conditions plainly. The company has permission to use the required data. Staff can handle the system’s errors. Customers will accept the changed workflow. The saving remains after review time is counted. Each statement needs its own evidence.",
+        text: "At the funding table, I give skepticism a practical job: identify the conditions on which the proposed result depends. A useful challenge ends with a claim the team can test or a commitment the approver can limit.",
+      },
+      {
+        type: "paragraph",
+        text: "I write those conditions plainly. The company has permission to use the required data. Staff can handle the system’s errors. Customers will accept the changed workflow. The saving remains after review time is counted. Each statement needs its own evidence.",
       },
       {
         type: "heading",
@@ -695,15 +706,15 @@ export const posts: readonly Article[] = [
         type: "heading",
         level: 2,
         id: "independence-without-theatre",
-        text: "Independence without theatre",
+        text: "What I expect from an independent review",
       },
       {
         type: "paragraph",
-        text: "The reviewer should revise a finding when better evidence arrives. Product and engineering need a fair chance to correct factual errors. Any disagreement that survives that exchange stays in the record because it changes how the approver should read the case.",
+        text: "I revise a finding when better evidence arrives. Product and engineering get a fair chance to correct factual errors. Any disagreement that survives that exchange stays in the record because it changes how the approver should read the case.",
       },
       {
         type: "quote",
-        text: "A skeptical review can still recommend approval when the evidence supports the requested commitment.",
+        text: "I can be skeptical and still recommend approval when the evidence supports the requested commitment.",
       },
       {
         type: "paragraph",
@@ -713,15 +724,15 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "and-theres-no-turning-back-from-the-ai-arms-race",
-    title: "And There’s No Turning Back from the AI Arms Race…",
+    title: "The AI arms race, viewed from February 2025",
     description:
-      "A February 2025 archive note on AI policy, strategic competition, defense spending and the pressure to accelerate development.",
+      "My February 2025 note on AI policy, strategic competition, defence spending and the pressure to accelerate development.",
     dek:
-      "The essay captured a period when public AI debate was moving from guardrails toward state competition and military investment.",
+      "I wrote this when the public AI debate appeared to be moving from guardrails towards state competition and military investment.",
     publishedAt: "2025-02-12",
     displayDate: "12 February 2025",
     readTime: "3 min",
-    category: "Archive — AI policy",
+    category: "Archive / AI policy",
     featured: false,
     legacy: true,
     keywords: [
@@ -735,33 +746,33 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 12 February 2025. The policy references and company examples reflect that date. Use current sources for any present-day assessment.",
+        text: "I published this on 12 February 2025. The policy references and company examples reflect that date. Use current sources for a present-day assessment.",
       },
       {
         type: "paragraph",
-        text: "The original essay read changes in government priorities, defense participation and capital commitments as evidence that strategic competition was overtaking the earlier debate about restraint.",
+        text: "I read changes in government priorities, defence participation and capital commitments as evidence that strategic competition was overtaking the earlier debate about restraint.",
       },
       {
         type: "paragraph",
-        text: "It compared the mood with a space race in which acceleration had become the objective. The article questioned how regional regulation would hold while major powers treated advanced AI as strategic infrastructure.",
+        text: "I compared the mood with a space race in which acceleration had become the objective. I questioned how regional regulation would hold while major powers treated advanced AI as strategic infrastructure.",
       },
       {
         type: "paragraph",
-        text: "This archive preserves the author’s interpretation in early 2025. Policy, defense relationships and company conduct have moved since publication and require fresh verification.",
+        text: "This archive preserves my interpretation in early 2025. Policy, defence relationships and company conduct have moved since publication and require fresh verification.",
       },
     ],
   },
   {
     slug: "openais-o3-vs-deepseek-r1-open-source-or-full-control",
-    title: "OpenAI’s o3 vs Deepseek R1, Open-Source or Full-Control",
+    title: "OpenAI o3 and DeepSeek R1: two strategies in February 2025",
     description:
-      "A February 2025 comparison of open model distribution and a controlled platform approach to capable AI systems.",
+      "My February 2025 comparison of open model distribution and a controlled platform approach to capable AI systems.",
     dek:
       "The piece compared two strategies through the access, control and tool-use choices visible at the time.",
     publishedAt: "2025-02-03",
     displayDate: "3 February 2025",
     readTime: "4 min",
-    category: "Archive — AI systems",
+    category: "Archive / AI systems",
     featured: false,
     legacy: true,
     keywords: [
@@ -775,19 +786,19 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 3 February 2025. Capabilities, licenses, prices and company positions may have changed. This entry retains the comparison made at publication.",
+        text: "I published this on 3 February 2025. Capabilities, licences, prices and company positions may have changed. This entry retains the comparison I made at the time.",
       },
       {
         type: "paragraph",
-        text: "The essay contrasted Deepseek’s open distribution of R1 with OpenAI’s controlled platform strategy. It viewed the open release as a way to draw in outside developers and place smaller models in more computing environments.",
+        text: "I contrasted DeepSeek’s open distribution of R1 with OpenAI’s controlled platform strategy. I viewed the open release as a way to draw in outside developers and place smaller models in more computing environments.",
       },
       {
         type: "paragraph",
-        text: "For OpenAI, the article focused on models selecting and creating tools within a managed platform. That suggested competition over the range of work a system could perform, alongside the cost of running it.",
+        text: "For OpenAI, I focused on models selecting and creating tools within a managed platform. That suggested competition over the range of work a system could perform, alongside the cost of running it.",
       },
       {
         type: "paragraph",
-        text: "The author favored OpenAI’s near-term position and left the longer horizon open. That judgment belongs to the evidence available in February 2025. It offers no current ranking of either model family.",
+        text: "I favoured OpenAI’s near-term position and left the longer horizon open. That judgement belongs to the evidence available in February 2025. It is not a current ranking of either model family.",
       },
     ],
   },
@@ -795,13 +806,13 @@ export const posts: readonly Article[] = [
     slug: "ll03d8mhvlvcwskb2kn4ewwm6hg9o5",
     title: "The Blurred Lines of Reality",
     description:
-      "A December 2024 reflection on synthetic media, familiar visual authority and the evidence people use to trust digital information.",
+      "My December 2024 reflection on synthetic media, familiar visual authority and the evidence people use to trust digital information.",
     dek:
       "A familiar news format can create confidence in a clip even when the event behind it never happened.",
     publishedAt: "2024-12-20",
     displayDate: "20 December 2024",
     readTime: "3 min",
-    category: "Archive — Media",
+    category: "Archive / Media",
     featured: false,
     legacy: true,
     keywords: [
@@ -815,33 +826,33 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 20 December 2024. This condensed entry preserves the original argument and leaves current generation or detection capabilities unassessed.",
+        text: "I published this on 20 December 2024. This condensed entry preserves my original argument and leaves current generation or detection capabilities unassessed.",
       },
       {
         type: "paragraph",
-        text: "The reflection began with an AI-generated clip presented in the visual language of news media. The harder problem concerned ordinary viewing habits: people often accept a clip because its format, voice or apparent outlet feels authoritative.",
+        text: "I began with an AI-generated clip presented in the visual language of news media. The harder problem was ordinary viewing habit: people often accept a clip because its format, voice or apparent outlet feels authoritative.",
       },
       {
         type: "paragraph",
-        text: "The essay asked readers to inspect sources and their own assumptions more deliberately. Synthetic material increases the supply of plausible images, while platform selection still influences which ones people encounter repeatedly.",
+        text: "I asked readers to inspect sources and their own assumptions more deliberately. Synthetic material increases the supply of plausible images, while platform selection still influences which ones people encounter repeatedly.",
       },
       {
         type: "paragraph",
-        text: "Its final question concerned the standard of proof people apply while scrolling. Polish and repetition can create familiarity long before anyone checks the source.",
+        text: "My final question concerned the standard of proof people apply while scrolling. Polish and repetition can create familiarity long before anyone checks the source.",
       },
     ],
   },
   {
     slug: "9cspkbig4roi3fyzh8bvytrgybrezy",
-    title: "A Day in 2027—Where Does Reality End and AI Begin?",
+    title: "A day in 2027: where does reality end and AI begin?",
     description:
-      "A speculative 2024 scenario about AI-shaped news, office work, advertising and the point where assistance starts directing behavior.",
+      "My speculative 2024 scenario about AI-shaped news, office work, advertising and the point where assistance starts directing behaviour.",
     dek:
       "One fictional day follows a person whose environment predicts each preference before it feels fully formed.",
     publishedAt: "2024-10-29",
     displayDate: "29 October 2024",
     readTime: "4 min",
-    category: "Archive — Future scenario",
+    category: "Archive / Future scenario",
     featured: false,
     legacy: true,
     keywords: [
@@ -855,7 +866,7 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Fiction archive",
-        text: "Published on 29 October 2024. The events form a thought experiment. They offer no forecast or report on available systems.",
+        text: "I published this on 29 October 2024. The events form a thought experiment, not a forecast or report on available systems.",
       },
       {
         type: "paragraph",
@@ -873,15 +884,15 @@ export const posts: readonly Article[] = [
   },
   {
     slug: "r00blqatyvpkiimjwa80boji6fb22r",
-    title: "PLAYCON: AXON PARK - When Education Meets Gaming",
+    title: "What repeat play at PLAYCON showed me about immersive learning",
     description:
-      "A 2024 event recap of Axon Park’s interactive marine-biology experience at PLAYCON and the response from young participants.",
+      "My 2024 event note on Axon Park’s interactive marine-biology experience at PLAYCON and the response from young participants.",
     dek:
       "Children returned to the marine-biology lesson to improve their scores, giving the team a direct view of play and learning in the same session.",
     publishedAt: "2024-10-28",
     displayDate: "28 October 2024",
     readTime: "3 min",
-    category: "Archive — Immersive learning",
+    category: "Archive / Immersive learning",
     featured: false,
     legacy: true,
     keywords: [
@@ -896,19 +907,19 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Event record",
-        text: "Published on 28 October 2024. This condensed entry records Axon Park’s participation at PLAYCON.",
+        text: "I published this on 28 October 2024. This condensed entry records Axon Park’s participation at PLAYCON.",
       },
       {
         type: "paragraph",
-        text: "The original post described children and teenagers completing an interactive marine-biology lesson, with some returning to improve their score. Their sustained attention stood out at an event surrounded by conventional games.",
+        text: "I watched children and teenagers complete an interactive marine-biology lesson, with some returning to improve their score. Their sustained attention stood out at an event surrounded by conventional games.",
       },
       {
         type: "paragraph",
-        text: "Participants entered for the challenge and spent time with the subject matter along the way. The post recorded that behavior as an observation from the event. It made no claim to a controlled study of learning outcomes.",
+        text: "Participants entered for the challenge and spent time with the subject matter along the way. I recorded that behaviour as an observation from the event, not as a controlled study of learning outcomes.",
       },
       {
         type: "paragraph",
-        text: "The piece thanked the team behind the installation and noted the repeat play as a direction worth testing in later immersive-learning work.",
+        text: "I thanked the team behind the installation and noted the repeat play as a direction worth testing in later immersive-learning work.",
       },
     ],
   },
@@ -916,13 +927,13 @@ export const posts: readonly Article[] = [
     slug: "5m95en1huzc3xqzcq050bddhjauz6u",
     title: "The Hidden Flaws of Reasonable Decisions",
     description:
-      "A 2024 essay on plausible answers that rest on weak premises, incomplete evidence or an unexamined point of view.",
+      "My 2024 essay on plausible answers that rest on weak premises, incomplete evidence or an unexamined point of view.",
     dek:
       "Coherent reasoning can preserve a faulty starting point all the way to a confident conclusion.",
     publishedAt: "2024-10-02",
     displayDate: "2 October 2024",
     readTime: "5 min",
-    category: "Archive — Decision quality",
+    category: "Archive / Decision quality",
     featured: false,
     legacy: true,
     keywords: [
@@ -937,11 +948,11 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 2 October 2024. The summary retains the argument while leaving current language-model performance outside its scope.",
+        text: "I published this on 2 October 2024. The summary retains my argument while leaving current language-model performance outside its scope.",
       },
       {
         type: "paragraph",
-        text: "The essay separated a reasonable-sounding conclusion from a sound one. A person or language model can produce an orderly explanation from partial data or a narrow premise that never appears in the answer.",
+        text: "I separated a reasonable-sounding conclusion from a sound one. A person or language model can produce an orderly explanation from partial data or a narrow premise that never appears in the answer.",
       },
       {
         type: "heading",
@@ -969,15 +980,15 @@ export const posts: readonly Article[] = [
   {
     slug: "u6le025sfymrvt59ba4q1905s55e3h",
     title:
-      "National Skills Council - Panel Speaker - Emerging Technologies as a Catalyst for Innovation",
+      "National Skills Council panel: Emerging Technologies as a Catalyst for Innovation",
     description:
-      "A September 2024 archive record of Marc Paul’s National Skills Council panel appearance on emerging technologies and innovation.",
+      "My archive record of a September 2024 National Skills Council panel on emerging technologies and innovation.",
     dek:
-      "The surviving entry records the panel topic and Marc Paul’s role as a speaker.",
+      "The surviving entry records the panel topic and my role as a speaker.",
     publishedAt: "2024-09-02",
     displayDate: "2 September 2024",
     readTime: "2 min",
-    category: "Archive — Speaking",
+    category: "Archive / Speaking",
     featured: false,
     legacy: true,
     keywords: [
@@ -991,29 +1002,29 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Limited archive record",
-        text: "The public archive supplies the event, role, topic and date. No dependable transcript or detailed event report was available during migration.",
+        text: "The public archive supplies the event, role, topic and date. I did not find a dependable transcript or detailed event report during migration.",
       },
       {
         type: "paragraph",
-        text: "The entry, published on 2 September 2024, records Marc Paul as a National Skills Council panel speaker for “Emerging Technologies as a Catalyst for Innovation.”",
+        text: "I published the entry on 2 September 2024 after speaking on the National Skills Council panel “Emerging Technologies as a Catalyst for Innovation.”",
       },
       {
         type: "paragraph",
-        text: "The record remains in the speaking archive. Without source material, this summary assigns no claims to Marc Paul, the panel or its other participants.",
+        text: "I keep the record in my speaking archive. Without source material, I do not reconstruct what I or the other participants said.",
       },
     ],
   },
   {
     slug: "by5xloy8vc5q98hyy9cu2igiar4h56",
-    title: "SOHO Talks - Breaking Barriers",
+    title: "SOHO Talks: Breaking Barriers",
     description:
-      "A November 2023 archive record of Marc Paul’s SOHO Talks appearance under the title Breaking Barriers.",
+      "My November 2023 archive record of a SOHO Talks appearance under the title Breaking Barriers.",
     dek:
       "Only the event title and publication date survive in the public archive.",
     publishedAt: "2023-11-28",
     displayDate: "28 November 2023",
     readTime: "2 min",
-    category: "Archive — Speaking",
+    category: "Archive / Speaking",
     featured: false,
     legacy: true,
     keywords: [
@@ -1027,15 +1038,15 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Limited archive record",
-        text: "The public archive confirms the title and date. No dependable transcript or fuller event note was available during migration.",
+        text: "The public archive confirms the title and date. I did not find a dependable transcript or fuller event note during migration.",
       },
       {
         type: "paragraph",
-        text: "Published on 28 November 2023, the post records Marc Paul’s SOHO Talks appearance under the title “Breaking Barriers.”",
+        text: "I published this record on 28 November 2023 after a SOHO Talks appearance under the title “Breaking Barriers.”",
       },
       {
         type: "paragraph",
-        text: "The entry remains as a speaking record. This summary leaves the talk’s content undescribed because the supporting material is unavailable.",
+        text: "I leave the talk’s content undescribed because the supporting material is unavailable.",
       },
     ],
   },
@@ -1043,13 +1054,13 @@ export const posts: readonly Article[] = [
     slug: "the-era-of-epochal-tech-revolutions",
     title: "The Era of Epochal Tech Revolutions",
     description:
-      "A 2023 essay reconsidering earlier skepticism about AI, Web3, fusion and the long development cycles of new technology.",
+      "My 2023 essay reconsidering an earlier view of AI, Web3, fusion and the long development cycles of new technology.",
     dek:
-      "The author revisits an early dismissal of AI and asks when skepticism stops testing a claim and starts ignoring new evidence.",
+      "I revisit an early dismissal of AI and ask when skepticism stops testing a claim and starts ignoring new evidence.",
     publishedAt: "2023-08-09",
     displayDate: "9 August 2023",
     readTime: "4 min",
-    category: "Archive — Emerging technology",
+    category: "Archive / Emerging technology",
     featured: false,
     legacy: true,
     keywords: [
@@ -1064,33 +1075,33 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 9 August 2023. References to the maturity and direction of particular technologies reflect that period.",
+        text: "I published this on 9 August 2023. References to the maturity and direction of particular technologies reflect that period.",
       },
       {
         type: "paragraph",
-        text: "The article revisited the author’s earlier description of AI as brute-force learning. Later tools changed his own work and forced him to reconsider a judgment formed from earlier systems.",
+        text: "I revisited my earlier description of AI as brute-force learning. Later tools changed my own work and forced me to reconsider a judgement formed from earlier systems.",
       },
       {
         type: "paragraph",
-        text: "AI, decentralized ledgers and nuclear fusion served as examples of technical work whose eventual application may differ from its popular story. The essay defended continued experimentation where results had begun to challenge an earlier dismissal.",
+        text: "I used AI, decentralised ledgers and nuclear fusion as examples of technical work whose eventual application may differ from its popular story. I defended continued experimentation where results had begun to challenge an earlier dismissal.",
       },
       {
         type: "paragraph",
-        text: "The piece leaves a live tension between resisting hype and updating a view when the evidence changes. Its technology references remain anchored in 2023.",
+        text: "I still see a live tension between resisting hype and updating a view when the evidence changes. The technology references remain anchored in 2023.",
       },
     ],
   },
   {
     slug: "sfltnb6vsji47kwprm2a91sx2944k1",
-    title: "Why X’s Revenue Model is a Game Changer",
+    title: "X’s creator revenue model, viewed from 2023",
     description:
-      "An August 2023 essay on creator revenue sharing, user attention and changing digital-platform business models.",
+      "My August 2023 essay on creator revenue sharing, user attention and changing digital-platform business models.",
     dek:
       "The article examined a platform paying creators from advertising income generated around their participation.",
     publishedAt: "2023-08-05",
     displayDate: "5 August 2023",
     readTime: "4 min",
-    category: "Archive — Digital economy",
+    category: "Archive / Digital economy",
     featured: false,
     legacy: true,
     keywords: [
@@ -1105,19 +1116,19 @@ export const posts: readonly Article[] = [
         type: "note",
         tone: "archive",
         label: "Archive context",
-        text: "Published on 5 August 2023. Platform programs and eligibility rules change. Verify current terms before relying on any operational detail.",
+        text: "I published this on 5 August 2023. Platform programmes and eligibility rules change. Verify current terms before relying on any operational detail.",
       },
       {
         type: "paragraph",
-        text: "The essay examined X’s creator revenue sharing as a change in the platform exchange. Users supplied content and attention, while the platform proposed returning part of the related advertising income to eligible creators.",
+        text: "I examined X’s creator revenue sharing as a change in the platform exchange. Users supplied content and attention, while the platform proposed returning part of the related advertising income to eligible creators.",
       },
       {
         type: "paragraph",
-        text: "The article connected that program with competition for engagement and user data. It expected participation to become a more explicit part of the commercial relationship between platforms and creators.",
+        text: "I connected that programme with competition for engagement and user data. I expected participation to become a more explicit part of the commercial relationship between platforms and creators.",
       },
       {
         type: "paragraph",
-        text: "The examples and program details belong to 2023. The archived question concerns who captures the value created by activity on a platform, independent of X’s current terms.",
+        text: "The examples and programme details belong to 2023. My archived question concerns who captures the value created by activity on a platform, independent of X’s current terms.",
       },
     ],
   },

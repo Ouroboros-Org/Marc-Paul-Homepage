@@ -6,7 +6,7 @@ export const primaryReview = {
   title: "Independent Initiative Review",
   label: "Primary engagement",
   description:
-    "A written independent opinion on whether the evidence for one consequential AI or software initiative supports the next commitment.",
+    "I examine one defined AI or software initiative and give a written opinion before the next commitment.",
   decision:
     "Should the organisation proceed, stage the commitment, rework the case, pause, or stop under the evidence available now?",
   duration: "Usually 5 to 10 working days after access is confirmed",
@@ -22,7 +22,7 @@ export const reviews = [
     title: "Decision Case Reconstruction",
     label: "When the current proposal cannot support approval",
     description:
-      "Rebuilds the evidence, scope, economics, and ownership of a potentially viable proposal that cannot yet support a decision.",
+      "I rebuild the logic, evidence, scope, economics, and ownership of a proposal that may still be viable but is not ready for a decision.",
     decision:
       "What would make this a credible, bounded investment case, and what evidence is needed before approval?",
     duration: "Set by the gaps in the existing case",
@@ -35,7 +35,7 @@ export const reviews = [
     title: "Independent Continuation Review",
     label: "For initiatives already under way",
     description:
-      "Reassesses an active initiative at agreed decision points before more money, scope, time, or customer exposure is released.",
+      "I reassess an active initiative at agreed decision points before more money, scope, time, or customer exposure is released.",
     decision:
       "Do the original conditions still hold, and should the next commitment be released, narrowed, delayed, or withheld?",
     duration: "Defined review points over an agreed period",
@@ -120,19 +120,19 @@ export const situations = [
 export const deliverables = [
   {
     title: "Review opinion",
-    description: "The conclusion, its limits, any conditions attached to it, and the points left unresolved."
+    description: "My conclusion, its limits, any conditions attached to it, and the points I could not resolve."
   },
   {
     title: "Decision map",
-    description: "The decision, intended result, proposed commitment, credible alternatives, and decision owner."
+    description: "The decision, intended result, proposed commitment, realistic alternatives, and decision owner."
   },
   {
     title: "Assumption record",
-    description: "The claims carrying the case, the evidence for each one, and the owner of any remaining uncertainty."
+    description: "The claims carrying the case, the evidence for each claim, and the owner of any remaining uncertainty."
   },
   {
     title: "Exposure record",
-    description: "Potential loss, delay, dependency, customer impact, and commitments that would be hard to undo."
+    description: "Potential loss, delay, dependencies, customer impact, and commitments that would be hard to undo."
   },
   {
     title: "Conditions register",
@@ -140,7 +140,7 @@ export const deliverables = [
   },
   {
     title: "Decision record",
-    description: "A concise account for leadership and board use, with material disagreement and the next review point on record."
+    description: "A short account of what was reviewed and decided, including material disagreement and the next review point."
   }
 ] as const;
 
@@ -157,12 +157,12 @@ export const audience = [
   {
     title: "Company leadership",
     description:
-      "CEOs, CFOs, founders, and executive sponsors deciding whether to accept the capital, disruption, or customer exposure attached to the initiative."
+      "CEOs, CFOs, founders, and executive sponsors deciding whether to accept the cost, disruption, or customer exposure attached to an initiative."
   },
   {
     title: "Boards and finance leaders",
     description:
-      "Decision-makers who need a firmer basis for approval, staged funding, continuation, or closure than the proposal provides on its own."
+      "Decision-makers who need a clearer basis for approval, staged funding, continuation, or closure than the proposal provides on its own."
   },
   {
     title: "Investors",

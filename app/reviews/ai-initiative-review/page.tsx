@@ -29,27 +29,27 @@ const areas = [
   {
     icon: Bot,
     title: "Problem and capability",
-    text: "Does the problem warrant AI, and can the proposed system perform the task under ordinary operating conditions?"
+    text: "I ask whether the problem warrants AI and whether the proposed system can perform the task under ordinary operating conditions."
   },
   {
     icon: Database,
     title: "Evaluation and data",
-    text: "Do evaluations represent actual use? The review also covers data suitability, permission, access, quality, and upkeep."
+    text: "I check whether the evaluation represents actual use, then examine data suitability, permission, access, quality, and upkeep."
   },
   {
     icon: UserRoundCheck,
     title: "Human work",
-    text: "The review, correction, escalation, support, and service work that remain after deployment, including work omitted from the proposal."
+    text: "I account for review, correction, escalation, support, and service work that remains after deployment, including work omitted from the proposal."
   },
   {
     icon: CircleDollarSign,
     title: "Production economics",
-    text: "Model, infrastructure, integration, support, monitoring, and oversight costs at the proposed volume and service level."
+    text: "I calculate model, infrastructure, integration, support, monitoring, and oversight costs at the proposed volume and service level."
   },
   {
     icon: ShieldAlert,
     title: "Reliability and containment",
-    text: "Which failures matter, how the organisation will detect and correct them, and how far a poor output can travel."
+    text: "I identify which failures matter, how the organisation will detect and correct them, and how far a poor output can travel."
   }
 ] as const;
 
@@ -73,8 +73,8 @@ export default function AiInitiativeReviewPage() {
       <StructuredData data={jsonLd} />
       <PageHero
         eyebrow="Independent Initiative Review / AI application"
-        title="Review the AI investment before funding or scale."
-        lead="The Independent Initiative Review tests whether the evidence supports a defined AI funding, production, expansion, or continuation decision. It covers the operating work and dependencies that a model demo may leave out."
+        title="I review the AI investment before funding or scale."
+        lead="I test whether the evidence supports a defined AI funding, production, expansion, or continuation decision. I include the operating work and dependencies that a model demo may leave out."
         breadcrumbs={[
           { label: "Reviews", href: "/reviews" },
           { label: "AI initiatives" }
@@ -109,11 +109,11 @@ export default function AiInitiativeReviewPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">From pilot to production</p>
-            <h2 id="demo-title">Pilot evidence has a narrow boundary.</h2>
+            <h2 id="demo-title">A demo answers a narrow question.</h2>
           </div>
           <div className="prose-block">
             <p>A convincing demonstration may reveal little about model instability, edge cases, correction work, integration and inference cost, monitoring, legal restrictions, user trust, or responsibility for a wrong output.</p>
-            <p>The review tests the proposed task under its operating conditions and records what the evidence can support before the organisation commits.</p>
+            <p>I test the proposed task under its operating conditions and record what the evidence can support before the organisation commits.</p>
           </div>
         </div>
       </section>
@@ -122,9 +122,9 @@ export default function AiInitiativeReviewPage() {
         <div className="shell">
           <SectionHeading
             kicker="AI-specific review areas"
-            title="The work required to run the model belongs in the case."
+            title="The work around the model belongs in the case."
             id="ai-areas-title"
-            intro={<p>The wider engagement still covers demand, product fit, delivery, economics, exposure, alternatives, and approval conditions.</p>}
+            intro={<p>I also cover demand, product fit, delivery, economics, exposure, alternatives, and approval conditions.</p>}
           />
           <div className="ai-area-grid">
             {areas.map((area, index) => {
@@ -145,11 +145,11 @@ export default function AiInitiativeReviewPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Dependencies and accountability</p>
-            <h2 id="dependencies-title">Model and vendor change need named owners.</h2>
+            <h2 id="dependencies-title">I want to know who can change, suspend, or stop the system.</h2>
           </div>
           <div className="prose-block">
-            <p>An AI initiative needs named responsibility for performance, incidents, overrides, monitoring, vendor changes, and retirement. The case must also address material dependencies outside the organisation&apos;s control.</p>
-            <p>Legal, security, privacy, and compliance review may be required. This service checks whether those matters have owners and evidence. It does not provide a legal opinion or AI assurance certification.</p>
+            <p>I treat an agent with tool access much like an external contractor. It needs a clear job, bounded permissions, relevant context, a task record, and someone who checks completion. A flexible system still needs a safe operating space.</p>
+            <p>I also look for named responsibility for performance, incidents, overrides, monitoring, vendor changes, and retirement. Legal, security, privacy, or compliance review may be required; I check whether those questions have owners and evidence, but I do not provide a legal opinion or assurance certification.</p>
           </div>
         </div>
       </section>
@@ -191,8 +191,8 @@ export default function AiInitiativeReviewPage() {
       </section>
 
       <CtaPanel
-        title="Request an Independent Initiative Review before approving AI production scope and cost."
-        text="Send the decision, current evidence, proposed deployment, and approval date."
+        title="Ask me to review the case before approving AI production scope and cost."
+        text="Send me the decision, current evidence, proposed deployment, and approval date."
       />
     </main>
   );

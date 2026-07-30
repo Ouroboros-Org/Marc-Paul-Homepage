@@ -60,7 +60,7 @@ export default function SampleAiPilotPage() {
       <PageHero
         eyebrow="Constructed example / Not client work"
         title="Should the company move its customer-support AI pilot into production?"
-        lead="This sample applies an Independent Initiative Review to a pilot seeking production funding. The company, figures, evidence, and circumstances are fictional."
+        lead="I built this sample to show how I would review a pilot seeking production funding. The company, figures, evidence, and circumstances are fictional."
         breadcrumbs={[
           { label: "Cases", href: "/cases" },
           { label: "Illustrative AI Pilot" }
@@ -91,7 +91,7 @@ export default function SampleAiPilotPage() {
       <section className="sample-notice" aria-label="Status of this case">
         <div className="shell">
           <CircleAlert size={19} aria-hidden="true" />
-          <p><strong>This case is entirely fictional.</strong> It shows the form of the work and does not describe a client, a real company, or a completed engagement.</p>
+          <p><strong>This case is entirely fictional.</strong> I use it to show the form of the work. It does not describe a client, a real company, or a completed engagement.</p>
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function SampleAiPilotPage() {
         <div className="shell case-context-grid">
           <div>
             <p className="section-kicker">01 / Context</p>
-            <h2 id="context-title">A positive pilot leads to a larger commitment.</h2>
+            <h2 id="context-title">I start with the commitment behind the positive pilot.</h2>
           </div>
           <div className="prose-block">
             <p>A fictional B2B software company tested an AI assistant that drafts replies to routine support requests. Twenty invited agents used it for eight weeks. Average first-response time fell, the agents responded positively, and the executive sponsor now wants production funding.</p>
@@ -118,9 +118,9 @@ export default function SampleAiPilotPage() {
         <div className="shell">
           <SectionHeading
             kicker="02 / Investment case"
-            title="The claims carrying the investment case."
+            title="I separate the claims carrying the investment case."
             id="case-title"
-            intro={<p>The expected return depends on usage, correction work, production cost, integration, customer acceptance, and accountable operation.</p>}
+            intro={<p>The expected return depends on usage, correction work, production cost, integration, customer acceptance, and accountable operation. The pilot does not settle all of them.</p>}
           />
           <ol className="investment-chain">
             {[
@@ -142,7 +142,7 @@ export default function SampleAiPilotPage() {
         <div className="shell">
           <SectionHeading
             kicker="03 / Load-bearing assumptions"
-            title="Four claims carry most of the production case."
+            title="Four claims carry most of this production case."
             id="assumptions-title"
           />
           <div className="assumption-table" role="table" aria-label="Record of material assumptions">
@@ -168,7 +168,7 @@ export default function SampleAiPilotPage() {
         <div className="shell exposure-grid">
           <div>
             <p className="section-kicker">04 / Exposure</p>
-            <h2 id="exposure-title">The cost case omits work that may surface only after rollout.</h2>
+            <h2 id="exposure-title">I do not accept the cost case while correction work remains uncounted.</h2>
           </div>
           <div className="prose-block">
             <p>The financial model removes planned hires but leaves out the pilot team&apos;s correction work. Its production saving has therefore not been observed under ordinary operating conditions.</p>
@@ -185,7 +185,7 @@ export default function SampleAiPilotPage() {
 
       <section className="section" aria-labelledby="alternatives-title">
         <div className="shell">
-          <SectionHeading kicker="05 / Alternatives" title="The company has credible options short of full rollout." id="alternatives-title" />
+          <SectionHeading kicker="05 / Alternatives" title="I compare full rollout with options that preserve room to change course." id="alternatives-title" />
           <div className="alternative-grid">
             {[
               ["Full approval", "Release the full budget and sign the proposed vendor contract.", "Evidence does not support it"],
@@ -204,7 +204,7 @@ export default function SampleAiPilotPage() {
 
       <section className="section section-contrast" aria-labelledby="conditions-title">
         <div className="shell">
-          <SectionHeading kicker="06 / Conditions" title="A staged release requires evidence from ordinary operations." id="conditions-title" />
+          <SectionHeading kicker="06 / Conditions" title="I attach a staged release to evidence from ordinary operations." id="conditions-title" />
           <div className="conditions-register">
             {[
               ["C-01", "Use", "At least 80% of eligible agents use the workflow each week for six consecutive weeks without dedicated pilot support."],
@@ -226,9 +226,9 @@ export default function SampleAiPilotPage() {
         <div className="shell opinion-panel">
           <div className="opinion-state"><span>Opinion</span><strong>Release funding in stages</strong></div>
           <div>
-            <h2 id="opinion-title">Approve a bounded production step and withhold full-rollout funding.</h2>
+            <h2 id="opinion-title">I would approve a bounded production step and withhold full-rollout funding.</h2>
             <p>The pilot shows useful drafts for selected agents handling routine cases. The evidence is insufficient on production economics, operating capacity, and customer exposure at the proposed scale.</p>
-            <p>Approve deployment in one market for the reviewed request categories. Withhold the two-year vendor contract and retain planned support capacity until conditions C-01 through C-05 are met. The CFO should make the continuation decision after eight production weeks.</p>
+            <p>I would approve deployment in one market for the reviewed request categories. I would withhold the two-year vendor contract and retain planned support capacity until conditions C-01 through C-05 are met. The CFO should make the continuation decision after eight production weeks.</p>
           </div>
         </div>
       </section>
@@ -238,7 +238,7 @@ export default function SampleAiPilotPage() {
           <div>
             <FileText size={26} strokeWidth={1.5} aria-hidden="true" />
             <p className="section-kicker">07 / Decision record</p>
-            <h2 id="record-title">The decision owner receives this record.</h2>
+            <h2 id="record-title">I would give the decision owner this record.</h2>
           </div>
           <dl>
             <div><dt>Material reviewed</dt><dd>Pilot evidence, production proposal, cost model, vendor terms, evaluation summary, and stakeholder accounts.</dd></div>

@@ -34,16 +34,16 @@ export async function GET() {
   const audienceNotes = audience.map((item) => `- ${item.title}: ${item.description}`).join("\n");
   const outOfScope = unsuitableWork.map((item) => `- ${item}`).join("\n");
 
-  const body = `# Marc Paul — Decision Integrity Practice
+  const body = `# Marc Paul: Decision Integrity Practice
 
-> Independent reviews of consequential AI and software initiatives for CEOs, CFOs, founders, boards, and investors. The practice tests whether the evidence for one defined initiative supports the next commitment.
+> I provide independent reviews of AI and software initiatives before approval, funding, production, or continuation.
 
-Marc Paul is based in Malta and works with international clients. The practice does not sell implementation, coaching, audit opinions, legal advice, or investment advice. The primary product is a written independent opinion on a named decision.
+I am based in Malta and work with international clients. I do not sell implementation, coaching, audit opinions, legal advice, or investment advice. My primary service is a written independent opinion on a named decision.
 
 Important distinctions:
 
-- An Independent Initiative Review examines one defined initiative and the decision attached to it — not general strategy and not a full transaction diligence mandate.
-- The opinion may support proceeding, proceeding under conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented.
+- I use an Independent Initiative Review for one defined initiative and the decision attached to it. General strategy and full transaction diligence sit outside the scope.
+- My opinion may support proceeding, adding conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented.
 - Contact for a general enquiry is ${absoluteUrl("/contact")}. Qualification for a review is ${absoluteUrl("/request-a-review")}. Email: info@marcpaul.tech.
 
 Typical sponsors:
@@ -69,7 +69,7 @@ ${situationLinks}
 
 ${link("Home", "/", "Service offer, review outcomes, audiences, and FAQ.")}
 ${link("Approach", "/approach", "How a review is scoped, evidenced, and reported.")}
-${link("About Marc Paul", "/about", "Background in AI development, product delivery, technical production, and cross-functional leadership.")}
+${link("About Marc Paul", "/about", "My background in AI development, product delivery, technical production, and cross-functional leadership.")}
 ${link("Sample case", "/cases/sample-ai-pilot", "Illustrative AI pilot-to-production decision record.")}
 ${link("Cases", "/cases", "Evidence and illustrative cases.")}
 

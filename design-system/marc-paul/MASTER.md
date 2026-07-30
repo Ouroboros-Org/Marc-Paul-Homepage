@@ -6,9 +6,11 @@
 
 - Product: independent professional review service
 - Audience: CEOs, CFOs, founders, boards, investors, and executive sponsors
-- Tone: controlled, serious, technically literate, direct
+- Tone: first person, controlled, serious, technically literate, direct
 - Density: spacious marketing and long-form reading
 - Motion: restrained and state-based; the interactive home-hero cube is the only continuous illustrative motion
+
+Visible copy uses "I" for professional judgement, experience, scope, and limits. It favours concrete operating conditions over promotional claims and leaves unresolved questions visible.
 
 ## Information hierarchy
 

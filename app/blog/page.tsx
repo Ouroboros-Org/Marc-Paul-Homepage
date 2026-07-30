@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "AI Investment & Software Decision Blog",
   description:
-    "Articles by Marc Paul on AI investment reviews, pilot-to-production decisions, delayed software programmes, funding conditions and decision evidence.",
+    "I write about AI investment reviews, pilot-to-production decisions, delayed software programmes, funding conditions and decision evidence.",
   keywords: [
     "AI investment blog",
     "AI pilot to production",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "AI Investment & Software Decision Blog",
-    description: "Decision notes for leaders funding, scaling or reconsidering AI and software initiatives.",
+    description: "My decision notes for leaders funding, scaling or reconsidering AI and software initiatives.",
     url: "/blog"
   }
 };
@@ -49,8 +49,8 @@ export default function BlogPage() {
       <StructuredData data={jsonLd} />
       <PageHero
         eyebrow="Decision notes"
-        title="Before the budget, rollout or recovery plan is approved."
-        lead="These notes examine live AI and software decisions: what a pilot proved, which costs sit outside the demo, and what evidence should govern the next release. Earlier essays remain available in a dated archive."
+        title="Notes I use to think through technology commitments."
+        lead="I write about what a pilot proved, which costs sit outside the demo, and what evidence should govern the next release. Earlier essays remain in a dated archive."
         breadcrumbs={[{ label: "Blog" }]}
         actions={
           <>
@@ -68,9 +68,9 @@ export default function BlogPage() {
         <div className="shell">
           <SectionHeading
             kicker="Featured"
-            title="Funding and continuation decisions."
+            title="Current notes on funding and continuation."
             id="featured-title"
-            intro={<p>Start with the approval paper, the evidence pack and the commitment now requested.</p>}
+            intro={<p>I start with the approval paper, the evidence pack, and the commitment now requested.</p>}
           />
           <div className="blog-grid blog-grid-featured">
             {featuredPosts.map((post, index) => (
@@ -85,7 +85,7 @@ export default function BlogPage() {
           <div className="shell">
             <SectionHeading
               kicker="Notes"
-              title="What the operating plan still needs to answer."
+              title="Questions I carry from the demo into the operating plan."
               id="notes-title"
             />
             <div className="blog-list">
@@ -101,9 +101,9 @@ export default function BlogPage() {
         <div className="shell">
           <SectionHeading
             kicker="Archive / 2023–2025"
-            title="Earlier writing, dated to its original context."
+            title="My earlier writing, kept in its original context."
             id="archive-title"
-            intro={<p>These entries retain the old site&apos;s URLs and publication record. Pieces about models, platforms and policy describe the evidence available when they were published.</p>}
+            intro={<p>I have kept the old URLs and publication dates. Pieces about models, platforms, and policy reflect what I knew when I published them.</p>}
           />
           <div className="archive-list">
             {archivePosts.map((post) => (

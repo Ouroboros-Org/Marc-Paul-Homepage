@@ -4,11 +4,11 @@ import { ReviewServicePage, type ServicePageContent } from "@/components/review-
 export const metadata: Metadata = {
   title: "Independent Initiative Review for AI and Software Decisions",
   description:
-    "A 5 to 10 working day independent review of one consequential AI or software decision, with an opinion, conditions, and decision record.",
+    "A 5 to 10 working day independent review of one material AI or software decision, with an opinion, conditions, and decision record.",
   alternates: { canonical: "/reviews/independent-initiative-review" },
   openGraph: {
     title: "Independent Initiative Review",
-    description: "Examine the evidence, exposure, and conditions behind a consequential technology commitment.",
+    description: "Examine the evidence, exposure, and conditions behind a material technology commitment.",
     url: "/reviews/independent-initiative-review"
   }
 };
@@ -18,15 +18,15 @@ const content: ServicePageContent = {
   eyebrow: "Primary service / Independent opinion",
   title: "Independent Initiative Review",
   lead:
-    "A written independent opinion on whether the evidence for one consequential AI or software initiative supports the next commitment and what conditions should govern it.",
+    "I examine whether the evidence for one defined AI or software initiative supports the next commitment and what conditions should govern it.",
   status: "One initiative / one defined decision",
   duration: "Usually 5–10 working days",
   fee: "$8,000–$15,000",
   decision:
     "Does the evidence available now justify this commitment, and which conditions should govern it?",
   introduction: [
-    "Commission the review when approval, funding, production, scale, continuation, restructuring, pause, or closure is due. Its scope is one initiative, not the company's entire strategy or future prospects.",
-    "The decision owner receives an opinion, any conditions attached to it, and records of the decisive assumptions, credible alternatives, exposure, and material disagreement. The conclusion does not depend on approval."
+    "Ask me to review the initiative when approval, funding, production, scale, continuation, restructuring, pause, or closure is due. I cover one initiative, not the company's entire strategy or future prospects.",
+    "I give the decision owner my opinion, any conditions attached to it, and records of the assumptions, realistic alternatives, exposure, and material disagreement. My conclusion does not depend on approval."
   ],
   decisionExamples: [
     "Should the company approve this AI product investment?",
@@ -39,41 +39,41 @@ const content: ServicePageContent = {
   reviewAreas: [
     {
       title: "Intended result and problem",
-      description: "Establish whether the intended result matters, the customer or operating problem is supported, and the initiative can plausibly change it."
+      description: "I establish whether the intended result matters, the customer or operating problem is supported, and the initiative can plausibly change it."
     },
     {
       title: "Product and technology fit",
-      description: "Assess whether the proposed mechanism, system, and technical capability fit the task under ordinary operating conditions."
+      description: "I assess whether the proposed mechanism, system, and technical capability fit the task under ordinary operating conditions."
     },
     {
       title: "Demand and adoption evidence",
-      description: "Examine what customers or internal users have done, committed, paid for, or changed, with the limits of stated preference made clear."
+      description: "I examine what customers or internal users have done, committed, paid for, or changed, and I keep stated preference separate from observed behaviour."
     },
     {
       title: "Economics and resources",
-      description: "Review the full delivery and operating cost, resource model, expected return, and any omitted work that changes the economics."
+      description: "I review the full delivery and operating cost, resource model, expected return, and any omitted work that changes the economics."
     },
     {
       title: "Delivery conditions",
-      description: "Check team capacity, data, integration, vendor dependencies, delivery sequence, accountability, and how early failure can be detected."
+      description: "I check team capacity, data, integration, vendor dependencies, delivery sequence, accountability, and how early failure can be detected."
     },
     {
       title: "Exposure and alternatives",
-      description: "Set out potential consequences, weak evidence, discovery delay, difficulty of reversal, and credible alternatives to full approval."
+      description: "I set out the possible consequences, weak evidence, discovery delay, difficulty of reversal, and realistic alternatives to full approval."
     }
   ],
   outputs: [
     {
       title: "Review opinion",
-      description: "A conclusion to proceed, add conditions, stage, rework, pause, or stop under the current case."
+      description: "My conclusion to proceed, add conditions, stage, rework, pause, or stop under the current case."
     },
     {
       title: "Decision and assumption record",
-      description: "The decision, intended result, requested commitment, material assumptions, available evidence, and named owners."
+      description: "My record of the decision, intended result, requested commitment, material assumptions, available evidence, and named owners."
     },
     {
       title: "Exposure and conditions register",
-      description: "Material exposure to loss, delay, dependency, or lock-in, with observable conditions for the next commitment."
+      description: "My record of exposure to loss, delay, dependency, or lock-in, with observable conditions for the next commitment."
     },
     {
       title: "Decision record",
@@ -111,7 +111,7 @@ const content: ServicePageContent = {
     }
   ],
   ctaTitle: "Request an Independent Initiative Review while the decision remains open.",
-  ctaText: "Send the decision, initiative, deadline, and requested commitment. A short account is enough to assess scope and fit."
+  ctaText: "Send me the decision, initiative, deadline, and requested commitment. A short account is enough for me to assess scope and fit."
 };
 
 export default function IndependentInitiativeReviewPage() {

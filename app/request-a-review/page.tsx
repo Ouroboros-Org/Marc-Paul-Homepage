@@ -22,8 +22,8 @@ export default function RequestReviewPage() {
     <main id="main-content">
       <PageHero
         eyebrow="Request a review"
-        title="Request an Independent Initiative Review."
-        lead="The information below is used to assess whether an Independent Initiative Review fits the decision and what access it would require. Submitting the form does not book or begin an engagement."
+        title="Tell me about the decision you need reviewed."
+        lead="I use the information below to assess whether the decision fits an Independent Initiative Review and what access I would need. Submitting the form does not book or begin an engagement."
         breadcrumbs={[{ label: "Request a Review" }]}
         aside={
           <div className="request-fit-card">
@@ -45,8 +45,8 @@ export default function RequestReviewPage() {
         <div className="shell request-layout">
           <aside className="request-sidebar">
             <p className="section-kicker">Before submitting</p>
-            <h2 id="form-title">The opinion may disagree with the proposed direction.</h2>
-            <p>This service is unsuitable when a preferred answer needs confirmation. The opinion may support proceeding, adding conditions, staging, reworking, pausing, or stopping under the current case.</p>
+            <h2 id="form-title">My opinion may disagree with the proposed direction.</h2>
+            <p>I am not the right reviewer when a preferred answer needs confirmation. My opinion may support proceeding, adding conditions, staging, reworking, pausing, or stopping under the current case.</p>
             <div className="request-privacy-note">
               <LockKeyhole size={19} strokeWidth={1.5} aria-hidden="true" />
               <p>Leave out source code, personal data, credentials, and confidential attachments at this stage.</p>
@@ -67,7 +67,7 @@ export default function RequestReviewPage() {
             <h2 id="next-title">I will reply with an assessment of fit and scope.</h2>
           </div>
           <div className="prose-block">
-            <p>I will assess whether the work fits the practice, what information and stakeholder access it requires, and which engagement is proportionate.</p>
+            <p>I will assess whether the work fits my scope, what information and stakeholder access it requires, and which engagement is proportionate.</p>
             <p>I will also flag work that belongs with an implementation partner, specialist auditor, lawyer, transaction adviser, or another provider.</p>
           </div>
         </div>

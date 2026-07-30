@@ -7,11 +7,11 @@ import { CtaPanel, PageHero, SectionHeading } from "@/components/site-ui";
 export const metadata: Metadata = {
   title: "How Independent Initiative Reviews Are Conducted",
   description:
-    "How an Independent Initiative Review examines evidence, handles disagreement, protects independence, and sets clear professional limits.",
+    "How I examine evidence, handle disagreement, protect independence, and set clear limits in an Independent Initiative Review.",
   alternates: { canonical: "/approach" },
   openGraph: {
     title: "How Independent Initiative Reviews Are Conducted",
-    description: "The working standards for evidence, judgment, disagreement, independence, and scope.",
+    description: "My working standards for evidence, judgement, disagreement, independence, and scope.",
     url: "/approach"
   }
 };
@@ -19,23 +19,23 @@ export const metadata: Metadata = {
 const sequence = [
   {
     title: "Set out the decision",
-    text: "Record the choice, its owner and deadline, the commitment requested, the intended result, and the consequences of acting or waiting."
+    text: "I record the choice, its owner and deadline, the commitment requested, the intended result, and the consequences of acting or waiting."
   },
   {
     title: "Rebuild the proposal's logic",
-    text: "Trace how the stated problem, proposed product, adoption, delivery, economics, and risks are meant to produce the result."
+    text: "I trace how the stated problem, proposed product, adoption, delivery, economics, and risks are meant to produce the result."
   },
   {
     title: "Examine the supporting evidence",
-    text: "Identify the claims carrying the decision, then assess the evidence and the cost of finding out late that a claim was wrong."
+    text: "I identify the claims carrying the decision, then assess the evidence and the cost of finding out late that a claim was wrong."
   },
   {
     title: "Compare real alternatives",
-    text: "Set full approval beside staged funding, a narrower scope, another test, buying, partnering, waiting, keeping the current process, or closing the work."
+    text: "I set full approval beside staged funding, a narrower scope, another test, buying, partnering, waiting, keeping the current process, or closing the work."
   },
   {
     title: "Give the opinion",
-    text: "State the conclusion, any conditions, the owner of each next action, the evidence still required, and the next decision date."
+    text: "I state my conclusion, any conditions, the owner of each next action, the evidence still required, and the next decision date."
   }
 ] as const;
 
@@ -43,9 +43,9 @@ export default function ApproachPage() {
   return (
     <main id="main-content">
       <PageHero
-        eyebrow="How the review is conducted"
-        title="How an Independent Initiative Review reaches an opinion."
-        lead="The service examines one consequential decision and produces a traceable opinion. The decision owner can see the evidence used, the judgement applied, the limits of the work, and any unresolved disagreement."
+        eyebrow="How I conduct a review"
+        title="I make the reasoning behind my opinion visible."
+        lead="I examine one material decision. The decision owner can see which evidence I used, where I applied judgement, what I left outside the scope, and which disagreements remain."
         breadcrumbs={[{ label: "Approach" }]}
         actions={
           <>
@@ -70,9 +70,9 @@ export default function ApproachPage() {
         <div className="shell">
           <SectionHeading
             kicker="From brief to opinion"
-            title="The decision sets the work."
+            title="I begin with the decision that is due."
             id="sequence-title"
-            intro={<p>Scope depends on the evidence, stakeholder access, deadline, and exposure. The final record identifies what was reviewed and what remains unresolved.</p>}
+            intro={<p>Scope depends on the evidence, stakeholder access, deadline, and exposure. My final record states what I reviewed and what remains unresolved.</p>}
           />
           <ol className="sequence-list">
             {sequence.map((item, index) => (
@@ -91,19 +91,19 @@ export default function ApproachPage() {
             <Eye size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Evidence</p>
             <h2 id="evidence-title">Each important claim needs support that fits it.</h2>
-            <p>The review considers the source, method, recency, representativeness, observed behaviour, and whether another person could reconstruct the factual basis.</p>
+            <p>I consider the source, method, recency, representativeness, observed behaviour, and whether another person could reconstruct the factual basis.</p>
           </article>
           <article>
             <Scale size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Judgment</p>
             <h2>Material uncertainty stays visible.</h2>
-            <p>Scores can organise issues, but they cannot turn assumptions into probabilities. The opinion records consequence, weak evidence, discovery delay, and difficulty of reversal.</p>
+            <p>Scores can organise issues, but they cannot turn assumptions into probabilities. I record the consequence, weak evidence, discovery delay, and difficulty of reversal.</p>
           </article>
           <article>
             <ShieldCheck size={24} strokeWidth={1.5} aria-hidden="true" />
             <p className="card-label">Disagreement</p>
             <h2>A material disagreement belongs in the record.</h2>
-            <p>Participants can correct facts and submit better evidence. If an important difference remains, the decision owner sees it.</p>
+            <p>Participants can correct facts and submit better evidence. If an important difference remains, I leave it visible to the decision owner.</p>
           </article>
         </div>
       </section>
@@ -112,11 +112,11 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Independence</p>
-            <h2 id="independent-title">The fee does not depend on implementation.</h2>
+            <h2 id="independent-title">My fee does not depend on implementation.</h2>
           </div>
           <div className="prose-block">
-            <p>The practice earns no implementation fee, software revenue, recruitment commission, vendor incentive, referral fee, partner success fee, or equity from an organisation under review.</p>
-            <p>Any potential conflict is disclosed before work begins. The client appoints any outside specialist.</p>
+            <p>I earn no implementation fee, software revenue, recruitment commission, vendor incentive, referral fee, success fee, or equity from an organisation I review.</p>
+            <p>I disclose a potential conflict before work begins. The client appoints any outside specialist.</p>
           </div>
         </div>
       </section>
@@ -144,11 +144,11 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Information handling</p>
-            <h2 id="information-title">Access is limited to what the decision requires.</h2>
+            <h2 id="information-title">I limit access to what the decision requires.</h2>
           </div>
           <div className="prose-block">
-            <p>Where practical, work stays in the client&apos;s controlled environment. Access is restricted to named reviewers, unnecessary personal information is excluded, and retention is agreed before transfer.</p>
-            <p>Source code, personal data, and trade secrets are requested only when the agreed scope requires them. Client information is never published without written permission.</p>
+            <p>Where practical, I work in the client&apos;s controlled environment. I exclude unnecessary personal information and agree retention before any transfer.</p>
+            <p>I request source code, personal data, or trade secrets only when the agreed scope requires them. I do not publish client information without written permission.</p>
             <Link className="text-link" href="/privacy">
               Read the website privacy notice <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -160,10 +160,10 @@ export default function ApproachPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Limitations</p>
-            <h2 id="limits-title">The opinion reflects the evidence available at the time.</h2>
+            <h2 id="limits-title">My opinion reflects the evidence available at the time.</h2>
           </div>
           <div className="prose-block">
-            <p>The review cannot guarantee market success, product adoption, investment return, delivery performance, legal compliance, security, model accuracy, or future competitive conditions.</p>
+            <p>I cannot guarantee market success, product adoption, investment return, delivery performance, legal compliance, security, model accuracy, or future competitive conditions.</p>
             <p>The client remains responsible for the information supplied, the final decision, implementation, legal and regulatory duties, specialist advice, and subsequent monitoring.</p>
           </div>
         </div>

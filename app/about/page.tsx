@@ -10,11 +10,11 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Marc Paul | Independent AI Initiative Reviewer",
   description:
-    "Marc Paul's background in AI development, product delivery, technical production, immersive systems, and cross-functional leadership.",
+    "I bring experience in AI development, product delivery, technical production, immersive systems, and cross-functional leadership to independent review.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Marc Paul",
-    description: "Marc Paul's experience in AI development, product delivery, and technical production.",
+    description: "How my experience in AI development, product delivery, and technical production informs my review work.",
     url: "/about"
   }
 };
@@ -43,9 +43,9 @@ export default function AboutPage() {
     <main id="main-content">
       <StructuredData data={jsonLd} />
       <PageHero
-        eyebrow="About Marc Paul"
-        title="Product and delivery experience applied to independent review."
-        lead="Marc Paul conducts Independent Initiative Reviews of consequential AI and software decisions. His background in development, product delivery, technical production, and cross-functional leadership informs his judgement of the commercial case and the conditions needed to deliver the initiative."
+        eyebrow="About me"
+        title="I review technology decisions from the point where a proposal meets delivery."
+        lead="I conduct independent reviews of AI and software initiatives. I compare the commercial case with the product, technical, and operating conditions needed to make it work."
         breadcrumbs={[{ label: "About" }]}
         actions={
           <>
@@ -79,10 +79,10 @@ export default function AboutPage() {
           </div>
           <div className="prose-block">
             <p className="section-kicker">Relevant background</p>
-            <h2 id="bio-title">The review connects the proposal to operating conditions.</h2>
-            <p>Marc&apos;s work has covered product definition, technical scope, delivery sequence, team responsibility, and systems used by real customers and operators. His experience includes AI and backend development, product and production leadership, learning and progression systems, spatial computing, real-time experiences, and technical research.</p>
-            <p>The practice follows that experience. Its initial field covers AI-enabled products, internal AI systems, workflow platforms, software investments, significant rebuilds, digital-product changes, and related technology initiatives. It does not claim sector independence or replace specialist disciplines.</p>
-            <p>Marc is based in Malta and works internationally.</p>
+            <h2 id="bio-title">I learned early that a convincing prototype can still hide the hardest part.</h2>
+            <p>For my bachelor project, I built a virtual-reality golf-training system in Unity. I attached a Vive tracker to a physical club, worked with full-body tracking, and tested direct feedback on swing angle and direction. It worked at low and medium speeds. A professional swing exposed tracking drift, missed collisions, and physics limits that the earlier tests had not.</p>
+            <p>That experience is close to the work I do now. I have worked across AI and backend development, product and production delivery, learning systems, spatial computing, and real-time experiences. I know how easily a technical result can grow into a broader business claim as it moves from the project team to an approval paper.</p>
+            <p>I am based in Malta and work with international clients. I stay within AI, software, and digital-product decisions connected to my experience, and I bring in or recommend specialists when a question sits outside it.</p>
           </div>
         </div>
       </section>
@@ -91,30 +91,30 @@ export default function AboutPage() {
         <div className="shell">
           <SectionHeading
             kicker="Relevant experience"
-            title="Experience brought to an initiative review."
+            title="What I bring to a review."
             id="experience-title"
-            intro={<p>Marc compares the commercial claim with what the product, technology, team, and operating environment can support.</p>}
+            intro={<p>I test the commercial claim against what the product, technology, team, and operating environment can support.</p>}
           />
           <div className="experience-grid">
             <article>
               <Code2 size={24} strokeWidth={1.5} aria-hidden="true" />
               <h3>AI and technical development</h3>
-              <p>Direct work with AI, backend systems, real-time workflows, and prototypes, including the move from a convincing technical result to a dependable product capability.</p>
+              <p>I have built AI, backend, real-time, and prototype systems. That helps me separate model or prototype performance from dependable product behaviour.</p>
             </article>
             <article>
               <Layers3 size={24} strokeWidth={1.5} aria-hidden="true" />
               <h3>Product and production delivery</h3>
-              <p>Work across product definition, delivery planning, dependencies, technical trade-offs, and the coordination needed to move from proposal to operation.</p>
+              <p>I have worked across product definition, delivery planning, dependencies, technical trade-offs, and the coordination needed to move from proposal to operation.</p>
             </article>
             <article>
               <UsersRound size={24} strokeWidth={1.5} aria-hidden="true" />
               <h3>Cross-functional leadership</h3>
-              <p>Experience working across leadership, product, design, engineering, and production when ownership, constraints, and expected outcomes are unclear.</p>
+              <p>I am used to working across leadership, product, design, engineering, and production when ownership or expected outcomes are still unclear.</p>
             </article>
             <article>
               <Presentation size={24} strokeWidth={1.5} aria-hidden="true" />
               <h3>Public work</h3>
-              <p>Marc speaks and writes about AI, emerging technology, decision quality, immersive systems, and the evidence needed before a technical commitment.</p>
+              <p>I speak and write about AI, emerging technology, decision quality, immersive systems, and the evidence needed before a technical commitment.</p>
             </article>
           </div>
         </div>
@@ -123,12 +123,12 @@ export default function AboutPage() {
       <section className="section section-dark" aria-labelledby="practice-title">
         <div className="shell content-split">
           <div>
-            <p className="section-kicker">The practice</p>
-            <h2 id="practice-title">A defined role with clear limits.</h2>
+            <p className="section-kicker">My role</p>
+            <h2 id="practice-title">I keep the review separate from implementation.</h2>
           </div>
           <div className="prose-block">
-            <p>The Decision Integrity Practice does not build the system it recommends, earn implementation fees, sell software, or depend on approval for further work. That separation protects the opinion from the commercial outcome.</p>
-            <p>The review may identify the need for specialist legal, security, financial, regulatory, or technical work. It does not claim to replace those disciplines.</p>
+            <p>I do not build the system I review, earn implementation fees, sell software, or depend on approval for further work. My commercial interest should not change with the conclusion.</p>
+            <p>I may identify a need for legal, security, financial, regulatory, or specialist technical work. I do not present my review as a substitute for those disciplines.</p>
             <Link className="text-link" href="/approach">
               Read the independence and conduct standard <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -140,8 +140,8 @@ export default function AboutPage() {
         <div className="shell talk-grid">
           <div>
             <p className="section-kicker">TEDxValletta</p>
-            <h2 id="talk-title">Balancing ambition and skepticism in AI.</h2>
-            <p>The talk considers how curiosity and skepticism can coexist in work on AI. For a live initiative, the practical question is what the available evidence can support before ambition becomes a commitment.</p>
+            <h2 id="talk-title">I am curious about what technology makes possible, and skeptical of the shortcut from possible to ready.</h2>
+            <p>In my TEDxValletta talk, I argued for both sides of that coin. Curiosity gets a team moving. Skepticism is the circuit breaker: it creates room to hear concerns, test assumptions, and pause when the evidence changes. I use the same balance in review work.</p>
           </div>
           <TedxVideo />
         </div>

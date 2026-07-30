@@ -18,15 +18,15 @@ const content: ServicePageContent = {
   eyebrow: "Follow-on service / Review the next release",
   title: "Independent Continuation Review",
   lead:
-    "A written independent opinion on an active AI or software initiative before another tranche of money, scope, time, or customer exposure is released.",
+    "I review an active AI or software initiative before another tranche of money, scope, time, or customer exposure is released.",
   status: "Active initiative / defined review points",
   duration: "Agreed periods and decision gates",
   fee: "$5,000–$10,000 per month",
   decision:
     "Do the evidence and original conditions justify releasing the next commitment?",
   introduction: [
-    "Commission the service at an agreed funding, production, scale, renewal, or continuation gate. It compares the original approval conditions with the evidence gathered since that decision.",
-    "You receive a continuation opinion, a status record for the original conditions, an updated exposure record, and the boundary for the next decision. The service remains separate from daily programme management and the delivery team."
+    "Ask me to review the initiative at an agreed funding, production, scale, renewal, or continuation gate. I compare the original approval conditions with the evidence gathered since that decision.",
+    "I give you a continuation opinion, a status record for the original conditions, an updated exposure record, and the boundary for the next decision. I remain separate from daily programme management and the delivery team."
   ],
   decisionExamples: [
     "Should the next funding tranche be released after this milestone?",
@@ -39,33 +39,33 @@ const content: ServicePageContent = {
   reviewAreas: [
     {
       title: "Original conditions",
-      description: "Check whether the evidence, assumptions, boundaries, and controls attached to approval still hold."
+      description: "I check whether the evidence, assumptions, boundaries, and controls attached to approval still hold."
     },
     {
       title: "New evidence",
-      description: "Review delivery, customer, technical, commercial, and operating evidence gathered since the last decision."
+      description: "I review delivery, customer, technical, commercial, and operating evidence gathered since the last decision."
     },
     {
       title: "Spending and exposure",
-      description: "Establish whether the commitment remains inside its approved boundary and where new lock-in, customer, or vendor exposure has appeared."
+      description: "I establish whether the commitment remains inside its approved boundary and where new lock-in, customer, or vendor exposure has appeared."
     },
     {
       title: "Scope and benefit drift",
-      description: "Compare the current work with the intended result and reassess whether the expected benefit remains plausible."
+      description: "I compare the current work with the intended result and reassess whether the expected benefit remains plausible."
     },
     {
       title: "Funding and stop conditions",
-      description: "Record which conditions were met, missed, reinterpreted, or overtaken by better evidence."
+      description: "I record which conditions were met, missed, reinterpreted, or overtaken by better evidence."
     },
     {
       title: "Next commitment",
-      description: "Define the smallest defensible release of money, scope, time, or exposure and set its next review point."
+      description: "I define the smallest defensible release of money, scope, time, or exposure and set its next review point."
     }
   ],
   outputs: [
     {
       title: "Continuation opinion",
-      description: "An opinion on whether to release, condition, narrow, delay, rework, pause, or withhold the next commitment."
+      description: "My opinion on whether to release, condition, narrow, delay, rework, pause, or withhold the next commitment."
     },
     {
       title: "Condition status record",
@@ -111,7 +111,7 @@ const content: ServicePageContent = {
     }
   ],
   ctaTitle: "Request an Independent Continuation Review before the next release.",
-  ctaText: "Send the original approval basis, the initiative's current position, the next commitment, and its decision date."
+  ctaText: "Send me the original approval basis, the initiative's current position, the next commitment, and its decision date."
 };
 
 export default function IndependentContinuationReviewPage() {

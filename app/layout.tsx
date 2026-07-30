@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Marc Paul"
   },
   description:
-    "Independent reviews of consequential AI and software initiatives for CEOs, CFOs, founders, boards and investors.",
+    "I provide independent reviews of AI and software initiatives before approval, funding, production, or continuation.",
   keywords: [
     "independent initiative review",
     "AI initiative review",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Marc Paul | Independent AI & Software Initiative Reviews",
     description:
-      "Test the case behind an AI or software initiative before the next commitment.",
+      "I test the case behind an AI or software initiative before the next commitment.",
     type: "website",
     locale: "en_GB",
     url: "/",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Marc Paul | Independent AI & Software Initiative Reviews",
-    description: "Test the case behind an AI or software initiative before the next commitment.",
+    description: "I test the case behind an AI or software initiative before the next commitment.",
     images: ["/images/advisory-working-session.jpg"]
   },
   icons: {

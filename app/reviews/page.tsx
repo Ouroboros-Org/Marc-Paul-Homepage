@@ -8,7 +8,7 @@ import { reviews } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Independent AI & Software Initiative Review Services",
   description:
-    "Compare an Independent Initiative Review, Decision Case Reconstruction, and Independent Continuation Review for consequential AI and software decisions.",
+    "Compare an Independent Initiative Review, Decision Case Reconstruction, and Independent Continuation Review for material AI and software decisions.",
   alternates: { canonical: "/reviews" },
   openGraph: {
     title: "Independent AI & Software Initiative Review Services",
@@ -35,8 +35,8 @@ export default function ReviewsPage() {
       <StructuredData data={jsonLd} />
       <PageHero
         eyebrow="Review services"
-        title="Independent review services for a defined AI or software decision."
-        lead="The service depends on the state of the case. An Independent Initiative Review examines a proposal at a decision point. If the case is incomplete, use Decision Case Reconstruction; if active work has reached another commitment, use Independent Continuation Review."
+        title="I match the review to the state of the decision."
+        lead="I review a proposal that is ready for a decision, rebuild a case that is not, or return to active work before the next commitment."
         breadcrumbs={[{ label: "Reviews" }]}
         actions={
           <>
@@ -67,14 +67,14 @@ export default function ReviewsPage() {
             kicker="Choose by situation"
             title="The state of the case determines the service."
             id="choose-title"
-            intro={<p>An initiative review forms an opinion on the case presented. Reconstruction rebuilds a case that cannot yet support approval. A continuation review returns to an active initiative at a defined decision point.</p>}
+            intro={<p>I do not use a continuation review to repair a proposal that never had a sound approval basis. The question in front of the decision owner determines the work.</p>}
           />
           <div className="choice-grid">
             <article>
               <FileQuestion size={24} strokeWidth={1.5} aria-hidden="true" />
               <p className="card-label">An approval is pending</p>
               <h3>Review the case as presented.</h3>
-              <p>The Independent Initiative Review applies when leadership needs an opinion on a defined commitment while credible alternatives still exist.</p>
+              <p>I use an Independent Initiative Review when leadership needs an opinion on a defined commitment while realistic alternatives still exist.</p>
               <Link className="text-link" href="/reviews/independent-initiative-review">
                 Independent Initiative Review <ArrowRight size={16} aria-hidden="true" />
               </Link>
@@ -83,7 +83,7 @@ export default function ReviewsPage() {
               <Cpu size={24} strokeWidth={1.5} aria-hidden="true" />
               <p className="card-label">The proposal cannot support a decision</p>
               <h3>Rebuild the investment case.</h3>
-              <p>Decision Case Reconstruction applies when the initiative may be viable, but its logic, evidence, economics, scope, or ownership need substantial work.</p>
+              <p>I use Decision Case Reconstruction when the initiative may be viable, but its logic, evidence, economics, scope, or ownership need substantial work.</p>
               <Link className="text-link" href="/reviews/decision-case-reconstruction">
                 Decision Case Reconstruction <ArrowRight size={16} aria-hidden="true" />
               </Link>
@@ -92,7 +92,7 @@ export default function ReviewsPage() {
               <RefreshCcw size={24} strokeWidth={1.5} aria-hidden="true" />
               <p className="card-label">The initiative is already active</p>
               <h3>Review the conditions before the next release.</h3>
-              <p>The Independent Continuation Review applies at a funding gate, vendor renewal, production decision, or other defined review point.</p>
+              <p>I use an Independent Continuation Review at a funding gate, vendor renewal, production decision, or other defined review point.</p>
               <Link className="text-link" href="/reviews/independent-continuation-review">
                 Independent Continuation Review <ArrowRight size={16} aria-hidden="true" />
               </Link>
@@ -105,11 +105,11 @@ export default function ReviewsPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Initial field of work</p>
-            <h2 id="field-title">Bounded AI, software, and digital-product decisions.</h2>
+            <h2 id="field-title">I stay within AI, software, and digital-product decisions I can examine well.</h2>
           </div>
           <div className="prose-block">
-            <p>The strongest fit is a B2B software company, venture-backed technology business, AI-enabled product, workflow platform, simulation or immersive-technology company, education-technology business, or a bounded internal transformation programme.</p>
-            <p>Typical decisions include an AI feature, internal AI system, automation programme, product pivot, platform investment, significant rebuild, pilot-to-scale move, technical operating model, or technology-enabled market expansion.</p>
+            <p>My strongest fit is a B2B software company, a technology business, an AI-enabled product, a workflow platform, a simulation or immersive-technology company, an education-technology business, or a bounded internal programme.</p>
+            <p>I review decisions about AI features, internal AI systems, automation programmes, product pivots, platform investments, major rebuilds, pilot-to-production moves, and technical operating models.</p>
             <Link className="text-link" href="/reviews/ai-initiative-review">
               See the additional AI review areas <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -121,11 +121,11 @@ export default function ReviewsPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">Service boundary</p>
-            <h2 id="boundary-title">Independent review, separate from strategy and implementation.</h2>
+            <h2 id="boundary-title">I keep review separate from strategy and implementation work.</h2>
           </div>
           <div className="prose-block">
-            <p>The practice reviews whether the combined investment case supports the commitment being requested. Operating the initiative, selling the implementation, auditing the company, and certifying the technology are outside its scope.</p>
-            <p>The opinion remains independent of project approval and of any later delivery appointment.</p>
+            <p>I review whether the combined investment case supports the commitment being requested. I do not operate the initiative, sell the implementation, audit the company, or certify the technology.</p>
+            <p>My opinion remains independent of project approval and any later delivery appointment.</p>
             <Link className="text-link" href="/approach">
               Read the approach, limits, and independence standard <ArrowRight size={16} aria-hidden="true" />
             </Link>

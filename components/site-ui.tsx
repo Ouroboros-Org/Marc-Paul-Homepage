@@ -135,8 +135,8 @@ export function ReviewCard({
 }
 
 export function CtaPanel({
-  title = "Get an independent opinion before the next commitment.",
-  text = "Send the initiative, decision, deadline, and evidence available. I will identify the suitable service, required access, and any work that sits outside the practice."
+  title = "Ask me for an independent opinion before the next commitment.",
+  text = "Send me the initiative, decision, deadline, and evidence available. I will identify the suitable service, required access, and any work that sits outside my scope."
 }: {
   title?: string;
   text?: string;
@@ -164,7 +164,7 @@ export function CtaPanel({
               icon={<MessageSquareText size={17} />}
               isCta={true}
             >
-              Contact us
+              Contact me
             </Button>
           </div>
         </div>

@@ -79,12 +79,12 @@ const navigation = [
       {
         href: "/about",
         label: "About",
-        description: "Relevant product, technical and advisory experience.",
+        description: "My product, technical and advisory experience.",
       },
       {
         href: "/approach",
         label: "Approach",
-        description: "Read the standards, limits and independence terms.",
+        description: "How I handle evidence, limits and independence.",
       },
     ],
   },
@@ -94,8 +94,8 @@ const navigation = [
     items: [
       {
         href: "/contact",
-        label: "Contact us",
-        description: "Use the short form for a general question.",
+        label: "Contact me",
+        description: "Send me a short general question.",
       },
       {
         href: "/request-a-review",

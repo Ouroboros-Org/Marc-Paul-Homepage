@@ -39,12 +39,17 @@ Primary and secondary calls to action use one black refractive pill system. Ever
 
 ## Content principles
 
+- Write visible copy in Marc's first-person voice. Use "I" for judgement, scope, experience, and professional limits.
+- Prefer a specific condition, example, or observed failure over a general claim of importance.
+- Keep the tone curious about new technology and skeptical of claims that outrun the test.
 - Name the decision, commitment, evidence, limitation, consequence, and owner.
 - Describe services and outputs before method.
 - Do not claim client outcomes, board use, savings, maturity, or prevented failure without evidence.
 - Label illustrative, public-source, and anonymised cases distinctly.
 - Keep old time-sensitive articles in a dated archive rather than presenting them as current guidance.
 - Use plain-language search terms alongside the coined service name.
+- Avoid promotional language, forced summaries, repeated three-part slogans, formulaic contrasts, and decorative em dashes.
+- Leave real uncertainty open. Do not turn every paragraph into a lesson or every section into a complete narrative arc.
 
 ## UX guardrails
 

@@ -51,7 +51,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         actions={
           <>
             <Button href="/request-a-review" icon={<FileCheck2 size={17} />} isCta={true}>
-              Request this service
+              Request this review
             </Button>
             <Button href="/situations" variant="secondary" icon={<ArrowRight size={17} />}>
               Check when it fits
@@ -92,7 +92,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Decisions covered"
-            title="Decisions this service can address."
+            title="Decisions I can address."
             id="examples-title"
           />
           <ul className="decision-example-grid">
@@ -110,9 +110,9 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Scope of review"
-            title="What the service examines."
+            title="What I examine."
             id="areas-title"
-            intro={<p>The work stays tied to the defined commitment. Its depth depends on the available evidence and the exposure involved.</p>}
+            intro={<p>I keep the work tied to the defined commitment. Its depth depends on the available evidence and the exposure involved.</p>}
           />
           <div className="review-area-grid">
             {content.reviewAreas.map((area, index) => (
@@ -130,7 +130,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell">
           <SectionHeading
             kicker="Deliverables"
-            title="What the decision owner receives."
+            title="What you receive."
             id="outputs-title"
           />
           <div className="output-list">
@@ -152,7 +152,7 @@ export function ReviewServicePage({ content }: { content: ServicePageContent }) 
         <div className="shell requirements-grid">
           <div>
             <p className="section-kicker">Access and limits</p>
-            <h2 id="access-title">What the service needs, and what it excludes.</h2>
+            <h2 id="access-title">What I need, and what I leave outside the scope.</h2>
           </div>
           <div className="requirements-column">
             <h3><KeyRound size={19} aria-hidden="true" /> What is required</h3>

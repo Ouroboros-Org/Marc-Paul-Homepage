@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "What does an Independent Initiative Review examine?",
     answer:
-      "It examines one defined AI or software initiative and the decision attached to it. The service covers the intended result, evidence for demand, product and technology fit, delivery conditions, full cost, material exposure, alternatives, and conditions for further commitment."
+      "I examine one defined AI or software initiative and the decision attached to it. I look at the intended result, demand evidence, product and technology fit, delivery conditions, full cost, exposure, alternatives, and the conditions for any further commitment."
   },
   {
     question: "Who normally commissions a review?",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "Can the opinion recommend stopping the initiative?",
     answer:
-      "Yes. The reviewer must be free to reach an unfavourable conclusion. The opinion may support proceeding, proceeding under conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented."
+      "Yes. I need to be free to reach an unfavourable conclusion. My opinion may support proceeding, adding conditions, staging the commitment, reworking the case, pausing, or stopping under the case currently presented."
   }
 ] as const;
 
@@ -101,14 +101,14 @@ export default function Home() {
       <section className="home-hero" aria-labelledby="home-title">
         <div className="shell home-hero-shell">
           <div className="home-hero-copy">
-            <p className="eyebrow"><span aria-hidden="true" />Independent Initiative Review for AI and software</p>
+            <p className="eyebrow"><span aria-hidden="true" />Independent review for AI and software decisions</p>
             <h1 id="home-title">
               An independent opinion <br />
-              <em>before you commit.</em>
+              <em>before the next commitment.</em>
             </h1>
             <p className="home-hero-lede">
-              Reviewing initiatives before approval, funding, production, scale, or continuation. <br />
-              Get the right framing, written opinion to proceed, add conditions, stage the commitment, rework the case, pause, or stop.
+              I review one defined initiative before approval, funding, production, scale, or continuation.
+              You receive a written opinion on what the evidence supports now.
             </p>
             <div className="hero-actions">
               <Button
@@ -151,15 +151,15 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             kicker="01 / Main engagement"
-            title="An Independent Initiative Review before the next commitment."
+            title="I review one decision at a time."
             id="primary-review-title"
             intro={
               <>
                 <p>
-                  Commission the service when one defined approval, funding, production, scale, continuation, restructuring, or closure decision is due.
+                  Bring me the approval, funding, production, continuation, restructuring, or closure decision that is actually due.
                 </p>
                 <p>
-                  You receive a written opinion, any conditions attached to it, and a record of the evidence, alternatives, exposure, and unresolved points.
+                  I return a written opinion, any conditions attached to it, and a record of the evidence, alternatives, exposure, and unresolved points.
                 </p>
               </>
             }
@@ -169,7 +169,7 @@ export default function Home() {
               <p className="card-label">Independent Initiative Review</p>
               <h3>One decision sets the scope.</h3>
               <p>
-                The engagement covers one initiative and the commitment being requested. Company-wide health checks sit outside its scope.
+                I examine one initiative and the commitment being requested. A company-wide health check sits outside the scope.
               </p>
               <ul className="check-list">
                 <li>What must be true for the initiative to work</li>
@@ -204,9 +204,9 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             kicker="02 / Engagements"
-            title="Choose the service by the state of the case."
+            title="The state of the case determines the work."
             id="services-title"
-            intro={<p>The Independent Initiative Review gives an opinion on the case presented. Decision Case Reconstruction rebuilds an incomplete case. Independent Continuation Review reassesses an active initiative before the next release.</p>}
+            intro={<p>I review a case that is ready for a decision, rebuild one that is not, or return to an active initiative before the next release.</p>}
           />
           <div className="review-grid">
             {reviews.map((review, index) => (
@@ -222,7 +222,7 @@ export default function Home() {
             kicker="03 / What you receive"
             title="A written opinion and the records behind it."
             id="package-title"
-            intro={<p>The decision owner receives a concise account of the conclusion, conditions, evidence, disagreement, responsibilities, and next review point.</p>}
+            intro={<p>I give the decision owner a short account of my conclusion, conditions, evidence, disagreement, responsibilities, and next review point.</p>}
           />
           <div className="deliverable-grid">
             {deliverables.map((item, index) => (
@@ -242,7 +242,7 @@ export default function Home() {
             kicker="04 / When a review is useful"
             title="Commission the review while credible alternatives remain."
             id="situations-title"
-            intro={<p>The useful review point is before more money, scope, time, or customer exposure makes a change of course expensive.</p>}
+            intro={<p>The useful moment is before more money, scope, time, or customer exposure makes a change of course expensive.</p>}
           />
           <div className="situation-list">
             {situations.map((situation) => (
@@ -265,9 +265,9 @@ export default function Home() {
         <div className="shell ai-review-grid">
           <div>
             <p className="section-kicker">05 / AI initiatives</p>
-            <h2 id="ai-review-title">A working demo does not settle the production case.</h2>
+            <h2 id="ai-review-title">I treat a working demo as evidence of what was tested.</h2>
             <p className="large-copy">
-              A pilot may omit the correction work, model instability, evaluation bias, inference cost, data restrictions, and monitoring required in production. The review also examines vendor dependency and who takes responsibility when outputs are wrong.
+              A pilot can leave out correction work, unusual inputs, operating cost, data restrictions, and monitoring. I check those conditions before treating a promising result as a production case.
             </p>
             <Button href="/reviews/ai-initiative-review" icon={<ArrowRight size={17} />}>
               Review an AI initiative
@@ -295,7 +295,7 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             kicker="06 / Who commissions the work"
-            title="For those who own or oversee the commitment."
+            title="I work with the people responsible for the commitment."
             id="buyers-title"
           />
           <div className="audience-grid">
@@ -321,12 +321,12 @@ export default function Home() {
           </div>
           <div>
             <p className="section-kicker">07 / Independence</p>
-            <h2 id="independence-title">The opinion is independent of approval.</h2>
+            <h2 id="independence-title">My fee does not depend on approval.</h2>
             <p className="large-copy">
-              The practice does not sell software, take implementation fees, accept vendor incentives, recruitment commissions, referral fees, success fees, or equity in an organisation under review.
+              I do not sell the software, take the implementation work, or accept vendor incentives, referral fees, success fees, or equity in an organisation I review.
             </p>
             <p>
-              Management remains responsible for the final decision. Specialist legal, security, financial, or technical work may still be required. Those disciplines remain outside the review scope.
+              Management remains responsible for the final decision. I may recommend legal, security, financial, or specialist technical work, but I do not replace it.
             </p>
             <Link className="text-link" href="/approach">
               Read the independence and scope standard <ArrowRight size={16} aria-hidden="true" />
@@ -348,15 +348,15 @@ export default function Home() {
           </div>
           <div>
             <p className="section-kicker">08 / Relevant experience</p>
-            <h2 id="experience-title">Product and delivery experience applied to the decision.</h2>
+            <h2 id="experience-title">I have worked on the gap between a prototype and an operating system.</h2>
             <p>
-              Marc&apos;s background includes AI development, product delivery, technical production, immersive systems, and cross-functional leadership. In a review, he compares the commercial case with the work required to build, operate, and support the proposed system.
+              My work includes AI development, product delivery, technical production, and immersive systems. For my bachelor project, I built a VR golf-training prototype with a physical club, HTC Vive trackers, and Unity. A professional swing exposed tracking and physics limits that lower-speed tests did not.
             </p>
             <p>
-              The practice is limited to AI, software, and digital-product initiatives connected to that experience.
+              That experience still shapes how I read technical evidence: I want to know what worked, under which conditions, and what changed when the system met real use.
             </p>
             <Button href="/about" variant="secondary" icon={<ArrowRight size={17} />}>
-              About Marc and the practice
+              About me and my work
             </Button>
           </div>
         </div>
@@ -366,9 +366,9 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             kicker="09 / Decision notes"
-            title="Notes on technology decisions."
+            title="Notes from my work with technology decisions."
             id="blog-title"
-            intro={<p>Articles on AI investment, pilot-to-production decisions, software programmes, and the evidence needed before scale.</p>}
+            intro={<p>I write about AI investment, pilot-to-production decisions, software programmes, and the evidence needed before scale.</p>}
           />
           <div className="blog-grid blog-grid-featured">
             {featuredPosts.slice(0, 3).map((post, index) => (
@@ -387,7 +387,7 @@ export default function Home() {
         <div className="shell faq-layout">
           <div>
             <p className="section-kicker">10 / Questions</p>
-            <h2 id="faq-title">Questions about commissioning a review.</h2>
+            <h2 id="faq-title">Questions I am often asked.</h2>
           </div>
           <div className="faq-list">
             {faqs.map((item) => (

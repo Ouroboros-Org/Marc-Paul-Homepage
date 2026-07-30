@@ -22,8 +22,8 @@ export default function SituationsPage() {
     <main id="main-content">
       <PageHero
         eyebrow="When to commission a review"
-        title="Commission a review before the next commitment closes off alternatives."
-        lead="The service fits a defined AI or software decision with a named owner, a deadline, evidence to examine, and material consequences. It can also record unresolved disagreement before approval."
+        title="Bring me the decision while realistic alternatives remain."
+        lead="I review a defined AI or software decision with a named owner, a deadline, evidence to examine, and consequences worth an outside view. I can also record unresolved disagreement before approval."
         breadcrumbs={[{ label: "Situations" }]}
         actions={
           <>
@@ -43,7 +43,7 @@ export default function SituationsPage() {
             kicker="Five common decision points"
             title="Start with the decision now due."
             id="moments-title"
-            intro={<p>Start with the commitment being considered, the evidence available, and the consequences of getting the decision wrong.</p>}
+            intro={<p>I start with the commitment being considered, the evidence available, and the consequences of getting the decision wrong.</p>}
           />
           <div className="situation-detail-list">
             {situations.map((situation) => (
@@ -78,11 +78,11 @@ export default function SituationsPage() {
         <div className="shell content-split">
           <div>
             <p className="section-kicker">When this is too early</p>
-            <h2 id="not-yet-title">Some technology questions are not ready for independent review.</h2>
+            <h2 id="not-yet-title">I do not review an idea before there is a decision to make.</h2>
           </div>
           <div className="prose-block">
-            <p>An undeveloped idea with no material commitment at stake is too early. General coaching, innovation workshops, implementation help, and confirmation of a preferred answer sit outside this practice.</p>
-            <p>The work becomes relevant once there is a defined decision, a responsible owner, a deadline, evidence to examine, and consequences that warrant outside judgment.</p>
+            <p>An undeveloped idea with no material commitment at stake is too early. I do not provide general coaching, innovation workshops, implementation help, or confirmation of a preferred answer.</p>
+            <p>The work becomes relevant when there is a defined decision, a responsible owner, a deadline, evidence to examine, and consequences that warrant an outside view.</p>
           </div>
         </div>
       </section>
@@ -91,12 +91,12 @@ export default function SituationsPage() {
         <div className="shell brief-panel">
           <div>
             <p className="section-kicker">The initial brief</p>
-            <h2 id="brief-title">Write down the choice.</h2>
+            <h2 id="brief-title">I need the choice in one sentence.</h2>
           </div>
           <blockquote>
             Should the company fund the proposed move of its customer-support AI pilot into production across three markets?
           </blockquote>
-          <p>A request to “review our AI strategy” is too broad. The form asks for the decision, initiative, deadline, commitment, owner, evidence, sponsor, and reporting context.</p>
+          <p>“Review our AI strategy” is too broad. I need the decision, initiative, deadline, commitment, owner, evidence, sponsor, and reporting context.</p>
           <Button href="/request-a-review" icon={<ArrowRight size={17} />}>
             Start the request
           </Button>
